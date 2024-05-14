@@ -1,1 +1,32 @@
-<p>entrepreneur-page works!</p>
+<mat-toolbar class="mat-elevation-z3">
+  <button mat-icon-button (click)="toggleSideNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<!--[opened]="sideNavOpen"-->
+<mat-sidenav-container>
+  <mat-sidenav  opened mode="side" [style.width]="'250px'">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'products'"  class="sidenav-container-text">
+        <mat-icon >store</mat-icon>
+        <span>
+          Products
+        </span>
+      </a>
+      <a mat-list-item [routerLink]="'sales'" class="sidenav-container-text">
+        <mat-icon>shop</mat-icon>
+        <span>
+          Sales
+        </span>
+      </a>
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
