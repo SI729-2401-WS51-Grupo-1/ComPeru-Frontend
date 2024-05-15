@@ -1,0 +1,139 @@
+<h2 class="title">{{ editMode ? 'Edit Product' : 'New Product' }}</h2>
+<div class="form-section">
+ <form (submit)="onSubmit()" #studentForm='ngForm' class="form-row">
+   <mat-card class="card-general">
+     <mat-card-header>
+       <mat-card-title>General</mat-card-title>
+     </mat-card-header>
+     <mat-card-content>
+       <div class="card-subcontainer subcontainer-1">
+         <p class="subcontainer-title">Product Name</p>
+         <p>
+           <mat-form-field appearance="outline">
+             <mat-label>Product Name</mat-label>
+             <input matInput placeholder="Product Name">
+           </mat-form-field>
+         </p>
+         <p class="text-under">A product name is required and recommended to be unique. </p>
+       </div>
+
+      <div class="card-subcontainer subcontainer-2" >
+        <p class="subcontainer-title">Description</p>
+        <mat-form-field class="description-text-area" appearance="outline">
+          <mat-label>Type your text here...</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+        <p class="text-under">Set a description to the product for better visibility.</p>
+      </div>
+
+     </mat-card-content>
+
+   </mat-card>
+
+   <mat-card class="card-general card-price">
+     <mat-card-header>
+       <mat-card-title>Price</mat-card-title>
+     </mat-card-header>
+     <mat-card-content>
+       <div class="card-subcontainer subcontainer-1">
+         <p class="subcontainer-title">Product Price</p>
+         <p>
+           <mat-form-field appearance="outline">
+             <mat-label>Product Price</mat-label>
+             <input matInput placeholder="Product Price">
+           </mat-form-field>
+         </p>
+       </div>
+     </mat-card-content>
+
+   </mat-card>
+
+   <mat-card class="card-general card-status">
+     <mat-card-header>
+       <mat-card-title>Status</mat-card-title>
+     </mat-card-header>
+     <mat-card-content>
+       <div class="card-subcontainer subcontainer-1">
+         <p class="subcontainer-title">Status</p>
+         <p>
+           <mat-form-field appearance="outline">
+             <mat-label>Select</mat-label>
+             <mat-select>
+               <mat-option value="published">Published</mat-option>
+               <mat-option value="inactive">Inactive</mat-option>
+             </mat-select>
+           </mat-form-field>
+         </p>
+       </div>
+     </mat-card-content>
+   </mat-card>
+
+
+
+   <mat-card class="card-general card-details">
+     <mat-card-header>
+       <mat-card-title>Details</mat-card-title>
+     </mat-card-header>
+     <mat-card-content>
+       <div class="card-subcontainer subcontainer-1">
+         <p class="subcontainer-title">Category</p>
+         <p>
+           <mat-form-field appearance="outline">
+             <mat-label>Select</mat-label>
+             <mat-select>
+               <mat-option value="Computer">Computer</mat-option>
+               <mat-option value="Cellphone">Cellphone</mat-option>
+               <mat-option value="Computer">Headphones</mat-option>
+               <mat-option value="Cellphone">Electronics</mat-option>
+               <mat-option value="Cellphone">Fashion</mat-option>
+
+             </mat-select>
+           </mat-form-field>
+         </p>
+         <p class="text-under">Choose the category is very important for show the products. </p>
+       </div>
+
+       <div class="card-subcontainer subcontainer-1">
+         <p class="subcontainer-title">Brand</p>
+         <p>
+           <mat-form-field appearance="outline">
+             <mat-label>Product Brand</mat-label>
+             <input matInput placeholder="Write the Brand">
+           </mat-form-field>
+         </p>
+         <p class="text-under">Select the brand for a more optimal publication </p>
+       </div>
+       <div class="card-subcontainer subcontainer-1">
+         <p class="subcontainer-title">Model Number</p>
+         <p>
+           <mat-form-field appearance="outline">
+             <mat-label>Model Number</mat-label>
+             <input matInput placeholder="Model Number">
+           </mat-form-field>
+         </p>
+       </div>
+       <div class="card-subcontainer subcontainer-1">
+         <p class="subcontainer-title">Manufacture Number (MPN)</p>
+         <p>
+           <mat-form-field appearance="outline">
+             <mat-label>Manufacture Number</mat-label>
+             <input matInput placeholder="MPN">
+           </mat-form-field>
+         </p>
+       </div>
+     </mat-card-content>
+
+   </mat-card>
+
+
+
+
+
+   <br>
+
+
+ </form>
+
+
+
+</div>

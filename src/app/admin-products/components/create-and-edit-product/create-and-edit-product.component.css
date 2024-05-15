@@ -1,0 +1,57 @@
+.card-general{
+  height: 450px;
+  min-width: 450px;
+  max-width: 550px;
+  padding:20px;
+  border-radius: 10px;
+}
+.title{
+  font-size: 25px;
+}
+.description-text-area{
+  min-width: 300px;
+  width: 90%;
+}
+mat-card-title{
+  font-size: 25px;
+}
+mat-card-header{
+  margin-bottom: 15px;
+}
+
+.card-subcontainer{
+  margin: 10px 0;
+}
+.subcontainer-1 mat-form-field{
+  padding-bottom: 0;
+  height: 70px;
+
+}
+.subcontainer-1 p{
+}
+
+.text-under{
+  color: #CACEDE;
+  font-weight: 400;
+}
+
+.subcontainer-title{
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.subcontainer-2{
+  margin-top: 30px;
+}
+
+.card-price{
+  height: 200px;
+}
+
+.card-status{
+  height: 200px;
+}
+
+.card-details{
+  height: 650px;
+}
