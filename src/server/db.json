@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Samsung Galaxy S20",
       "description": "Powerful smartphone with advanced camera features",
       "category": "Electronics",
@@ -14,7 +14,7 @@
       "rating": 4.5
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Apple MacBook Pro",
       "description": "High-performance laptop for professional use",
       "category": "Electronics",
@@ -27,7 +27,7 @@
       "rating": 4.8
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Sony PlayStation 5",
       "description": "Next-generation gaming console with cutting-edge features",
       "category": "Electronics",
@@ -40,20 +40,20 @@
       "rating": 4.9
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Nike Air Max 270",
       "description": "Stylish and comfortable athletic shoes for running",
       "category": "Fashion",
       "brand": "Nike",
       "modelNumber": "AH8050-002",
       "manufacturer": "Nike, Inc.",
-      "price": 150.00,
+      "price": 150,
       "imageUrl": "https://example.com/nike-air-max-270.jpg",
       "availability": true,
       "rating": 4.7
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Amazon Echo Dot (4th Gen)",
       "description": "Smart speaker with Alexa, perfect for any room",
       "category": "Electronics",
@@ -64,6 +64,12 @@
       "imageUrl": "https://example.com/amazon-echo-dot.jpg",
       "availability": true,
       "rating": 4.6
+    },
+    {
+      "id": "9e45"
+    },
+    {
+      "id": "a973"
     }
   ]
 }

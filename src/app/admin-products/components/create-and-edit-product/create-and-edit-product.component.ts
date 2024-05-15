@@ -18,6 +18,7 @@ import {MatSelectModule} from "@angular/material/select";
 export class CreateAndEditProductComponent {
 @Input() product: Product;
 @Input() editMode=false;
+@Input() visible = false;
 @Output() productAdded = new EventEmitter<Product>();
 @Output() productUpdated = new EventEmitter<Product>();
 @Output() editCanceled = new EventEmitter();
@@ -30,12 +31,16 @@ constructor() {
   private resetEditState() {
     this.product = {} as Product;
     this.editMode = false;
+    this.visible=false;
     this.productForm.resetForm();
   }
   onSubmit() {
+  console.log("antes de enviar el form");
     if (this.productForm.form.valid) {
+      console.log("soy el formulario y me envie")
       let emitter = this.editMode ? this.productUpdated : this.productAdded;
       emitter.emit(this.product);
+      console.log("Este es el product",this.product)
       this.resetEditState();
     }
   }

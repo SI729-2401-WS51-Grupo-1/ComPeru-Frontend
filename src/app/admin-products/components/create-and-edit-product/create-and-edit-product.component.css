@@ -1,3 +1,36 @@
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  background-color: blueviolet;
+  align-items: center;
+}
+.header-container-buttons{
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
+
+}
+.header-button{
+border: none;
+  background-color: #1B84FF;
+  color: white;
+}
+.header-button-update{
+  background-color: #1CAEC1;
+  color: white;
+}
+.header-button-cancel{
+  background-color: #B9B9B9;
+  color: white;
+}
+.form-section{
+  background-color: cornflowerblue;
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna por defecto en dispositivos móviles */
+  gap: 20px;
+  grid-auto-flow: row;
+}
+
 .card-general{
   height: 450px;
   min-width: 450px;

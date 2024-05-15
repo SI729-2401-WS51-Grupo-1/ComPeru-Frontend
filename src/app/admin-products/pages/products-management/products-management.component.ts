@@ -29,29 +29,38 @@ import {
 export class ProductsManagementComponent implements OnInit, AfterViewInit  {
 productData: Product;
 dataSource!:MatTableDataSource<any>;
-displayedColumns: string[] = ['id','name','category','price','rating' ]
+displayedColumns: string[] = ['id','name','category','price','rating','actions' ]
   isEditMode: boolean;
+isVisibleCard:boolean;
 
 
   @ViewChild(MatPaginator, { static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false}) sort!: MatSort;
 constructor(private productService:ProductsService) {
   this.productData={} as Product;
-  this.dataSource=new MatTableDataSource<any>();
+  this.dataSource = new MatTableDataSource<any>();
   this.isEditMode=false;
+  this.isVisibleCard=false;
 }
   private resetEditState(): void {
     this.isEditMode = false;
+    this.isVisibleCard=false;
     this.productData = {} as Product;
   }
 //CRUD ACTIOS
   private getAllProducts(){
   this.productService.getAll().subscribe((response:any)=>{
-    this.dataSource=response;
+    this.dataSource.data=response;
   })
   };
 
   private createProduct(){
+
+
+    // // Asignar un valor de rating por defecto (por ejemplo, 0)
+
+console.log(this.productData);
+console.log(this.dataSource);
     this.productService.create(this.productData).subscribe((response:any)=>{
       this.dataSource.data.push({...response});
       this.dataSource.data = this.dataSource.data.map((product: Product)=>{return product;});
@@ -86,6 +95,11 @@ constructor(private productService:ProductsService) {
   }
 
   //UI Events
+
+  addProduct(){
+    this.isVisibleCard=true;
+    this.isEditMode=false;
+  }
   onDeleteItem(element: Product) {
     this.deleteProduct(element.id);
   }
@@ -95,13 +109,14 @@ constructor(private productService:ProductsService) {
     this.getAllProducts();
   }
 
-  onStudentAdded(element: Product) {
+  onProductAdded(element: Product) {
     this.productData = element;
+    console.log("Soy el producto recibido",typeof  this.productData, this.productData);
     this.createProduct();
     this.resetEditState();
   }
 
-  onStudentUpdated(element: Product) {
+  onProductUpdated(element: Product) {
     this.productData = element;
     this.updateProduct();
     this.resetEditState();

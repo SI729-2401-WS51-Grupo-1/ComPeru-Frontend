@@ -5,7 +5,7 @@
 </mat-toolbar>
 <!--[opened]="sideNavOpen"-->
 <mat-sidenav-container>
-  <mat-sidenav  opened mode="side" [style.width]="'250px'">
+  <mat-sidenav  [opened]="sideNavOpen" mode="side" [style.width]="'250px'">
     <mat-nav-list>
       <a mat-list-item [routerLink]="'products'"  class="sidenav-container-text">
         <mat-icon >store</mat-icon>
