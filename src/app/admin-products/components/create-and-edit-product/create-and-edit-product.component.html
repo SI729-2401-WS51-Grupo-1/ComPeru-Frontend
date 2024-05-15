@@ -19,134 +19,144 @@
 
 
        }
+     </div>
+
+     <div class="cards-container">
+
+       <div class="cards-container__left">
+
+         <mat-card class="card-general card-price">
+           <mat-card-header>
+             <mat-card-title>Price</mat-card-title>
+           </mat-card-header>
+           <mat-card-content>
+             <div class="card-subcontainer subcontainer-1">
+               <p class="subcontainer-title">Product Price</p>
+               <p>
+                 <mat-form-field appearance="outline">
+                   <mat-label>Product Price</mat-label>
+                   <input matInput placeholder="Product Price" required [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}">
+                 </mat-form-field>
+               </p>
+             </div>
+           </mat-card-content>
+
+         </mat-card>
+
+         <mat-card class="card-general card-status">
+           <mat-card-header>
+             <mat-card-title>Status</mat-card-title>
+           </mat-card-header>
+           <mat-card-content>
+             <div class="card-subcontainer subcontainer-1">
+               <p class="subcontainer-title">Status</p>
+               <p>
+                 <mat-form-field appearance="outline">
+                   <mat-label>Select</mat-label>
+                   <mat-select [(ngModel)]="product.availability" [ngModelOptions]="{standalone: true}">
+                     <mat-option value="true">Published</mat-option>
+                     <mat-option value="false">Inactive</mat-option>
+                   </mat-select>
+                 </mat-form-field>
+               </p>
+             </div>
+           </mat-card-content>
+         </mat-card>
+       </div>
+
+       <mat-card class="card-general general">
+         <mat-card-header>
+           <mat-card-title>General</mat-card-title>
+         </mat-card-header>
+         <mat-card-content>
+           <div class="card-subcontainer subcontainer-1">
+             <p class="subcontainer-title">Product Name</p>
+             <p>
+               <mat-form-field appearance="outline">
+                 <mat-label>Product Name</mat-label>
+                 <input matInput placeholder="Product Name" required [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}">
+               </mat-form-field>
+             </p>
+             <p class="text-under">A product name is required and recommended to be unique. </p>
+           </div>
+
+           <div class="card-subcontainer subcontainer-2" >
+             <p class="subcontainer-title">Description</p>
+             <mat-form-field class="description-text-area" appearance="outline">
+               <mat-label>Type your text here...</mat-label>
+               <textarea matInput [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}"></textarea>
+             </mat-form-field>
+             <p class="text-under">Set a description to the product for better visibility.</p>
+           </div>
+
+         </mat-card-content>
+
+       </mat-card>
+
+
+
+
+
+       <mat-card class="card-general card-details">
+         <mat-card-header>
+           <mat-card-title>Details</mat-card-title>
+         </mat-card-header>
+         <mat-card-content>
+           <div class="card-subcontainer subcontainer-1">
+             <p class="subcontainer-title">Category</p>
+             <p>
+               <mat-form-field appearance="outline">
+                 <mat-label>Select</mat-label>
+                 <mat-select [(ngModel)]="product.category" [ngModelOptions]="{standalone: true}">
+                   <mat-option value="Computer">Computer</mat-option>
+                   <mat-option value="Cellphone">Cellphone</mat-option>
+                   <mat-option value="Computer">Headphones</mat-option>
+                   <mat-option value="Cellphone">Electronics</mat-option>
+                   <mat-option value="Cellphone">Fashion</mat-option>
+
+                 </mat-select>
+               </mat-form-field>
+             </p>
+             <p class="text-under">Choose the category is very important for show the products. </p>
+           </div>
+
+           <div class="card-subcontainer subcontainer-1">
+             <p class="subcontainer-title">Brand</p>
+             <p>
+               <mat-form-field appearance="outline">
+                 <mat-label>Product Brand</mat-label>
+                 <input matInput placeholder="Write the Brand" required [(ngModel)]="product.brand" [ngModelOptions]="{standalone: true}">
+               </mat-form-field>
+             </p>
+             <p class="text-under">Select the brand for a more optimal publication </p>
+           </div>
+           <div class="card-subcontainer subcontainer-3">
+             <p class="subcontainer-title">Model Number</p>
+             <p>
+               <mat-form-field appearance="outline">
+                 <mat-label>Model Number</mat-label>
+                 <input matInput placeholder="Model Number" required [(ngModel)]="product.modelNumber" [ngModelOptions]="{standalone: true}">
+               </mat-form-field>
+             </p>
+           </div>
+           <div class="card-subcontainer subcontainer-4">
+             <p class="subcontainer-title">Manufacture Number (MPN)</p>
+             <p>
+               <mat-form-field appearance="outline">
+                 <mat-label>Manufacture Number</mat-label>
+                 <input matInput placeholder="MPN" required [(ngModel)]="product.manufacturer"[ngModelOptions]="{standalone: true}">
+               </mat-form-field>
+             </p>
+           </div>
+         </mat-card-content>
+
+       </mat-card>
+
 
      </div>
 
 
 
-     <mat-card class="card-general">
-       <mat-card-header>
-         <mat-card-title>General</mat-card-title>
-       </mat-card-header>
-       <mat-card-content>
-         <div class="card-subcontainer subcontainer-1">
-           <p class="subcontainer-title">Product Name</p>
-           <p>
-             <mat-form-field appearance="outline">
-               <mat-label>Product Name</mat-label>
-               <input matInput placeholder="Product Name" required [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}">
-             </mat-form-field>
-           </p>
-           <p class="text-under">A product name is required and recommended to be unique. </p>
-         </div>
-
-         <div class="card-subcontainer subcontainer-2" >
-           <p class="subcontainer-title">Description</p>
-           <mat-form-field class="description-text-area" appearance="outline">
-             <mat-label>Type your text here...</mat-label>
-             <textarea matInput [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}"></textarea>
-           </mat-form-field>
-           <p class="text-under">Set a description to the product for better visibility.</p>
-         </div>
-
-       </mat-card-content>
-
-     </mat-card>
-
-     <mat-card class="card-general card-price">
-       <mat-card-header>
-         <mat-card-title>Price</mat-card-title>
-       </mat-card-header>
-       <mat-card-content>
-         <div class="card-subcontainer subcontainer-1">
-           <p class="subcontainer-title">Product Price</p>
-           <p>
-             <mat-form-field appearance="outline">
-               <mat-label>Product Price</mat-label>
-               <input matInput placeholder="Product Price" required [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}">
-             </mat-form-field>
-           </p>
-         </div>
-       </mat-card-content>
-
-     </mat-card>
-
-     <mat-card class="card-general card-status">
-       <mat-card-header>
-         <mat-card-title>Status</mat-card-title>
-       </mat-card-header>
-       <mat-card-content>
-         <div class="card-subcontainer subcontainer-1">
-           <p class="subcontainer-title">Status</p>
-           <p>
-             <mat-form-field appearance="outline">
-               <mat-label>Select</mat-label>
-               <mat-select [(ngModel)]="product.availability" [ngModelOptions]="{standalone: true}">
-                 <mat-option value="true">Published</mat-option>
-                 <mat-option value="false">Inactive</mat-option>
-               </mat-select>
-             </mat-form-field>
-           </p>
-         </div>
-       </mat-card-content>
-     </mat-card>
-
-
-
-     <mat-card class="card-general card-details">
-       <mat-card-header>
-         <mat-card-title>Details</mat-card-title>
-       </mat-card-header>
-       <mat-card-content>
-         <div class="card-subcontainer subcontainer-1">
-           <p class="subcontainer-title">Category</p>
-           <p>
-             <mat-form-field appearance="outline">
-               <mat-label>Select</mat-label>
-               <mat-select [(ngModel)]="product.category" [ngModelOptions]="{standalone: true}">
-                 <mat-option value="Computer">Computer</mat-option>
-                 <mat-option value="Cellphone">Cellphone</mat-option>
-                 <mat-option value="Computer">Headphones</mat-option>
-                 <mat-option value="Cellphone">Electronics</mat-option>
-                 <mat-option value="Cellphone">Fashion</mat-option>
-
-               </mat-select>
-             </mat-form-field>
-           </p>
-           <p class="text-under">Choose the category is very important for show the products. </p>
-         </div>
-
-         <div class="card-subcontainer subcontainer-1">
-           <p class="subcontainer-title">Brand</p>
-           <p>
-             <mat-form-field appearance="outline">
-               <mat-label>Product Brand</mat-label>
-               <input matInput placeholder="Write the Brand" required [(ngModel)]="product.brand" [ngModelOptions]="{standalone: true}">
-             </mat-form-field>
-           </p>
-           <p class="text-under">Select the brand for a more optimal publication </p>
-         </div>
-         <div class="card-subcontainer subcontainer-1">
-           <p class="subcontainer-title">Model Number</p>
-           <p>
-             <mat-form-field appearance="outline">
-               <mat-label>Model Number</mat-label>
-               <input matInput placeholder="Model Number" required [(ngModel)]="product.modelNumber" [ngModelOptions]="{standalone: true}">
-             </mat-form-field>
-           </p>
-         </div>
-         <div class="card-subcontainer subcontainer-1">
-           <p class="subcontainer-title">Manufacture Number (MPN)</p>
-           <p>
-             <mat-form-field appearance="outline">
-               <mat-label>Manufacture Number</mat-label>
-               <input matInput placeholder="MPN" required [(ngModel)]="product.manufacturer"[ngModelOptions]="{standalone: true}">
-             </mat-form-field>
-           </p>
-         </div>
-       </mat-card-content>
-
-     </mat-card>
 
    </div>
 

@@ -1,7 +1,7 @@
 .header-container{
   display: flex;
   justify-content: space-between;
-  background-color: blueviolet;
+  /*background-color: blueviolet;*/
   align-items: center;
 }
 .header-container-buttons{
@@ -23,21 +23,26 @@ border: none;
   background-color: #B9B9B9;
   color: white;
 }
-.form-section{
-  background-color: cornflowerblue;
+
+
+.cards-container{
+  /*background-color: cornflowerblue;*/
   display: grid;
   grid-template-columns: 1fr; /* Una columna por defecto en dispositivos móviles */
-  gap: 20px;
-  grid-auto-flow: row;
-}
+  place-items: center;
+  grid-gap: 20px;
+  height: 100%;
+  width: 100%;
 
+}
 .card-general{
-  height: 450px;
-  min-width: 450px;
-  max-width: 550px;
+  height: 550px;
+  width: 380px;
+  min-width: 382px;
   padding:20px;
   border-radius: 10px;
 }
+
 .title{
   font-size: 25px;
 }
@@ -76,15 +81,90 @@ mat-card-header{
 .subcontainer-2{
   margin-top: 30px;
 }
-
+.cards-container__left{
+  height: 520px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
 .card-price{
-  height: 200px;
+  height: 250px;
 }
 
 .card-status{
-  height: 200px;
+  height: 250px;
 }
 
 .card-details{
   height: 650px;
+}
+@media (min-width: 1400px) {
+  /*.cards-container{*/
+  /*  height: 900px;*/
+  /*  display: grid;*/
+  /*  grid-template-columns: 1fr 2fr;*/
+  /*  grid-template-rows: repeat(4,1fr) ;*/
+
+  /*}*/
+  /*.card-general{*/
+  /*  width: 700px;*/
+  /*  grid-area: 1/2/3/3;*/
+  /*}*/
+  /*.card-status{*/
+  /*  width: 250px;*/
+  /*  grid-area: 1 / 1 /2 /2 ;*/
+  /*}*/
+  /*.card-price{*/
+  /*  width: 250px;*/
+  /*  grid-area: 2/1/3/2 ;*/
+  /*}*/
+  /*.card-details{*/
+  /*  grid-area: 3/1/4/3 ;*/
+  /*}*/
+  .sec-form{
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  .card-general {
+    grid-area: 1/1/2/2;
+    height: 550px;
+    width: 100%;
+  }
+  .cards-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr;
+  }
+  .card-details{
+    grid-area: 1/3/2/4;
+    height: 550px;
+    width: 100%;
+  }
+  .cards-container__left{
+    height: 550px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .card-status{
+    height: 270px;
+  }
+  .card-price{
+    height: 270px;
+  }
+
+  .card-details mat-card-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: row;
+    grid-gap: 10px;
+  }
+
+  .card-details mat-card-content .subcontainer-2{
+    margin-top: 10px;
+  }
+
+  .card-details mat-card-content .subcontainer-2{
+    padding-bottom: 0;
+    height: 70px;
+  }
 }
