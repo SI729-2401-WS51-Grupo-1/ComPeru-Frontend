@@ -23,6 +23,7 @@ export class CreateAndEditProductComponent {
 @Output() productUpdated = new EventEmitter<Product>();
 @Output() editCanceled = new EventEmitter();
 @ViewChild('productForm', {static: false}) productForm!: NgForm;
+imageSrc: string | ArrayBuffer | null = null;
 
 constructor() {
   this.product = {} as Product;
@@ -48,4 +49,26 @@ constructor() {
     this.editCanceled.emit();
     this.resetEditState();
   }
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageSrc = reader.result;
+        // Assign the image URL to the product
+        this.product.imageUrl = this.imageSrc as string;
+      };
+      reader.readAsDataURL(file);
+    }
+    console.log("Soy la url",this.product.imageUrl)
+  }
+  onClickAddFiles(id:string ) {
+    const fileInput = document.getElementById(id);
+    if (fileInput) {
+      fileInput.click();
+    }
+  }
+
+  // protected readonly document = document;
 }

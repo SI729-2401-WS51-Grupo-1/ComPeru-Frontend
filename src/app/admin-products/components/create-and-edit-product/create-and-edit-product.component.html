@@ -153,6 +153,43 @@
        </mat-card>
 
 
+       <mat-card class="card-general card-files">
+         <mat-card-header>
+           <mat-card-title>Uplaod Files</mat-card-title>
+         </mat-card-header>
+         <mat-card-content>
+           <div class="card-subcontainer subcontainer-5">
+             <p class="subcontainer-title">Add Image</p>
+            @if (!product.imageUrl){
+             <div class="files-container_case-1" >
+               <input type="file" name="product_image" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
+               <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput')">Add files</button>
+               <p>Accept only images</p>
+             </div>
+            }
+             @else if (product.imageUrl){
+
+               <div class="files-container_case-2">
+                 <div class="image-preview">
+                   <img [src]="product.imageUrl" alt="Preview">
+                 </div>
+                 <div class="case-2_container-add">
+                   <input type="file" name="product_image" id="fileInput2" (change)="onFileSelected($event)" style="display: none;">
+                   <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput2')">Add files</button>
+                   <p>Accept only images</p>
+                 </div>
+
+               </div>
+
+             }
+
+           </div>
+
+         </mat-card-content>
+
+       </mat-card>
+
+
      </div>
 
 

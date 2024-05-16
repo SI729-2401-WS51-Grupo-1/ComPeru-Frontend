@@ -55,12 +55,9 @@ constructor(private productService:ProductsService) {
   };
 
   private createProduct(){
-
-
     // // Asignar un valor de rating por defecto (por ejemplo, 0)
-
-console.log(this.productData);
-console.log(this.dataSource);
+  console.log(this.productData);
+  console.log(this.dataSource);
     this.productService.create(this.productData).subscribe((response:any)=>{
       this.dataSource.data.push({...response});
       this.dataSource.data = this.dataSource.data.map((product: Product)=>{return product;});
