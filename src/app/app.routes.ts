@@ -3,6 +3,7 @@ import {UserPageComponent} from "./public/pages/user-page/user-page.component";
 import {EntrepreneurPageComponent} from "./public/pages/entrepreneur-page/entrepreneur-page.component";
 import {ProductsManagementComponent} from "./admin-products/pages/products-management/products-management.component";
 import {SalesManagementComponent} from "./admin-sales/pages/sales-management/sales-management.component";
+import {HomeComponent} from "./home/components/home/home.component";
 
 export const routes: Routes = [
   {path: 'users',component: UserPageComponent},
@@ -13,4 +14,5 @@ export const routes: Routes = [
   ]
   },
   { path: '', redirectTo: 'users', pathMatch: 'full' },
+  {path: 'home', component: HomeComponent },
 ];
