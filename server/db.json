@@ -1,4 +1,27 @@
 {
+  "offers": [
+    {
+      "id": 1,
+      "name": "Mesa Decorativa",
+      "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.galeriasplacencia.com%2Fproducts%2Fmesa-decorativa-contemporanea-de-hierro-dorado-alta&psig=AOvVaw09qX0NjLgEsgshOrwHzHo3&ust=1715902345530000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKix38TokIYDFQAAAAAdAAAAABAE",
+      "price": 25.50,
+      "offer": 20.50
+    },
+    {
+      "id": 2,
+      "name": "Set de Platos",
+      "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fsodimac.falabella.com.pe%2Fsodimac-pe%2Fproduct%2F113533499%2FJuego-de-Vajilla-16-Piezas-Borde-Azul%2F113533501&psig=AOvVaw0QgbUSjLSJFisbbzzBXKza&ust=1715902146679000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIi4ouXnkIYDFQAAAAAdAAAAABAE",
+      "price": 50.00,
+      "offer": 40.00
+    },
+    {
+      "id": 3,
+      "name": "Zapatillas Nike",
+      "photo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.oechsle.pe%2Fzapatillas-deportivas-para-hombre-nike-revolution-6-nn-dc3728-003-1000722893%2Fp&psig=AOvVaw2fLeYz85mH8W-O1SnP5GnP&ust=1715902414915000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPjMzvLokIYDFQAAAAAdAAAAABAE",
+      "price": 18.00,
+      "offer": 15.50
+    }
+  ],
   "products": [
     {
       "id": "1",
