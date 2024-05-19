@@ -35,7 +35,7 @@
                <p>
                  <mat-form-field appearance="outline">
                    <mat-label>Product Price</mat-label>
-                   <input matInput placeholder="Product Price" required [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}">
+                   <input matInput placeholder="Product Price"  type="number" required [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}">
                  </mat-form-field>
                </p>
              </div>
@@ -54,8 +54,8 @@
                  <mat-form-field appearance="outline">
                    <mat-label>Select</mat-label>
                    <mat-select [(ngModel)]="product.availability" [ngModelOptions]="{standalone: true}">
-                     <mat-option value="true">Published</mat-option>
-                     <mat-option value="false">Inactive</mat-option>
+                     <mat-option [value]="true">Published</mat-option>
+                     <mat-option [value]="false">Inactive</mat-option>
                    </mat-select>
                  </mat-form-field>
                </p>
@@ -160,18 +160,18 @@
          <mat-card-content>
            <div class="card-subcontainer subcontainer-5">
              <p class="subcontainer-title">Add Image</p>
-            @if (!product.imageUrl){
+            @if (!imageSrc){
              <div class="files-container_case-1" >
                <input type="file" name="product_image" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
                <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput')">Add files</button>
                <p>Accept only images</p>
              </div>
             }
-             @else if (product.imageUrl){
+             @else if (imageSrc){
 
                <div class="files-container_case-2">
                  <div class="image-preview">
-                   <img [src]="product.imageUrl" alt="Preview">
+                   <img [src]="imageSrc" alt="Preview">
                  </div>
                  <div class="case-2_container-add">
                    <input type="file" name="product_image" id="fileInput2" (change)="onFileSelected($event)" style="display: none;">
