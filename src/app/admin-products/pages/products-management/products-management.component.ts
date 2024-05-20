@@ -14,6 +14,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {
   CreateAndEditProductComponent
 } from "../../components/create-and-edit-product/create-and-edit-product.component";
+import {MatOption} from "@angular/material/autocomplete";
+import {MatSelect} from "@angular/material/select";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-products-management',
@@ -21,7 +24,7 @@ import {
   imports: [
     MatButton, MatInputModule,
     MatCardModule, MatPaginatorModule, MatSortModule, MatFormFieldModule,
-    MatIconModule, MatTableModule, NgClass, CurrencyPipe, CreateAndEditProductComponent
+    MatIconModule, MatTableModule, NgClass, CurrencyPipe, CreateAndEditProductComponent, MatOption, MatSelect, RouterLink
   ],
   templateUrl: './products-management.component.html',
   styleUrl: './products-management.component.css'

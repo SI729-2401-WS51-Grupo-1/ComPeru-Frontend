@@ -44,6 +44,11 @@ padding: 0;
 
 }
 
+.select-table{
+  height: 20px;
+  width: 40px;
+}
+
 .management-container{
   background-color: white;
   border-radius: 10px;

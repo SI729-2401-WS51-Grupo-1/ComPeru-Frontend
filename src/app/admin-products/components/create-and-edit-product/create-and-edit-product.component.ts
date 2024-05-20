@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Input, ViewChild} from '@angular/core';
 import {Product} from "../../../shared/model/product.entity";
 import {MatFormField, MatInputModule} from "@angular/material/input";
@@ -8,15 +8,16 @@ import {NgIf} from "@angular/common";
 import {MatCardModule} from "@angular/material/card";
 import {MatSelectModule} from "@angular/material/select";
 import {StorageService} from "../../services/storage.service";
+import {ReviewTableComponent} from "../review-table/review-table.component";
 
 @Component({
   selector: 'app-create-and-edit-product',
   standalone: true,
-  imports: [MatInputModule,MatSelectModule,MatCardModule,MatFormField,MatButtonModule,FormsModule,NgIf],
+  imports: [MatInputModule, MatSelectModule, MatCardModule, MatFormField, MatButtonModule, FormsModule, NgIf, ReviewTableComponent],
   templateUrl: './create-and-edit-product.component.html',
   styleUrl: './create-and-edit-product.component.css'
 })
-export class CreateAndEditProductComponent {
+export class CreateAndEditProductComponent implements OnInit {
 @Input() product: Product;
 @Input() editMode=false;
 @Input() visible = false;
@@ -25,9 +26,10 @@ export class CreateAndEditProductComponent {
 @Output() editCanceled = new EventEmitter();
 @ViewChild('productForm', {static: false}) productForm!: NgForm;
 imageSrc: string | ArrayBuffer | null = null;
-
+  viewReview:boolean;
 constructor(private storageService:StorageService) {
   this.product = new Product();
+  this.viewReview=false;
 }
 
   private resetEditState() {
@@ -78,6 +80,14 @@ constructor(private storageService:StorageService) {
       fileInput.click();
     }
   }
+
+  ngOnInit() {
+    // Cargar la imagen previa del producto si ya tiene una asignada
+    if (this.product.imageUrl) {
+      this.imageSrc = this.product.imageUrl;
+    }
+  }
+
 
   // protected readonly document = document;
 }
