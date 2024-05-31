@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Review} from "../../../shared/model/review.entity";
 import {ReviewsService} from "../../services/reviews.service";
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -22,9 +22,11 @@ import {UsersService} from "../../services/users.service";
 })
 export class ReviewTableComponent implements OnInit{
   @Input() productId!: number;
+  @Output() averageRatingEmitter: EventEmitter<number> = new EventEmitter<number>();
   review:Review;
   reviews:Review[];
   reviewDetails:any[];
+  averageRating: number = 0;
   dataSource!:MatTableDataSource<any>;
   displayedColumns: string[] = ['id','user','rating','content' ]
   @ViewChild(MatPaginator, { static: false}) paginator!: MatPaginator;
@@ -59,6 +61,13 @@ export class ReviewTableComponent implements OnInit{
         });
 
         console.log("datos", this.reviewDetails);
+        if (this.reviews.length > 0) {
+          const totalRating = this.reviews.reduce((acc, curr) => acc + curr.rating, 0);
+          this.averageRating = totalRating / this.reviews.length;
+
+          // Emitir el promedio de rating al componente padre
+          this.averageRatingEmitter.emit(this.averageRating);
+        }
 
         // Asigna los datos combinados a la tabla
         this.dataSource.data = this.reviewDetails;

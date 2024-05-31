@@ -1,0 +1,23 @@
+.card-container{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-card-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.category-radio-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.brands-checkbox-group{
+  display: flex;
+  flex-direction: column;
+}

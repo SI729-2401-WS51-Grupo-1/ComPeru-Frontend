@@ -1,1 +1,36 @@
-<p>user-page works!</p>
+<p>
+  <mat-toolbar class="custom-toolbar">
+    <div>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="toolbar-title">My App</span>
+    </div>
+
+    <input class="search-input" matInput placeholder="Ex. Pizza" value="Sushi">
+
+    <div>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <button mat-icon-button class="user-icon" aria-label="">
+        <mat-icon>user</mat-icon>
+      </button>
+    </div>
+
+  </mat-toolbar>
+</p>
+
+<section class="filter-section">
+  <button mat-flat-button color="primary" class="button-filter" (click)="openFilterPanel()">
+    <mat-icon>filter_alt</mat-icon>
+    Filter
+     </button>
+</section>
+
+@if(visibleFilterPanel){
+  <app-filter-product-user></app-filter-product-user>
+}

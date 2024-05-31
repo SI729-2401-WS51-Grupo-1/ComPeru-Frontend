@@ -187,9 +187,16 @@
                <mat-card-title>Rating</mat-card-title>
              </mat-card-header>
              <mat-card-content>
-               <div class="card-subcontainer subcontainer-1">
-                 <p>{{product.rating}}</p>
-               </div>
+               @if(product.rating){
+                 <div class="card-subcontainer subcontainer-1">
+                   <p>{{product.rating}}</p>
+                 </div>
+               }@else{
+                 <div class="card-subcontainer subcontainer-1">
+                   <p>The rating will be shown when users review your product.</p>
+                 </div>
+               }
+
              </mat-card-content>
 
            </mat-card>
@@ -239,6 +246,7 @@
        </div>
      } @else {
           <app-review-table [productId]="product.id"
+                            (averageRatingEmitter)="onAverageRatingChange($event)"
           />
      }
 

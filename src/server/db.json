@@ -9,9 +9,9 @@
       "modelNumber": "SM-G981U",
       "manufacturer": "Samsung Electronics",
       "price": 799.99,
-      "imageUrl": "https://example.com/samsung-galaxy-s20.jpg",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2FSamsung%20Galaxy%20S20_1?alt=media&token=bba68b5d-e4b5-48b7-b0ce-67211e2014ff",
       "availability": true,
-      "rating": 4.5,
+      "rating": 0,
       "stock": 50,
       "idEntrepreneur": 1
     },
@@ -63,87 +63,87 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "John",
       "lastName": "Doe"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Jane",
       "lastName": "Smith"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Alice",
       "lastName": "Johnson"
     }
   ],
   "reviews": [
     {
-      "id": 1,
+      "id": "1",
       "idUser": 1,
       "idProduct": 1,
       "rating": 5,
       "content": "Amazing phone with great features!"
     },
     {
-      "id": 2,
+      "id": "2",
       "idUser": 2,
       "idProduct": 1,
       "rating": 4,
       "content": "Good phone but battery life could be better."
     },
     {
-      "id": 3,
+      "id": "3",
       "idUser": 3,
       "idProduct": 3,
       "rating": 5,
       "content": "Best gaming console ever!"
     },
     {
-      "id": 4,
+      "id": "4",
       "idUser": 1,
       "idProduct": 3,
       "rating": 4,
       "content": "Great console, but a bit pricey."
     },
     {
-      "id": 5,
+      "id": "5",
       "idUser": 2,
       "idProduct": 4,
       "rating": 4,
       "content": "Comfortable shoes, love the design!"
     },
     {
-      "id": 6,
+      "id": "6",
       "idUser": 3,
       "idProduct": 4,
       "rating": 5,
       "content": "Perfect shoes for running."
     },
     {
-      "id": 7,
+      "id": "7",
       "idUser": 1,
       "idProduct": 5,
       "rating": 5,
       "content": "Excellent smart speaker!"
     },
     {
-      "id": 8,
+      "id": "8",
       "idUser": 2,
       "idProduct": 5,
       "rating": 4,
       "content": "Very useful, but sound quality could be improved."
     },
     {
-      "id": 9,
+      "id": "9",
       "idUser": 3,
       "idProduct": 5,
       "rating": 5,
       "content": "Best value for money smart speaker."
     },
     {
-      "id": 10,
+      "id": "10",
       "idUser": 1,
       "idProduct": 4,
       "rating": 4,

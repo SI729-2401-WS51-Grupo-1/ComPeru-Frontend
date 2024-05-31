@@ -81,6 +81,11 @@ constructor(private storageService:StorageService) {
     }
   }
 
+  onAverageRatingChange(averageRating: number) {
+    // Actualizar el rating del producto
+    this.product.rating = averageRating;
+  }
+
   ngOnInit() {
     // Cargar la imagen previa del producto si ya tiene una asignada
     if (this.product.imageUrl) {

@@ -2,8 +2,8 @@ import { Routes } from '@angular/router';
 import {UserPageComponent} from "./public/pages/user-page/user-page.component";
 import {EntrepreneurPageComponent} from "./public/pages/entrepreneur-page/entrepreneur-page.component";
 import {ProductsManagementComponent} from "./admin-products/pages/products-management/products-management.component";
-import {SalesManagementComponent} from "./admin-sales/pages/sales-management/sales-management.component";
 import {ProductDetailComponent} from "./admin-products/components/product-detail/product-detail.component";
+import {OrdersManagementComponent} from "./admin-orders/pages/orders-management/orders-management.component";
 
 export const routes: Routes = [
   {path: 'users',component: UserPageComponent},
@@ -11,7 +11,7 @@ export const routes: Routes = [
   children:[
     {path:'products',component:ProductsManagementComponent
     },
-    {path:'sales',component:SalesManagementComponent},
+    {path:'orders',component:OrdersManagementComponent},
     {path:'products/:productId', component:ProductDetailComponent}
   ]
   },
