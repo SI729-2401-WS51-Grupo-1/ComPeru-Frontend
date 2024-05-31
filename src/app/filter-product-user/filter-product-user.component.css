@@ -1,9 +1,11 @@
 .card-container{
-  height: 100vh;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: none;
+  box-shadow: none;
 }
 
 mat-card-header{
@@ -48,7 +50,7 @@ mat-slider {
   margin-right: 5px;
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1159px) {
   .card-container{
     width: 450px;
     height: auto;

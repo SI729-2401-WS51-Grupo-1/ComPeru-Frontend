@@ -7,7 +7,7 @@
       <span class="toolbar-title">My App</span>
     </div>
 
-    <input class="search-input" matInput placeholder="Ex. Pizza" value="Sushi">
+    <input class="search-input" matInput placeholder="Search" >
 
     <div>
       <button mat-icon-button class="example-icon favorite-icon" aria-label="">
@@ -16,8 +16,8 @@
       <button mat-icon-button class="example-icon">
         <mat-icon>shopping_cart</mat-icon>
       </button>
-      <button mat-icon-button class="user-icon" aria-label="">
-        <mat-icon>user</mat-icon>
+      <button mat-icon-button class="account-icon" aria-label="">
+        <mat-icon>account_circles</mat-icon>
       </button>
     </div>
 
@@ -32,13 +32,13 @@
   </section>
 
   @if(visibleFilterPanel){
-    <section>
+    <section class="filter-panel">
       <app-filter-product-user></app-filter-product-user>
     </section>
   }
 
   <section class="container-products">
-    <p>oroadasd</p>
+    <app-list-products-view></app-list-products-view>
   </section>
 </div>
 
