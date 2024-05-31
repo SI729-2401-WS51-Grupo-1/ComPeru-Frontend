@@ -5,12 +5,15 @@ import {MatCardModule} from "@angular/material/card";
 import {MatRadioButton, MatRadioGroup, MatRadioModule} from "@angular/material/radio";
 import {FormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatSliderModule} from "@angular/material/slider";
 
 @Component({
   selector: 'app-filter-product-user',
   standalone: true,
   imports: [MatExpansionModule, MatCardModule, MatButtonModule, MatRadioModule, FormsModule,
-    MatCheckboxModule],
+    MatCheckboxModule,MatFormFieldModule,MatInputModule,MatSliderModule],
   templateUrl: './filter-product-user.component.html',
   styleUrl: './filter-product-user.component.css'
 })

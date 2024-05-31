@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
@@ -20,7 +20,11 @@ export class UserPageComponent {
   visibleFilterPanel: boolean;
 
   constructor() {
-    this.visibleFilterPanel = false;
+    this.visibleFilterPanel = window.innerWidth >= 1000
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.visibleFilterPanel = window.innerWidth >= 1000;
   }
   openFilterPanel(){
     this.visibleFilterPanel = !this.visibleFilterPanel;

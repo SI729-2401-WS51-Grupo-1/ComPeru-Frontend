@@ -56,7 +56,24 @@ button.mat-icon-button {
   margin-top: 15px;
 }
 
+.container-products{
+  width: 100%;
+  margin-top: 20px;
+  padding: 30px;
+  background-color: #1B84FF;
+}
 
+@media only screen and (min-width: 1000px) {
+  .filter-section {
+    display: none;
+  }
+  .content-container{
+    display: flex;
+
+  }
+
+
+}
 /* Show toolbar-title only on tablet screens */
 @media (min-width: 600px) and (max-width: 960px) {
   .toolbar-title {

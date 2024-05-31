@@ -1,4 +1,4 @@
-<p>
+
   <mat-toolbar class="custom-toolbar">
     <div>
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
@@ -22,15 +22,23 @@
     </div>
 
   </mat-toolbar>
-</p>
 
-<section class="filter-section">
-  <button mat-flat-button color="primary" class="button-filter" (click)="openFilterPanel()">
-    <mat-icon>filter_alt</mat-icon>
-    Filter
-     </button>
-</section>
+<div class="content-container">
+  <section class="filter-section">
+    <button mat-flat-button color="primary" class="button-filter" (click)="openFilterPanel()">
+      <mat-icon>filter_alt</mat-icon>
+      Filter
+    </button>
+  </section>
 
-@if(visibleFilterPanel){
-  <app-filter-product-user></app-filter-product-user>
-}
+  @if(visibleFilterPanel){
+    <section>
+      <app-filter-product-user></app-filter-product-user>
+    </section>
+  }
+
+  <section class="container-products">
+    <p>oroadasd</p>
+  </section>
+</div>
+
