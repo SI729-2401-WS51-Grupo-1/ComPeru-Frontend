@@ -1,28 +1,4 @@
 
-  <mat-toolbar class="custom-toolbar">
-    <div>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="toolbar-title">My App</span>
-    </div>
-
-    <input class="search-input" matInput placeholder="Search" >
-
-    <div>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button class="example-icon">
-        <mat-icon>shopping_cart</mat-icon>
-      </button>
-      <button mat-icon-button class="account-icon" aria-label="">
-        <mat-icon>account_circles</mat-icon>
-      </button>
-    </div>
-
-  </mat-toolbar>
-
 <div class="content-container">
   <section class="filter-section">
     <button mat-flat-button color="primary" class="button-filter" (click)="openFilterPanel()">
@@ -40,5 +16,6 @@
   <section class="container-products">
     <app-list-products-view></app-list-products-view>
   </section>
+
 </div>
 

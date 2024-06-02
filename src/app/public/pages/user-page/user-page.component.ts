@@ -8,12 +8,13 @@ import {FilterProductUserComponent} from "../../../filter-product-user/filter-pr
 import {
   ListProductsViewComponent
 } from "../../../user-products/components/list-products-view/list-products-view.component";
+import {RouterLink, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-user-page',
   standalone: true,
   imports: [
-    MatToolbarModule, MatButtonModule, MatIconModule, MatFormField, MatInput, FilterProductUserComponent, ListProductsViewComponent
+    MatToolbarModule, MatButtonModule, MatIconModule, MatFormField, MatInput, FilterProductUserComponent, ListProductsViewComponent, RouterOutlet, RouterLink
   ],
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.css'
