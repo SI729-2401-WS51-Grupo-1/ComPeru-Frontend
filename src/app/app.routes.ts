@@ -11,22 +11,22 @@ import {UserProductDetailComponent} from "./user-products/components/user-produc
 
 export const routes: Routes = [
   {path: 'users',component: UserComponent,
-    children:[
-      // { path: '', redirectTo: 'users', pathMatch: 'full' },
-      {path: '', component: UserPageComponent },
-      {path: 'cart', component: ShoppingCartComponent},
-      {path: 'favorites', component: ListProductsComponent},
-      {path: 'product/:Id', component: UserProductDetailComponent }
-    ]},
+  children:[
+    // { path: '', redirectTo: 'users', pathMatch: 'full' },
+    {path: '', component: UserPageComponent },
+    {path: 'cart', component: ShoppingCartComponent},
+    {path: 'favorites', component: ListProductsComponent},
+    {path: 'product/:Id', component: UserProductDetailComponent }
+  ]},
 
   {path: 'entrepreneur', component: EntrepreneurPageComponent,
 
-    children:[
-      {path:'products',component:ProductsManagementComponent
-      },
-      {path:'orders',component:OrdersManagementComponent},
-      {path:'products/:productId', component:ProductDetailComponent}
-    ]
+  children:[
+    {path:'products',component:ProductsManagementComponent
+    },
+    {path:'orders',component:OrdersManagementComponent},
+    {path:'products/:productId', component:ProductDetailComponent}
+  ]
   },
   // { path: '', redirectTo: 'users', pathMatch: 'full' },
 ];

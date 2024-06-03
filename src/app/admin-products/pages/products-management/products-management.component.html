@@ -6,7 +6,7 @@
       <mat-card-subtitle class="subtitle">Start your store now</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
-      <button class="card-button" mat-flat-button> Aggregate </button>
+      <button class="card-button" mat-flat-button (click)="addProduct()"> Aggregate </button>
     </mat-card-actions>
   </mat-card>
 } @else if(dataSource && !isVisibleCard && !isEditMode){
@@ -59,8 +59,17 @@
       <ng-container matColumnDef="actions">
         <th *matHeaderCellDef mat-header-cell> Actions</th>
         <td *matCellDef="let element" mat-cell>
-          <a (click)="onEditItem(element)" href="javascript:void(0)"><mat-icon>edit</mat-icon></a>
-          <a (click)="onDeleteItem(element)" href="javascript:void(0)"><mat-icon>delete</mat-icon></a>
+
+          <mat-form-field appearance="outline">
+            <mat-label class="select-table" >Select</mat-label>
+            <mat-select>
+              <mat-option (click)="onEditItem(element)">View More</mat-option>
+              <mat-option (click)="onDeleteItem(element)">Delete</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+<!--          <a (click)="onEditItem(element)" href="javascript:void(0)"><mat-icon>edit</mat-icon></a>-->
+<!--          <a (click)="onDeleteItem(element)" href="javascript:void(0)"><mat-icon>delete</mat-icon></a>-->
         </td>
       </ng-container>
 
@@ -88,6 +97,7 @@
                                [visible]="isVisibleCard"
                                [product]="productData"/>
 }
+
 <br>
 
 

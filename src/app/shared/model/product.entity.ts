@@ -10,6 +10,8 @@ export class Product {
   imageUrl: string;
   availability: boolean;
   rating: number;
+  stock:0;
+  idEntrepreneur: number;
   // reviews: Review[];
 
   constructor() {
@@ -24,8 +26,13 @@ export class Product {
     this.imageUrl = "";
     this.availability = false;
     this.rating = 0;
+    this.stock=0;
+    this.idEntrepreneur=0;
     // this.reviews = [];
   }
+
+
+
 }
 
 // interface Review {
