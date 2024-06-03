@@ -29,23 +29,21 @@
     </section>
 
 
-    <section class="review-section">
-      <app-list-reviews />
 
-    </section>
-
-
-    <section class="principal-detail-section" id="second-container">
-      <div class="product-specifications-section" id="aux-container">
-      </div>
+    <section class="principal-detail-section second-container" >
+<!--      <div class="product-specifications-section" id="aux-container">-->
+<!--      </div>-->
       <div class="product-specifications-section" >
 
         <div><span style="font-weight: bold">Model Number:</span><p>{{productData.modelNumber}}</p></div>
         <div><span style="font-weight: bold">Seller: </span><p>{{userData.name}}</p></div>
         <div><span style="font-weight: bold">Description:</span><p>{{productData.description}}</p></div>
-
       </div>
+      <section class="review-section" >
+        <app-list-reviews  style="width: 100%"/>
       </section>
+    </section>
+
 
 
   </section>
