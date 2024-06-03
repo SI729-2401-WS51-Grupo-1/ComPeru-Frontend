@@ -283,6 +283,77 @@
       "idProduct": 4,
       "rating": 4,
       "content": "Good shoes, but a bit expensive."
+    },
+    {
+      "id": "11",
+      "idUser": 2,
+      "idProduct": 1,
+      "rating": 5,
+      "content": "The camera quality is outstanding!"
+    },
+    {
+      "id": "12",
+      "idUser": 1,
+      "idProduct": 1,
+      "rating": 4,
+      "content": "Great performance but could use more storage."
+    },
+    {
+      "id": "13",
+      "idUser": 2,
+      "idProduct": 1,
+      "rating": 5,
+      "content": "The best phone I have ever used."
+    },
+    {
+      "id": "14",
+      "idUser": 1,
+      "idProduct": 1,
+      "rating": 4,
+      "content": "Solid build quality and fast."
+    },
+    {
+      "id": "15",
+      "idUser": 3,
+      "idProduct": 1,
+      "rating": 5,
+      "content": "Amazing display and battery life."
+    },
+    {
+      "id": "16",
+      "idUser": 2,
+      "idProduct": 1,
+      "rating": 4,
+      "content": "Really good, but could be cheaper."
+    },
+    {
+      "id": "17",
+      "idUser": 1,
+      "idProduct": 1,
+      "rating": 5,
+      "content": "Superb user experience and fast updates."
+    },
+    {
+      "id": "18",
+      "idUser": 1,
+      "idProduct": 1,
+      "rating": 4,
+      "content": "Good phone, but the design is a bit dated."
+    },
+    {
+      "id": "19",
+      "idUser": 2,
+      "idProduct": 1,
+      "rating": 5,
+      "content": "Fantastic value for money."
+    },
+    {
+      "id": "20",
+      "idUser": 3,
+      "idProduct": 1,
+      "rating": 4,
+      "content": "Overall great, but lacks some features."
     }
   ]
+
 }
