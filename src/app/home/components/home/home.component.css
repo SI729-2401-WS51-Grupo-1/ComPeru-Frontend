@@ -1,0 +1,62 @@
+.sub_toolbar{
+  margin-top: 0.5%;
+  margin-left: 37.5%;
+  display: flex;
+  gap: 7.5%;
+  height: 2.063rem;
+  font-family: "Open Sans";
+  font-size: 1.5rem;
+  color: #003785;
+}
+.banner_zone{
+  margin-top: 5.25%;
+  margin-left: 10.5rem;
+  width: 88.813rem;
+  height: 35.688rem;
+  border-radius: 1.25rem;
+}
+.tit2{
+  margin-top: 6.25%;
+  margin-left: 4.025%;
+  font-family: "Open Sans";
+  font-size: 40px;
+  color: #003785;
+}
+.offers_zone{
+  margin-top: 1.55%;
+  margin-left: 4.5%;
+  display: flex;
+  gap: 3.25%;
+}
+mat-card{
+  align-items: center;
+  width: 29.375rem;
+  height: fit-content;
+  border-width: thin;
+  border-radius: 1.875rem;
+}
+mat-card-header{
+  img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0.938rem;
+  }
+}
+mat-card-content{
+  h3{
+    font-family: "Roboto Light";
+    color: #003785;
+    font-size: 1.875rem;
+  }
+  h4, h5{
+    font-family: "Roboto Light";
+    font-size: 1.25rem;
+  }
+}
+mat-card-footer{
+  margin-top: 0.938rem;
+  font-family: "Roboto Light";
+  font-size: 2rem;
+  color: #4466DF;
+  margin-bottom: 2.75%;
+}
