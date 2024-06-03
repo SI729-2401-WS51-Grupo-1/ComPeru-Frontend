@@ -4,7 +4,7 @@ import { FooterComponent } from "../../../public/components/footer/footer.compon
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { NgFor } from "@angular/common";
-import {Offer} from "../../model/offer.entity";
+import {Offer} from "../../../shared/model/offer.entity";
 import {OfferService} from "../../services/offer.service";
 
 @Component({

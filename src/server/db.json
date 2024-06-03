@@ -1,0 +1,288 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Samsung Galaxy S20",
+      "description": "Powerful smartphone with advanced camera features",
+      "category": "Electronics",
+      "brand": "Samsung",
+      "modelNumber": "SM-G981U",
+      "manufacturer": "Samsung Electronics",
+      "price": 799.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fsamsung.png?alt=media&token=0dd85db9-fa1f-4c16-8cd7-d024efab4eb1",
+      "availability": true,
+      "rating": 0,
+      "stock": 50,
+      "idEntrepreneur": 1
+    },
+    {
+      "id": "3",
+      "name": "Sony PlayStation 5",
+      "description": "Next-generation gaming console with cutting-edge features",
+      "category": "Electronics",
+      "brand": "Sony",
+      "modelNumber": "CUH-1000A",
+      "manufacturer": "Sony Corporation",
+      "price": 499.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fps5.png?alt=media&token=1758b63f-7d96-4c6d-a9bd-eb757903754e",
+      "availability": true,
+      "rating": 4.9,
+      "stock": 30,
+      "idEntrepreneur": 3
+    },
+    {
+      "id": "4",
+      "name": "Nike Air Max 270",
+      "description": "Stylish and comfortable athletic shoes for running",
+      "category": "Fashion",
+      "brand": "Nike",
+      "modelNumber": "AH8050-002",
+      "manufacturer": "Nike, Inc.",
+      "price": 150,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fnike.png?alt=media&token=d06111c7-d1a0-4477-994b-d64713b8f603",
+      "availability": true,
+      "rating": 4.7,
+      "stock": 40,
+      "idEntrepreneur": 4
+    },
+    {
+      "id": "5",
+      "name": "Amazon Echo Dot (4th Gen)",
+      "description": "Smart speaker with Alexa, perfect for any room",
+      "category": "Electronics",
+      "brand": "Amazon",
+      "modelNumber": "B084J4YYZX",
+      "manufacturer": "Amazon.com, Inc.",
+      "price": 49.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Famazon.png?alt=media&token=8d9e364a-f58b-4153-8221-6412e3cd2b37",
+      "availability": true,
+      "rating": 4.6,
+      "stock": 60,
+      "idEntrepreneur": 5
+    },
+    {
+      "id": "6",
+      "name": "Samsung Galaxy S20",
+      "description": "Powerful smartphone with advanced camera features",
+      "category": "Electronics",
+      "brand": "Samsung",
+      "modelNumber": "SM-G981U",
+      "manufacturer": "Samsung Electronics",
+      "price": 815.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fsamsung.png?alt=media&token=0dd85db9-fa1f-4c16-8cd7-d024efab4eb1",
+      "availability": true,
+      "rating": 0,
+      "stock": 45,
+      "idEntrepreneur": 6
+    },
+    {
+      "id": "7",
+      "name": "Sony PlayStation 5",
+      "description": "Next-generation gaming console with cutting-edge features",
+      "category": "Electronics",
+      "brand": "Sony",
+      "modelNumber": "CUH-1000A",
+      "manufacturer": "Sony Corporation",
+      "price": 515.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fps5.png?alt=media&token=1758b63f-7d96-4c6d-a9bd-eb757903754e",
+      "availability": true,
+      "rating": 4.9,
+      "stock": 28,
+      "idEntrepreneur": 7
+    },
+    {
+      "id": "8",
+      "name": "Nike Air Max 270",
+      "description": "Stylish and comfortable athletic shoes for running",
+      "category": "Fashion",
+      "brand": "Nike",
+      "modelNumber": "AH8050-002",
+      "manufacturer": "Nike, Inc.",
+      "price": 155,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fnike.png?alt=media&token=d06111c7-d1a0-4477-994b-d64713b8f603",
+      "availability": true,
+      "rating": 4.8,
+      "stock": 38,
+      "idEntrepreneur": 8
+    },
+    {
+      "id": "9",
+      "name": "Amazon Echo Dot (4th Gen)",
+      "description": "Smart speaker with Alexa, perfect for any room",
+      "category": "Electronics",
+      "brand": "Amazon",
+      "modelNumber": "B084J4YYZX",
+      "manufacturer": "Amazon.com, Inc.",
+      "price": 52.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Famazon.png?alt=media&token=8d9e364a-f58b-4153-8221-6412e3cd2b37",
+      "availability": true,
+      "rating": 4.6,
+      "stock": 58,
+      "idEntrepreneur": 9
+    },
+    {
+      "id": "10",
+      "name": "Samsung Galaxy S20",
+      "description": "Powerful smartphone with advanced camera features",
+      "category": "Electronics",
+      "brand": "Samsung",
+      "modelNumber": "SM-G981U",
+      "manufacturer": "Samsung Electronics",
+      "price": 789.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fsamsung.png?alt=media&token=0dd85db9-fa1f-4c16-8cd7-d024efab4eb1",
+      "availability": true,
+      "rating": 0,
+      "stock": 52,
+      "idEntrepreneur": 10
+    },
+    {
+      "id": "11",
+      "name": "Sony PlayStation 5",
+      "description": "Next-generation gaming console with cutting-edge features",
+      "category": "Electronics",
+      "brand": "Sony",
+      "modelNumber": "CUH-1000A",
+      "manufacturer": "Sony Corporation",
+      "price": 480.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fps5.png?alt=media&token=1758b63f-7d96-4c6d-a9bd-eb757903754e",
+      "availability": true,
+      "rating": 4.9,
+      "stock": 25,
+      "idEntrepreneur": 11
+    },
+    {
+      "id": "12",
+      "name": "Nike Air Max 270",
+      "description": "Stylish and comfortable athletic shoes for running",
+      "category": "Fashion",
+      "brand": "Nike",
+      "modelNumber": "AH8050-002",
+      "manufacturer": "Nike, Inc.",
+      "price": 145,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fnike.png?alt=media&token=d06111c7-d1a0-4477-994b-d64713b8f603",
+      "availability": true,
+      "rating": 4.7,
+      "stock": 42,
+      "idEntrepreneur": 12
+    },
+    {
+      "id": "13",
+      "name": "Amazon Echo Dot (4th Gen)",
+      "description": "Smart speaker with Alexa, perfect for any room",
+      "category": "Electronics",
+      "brand": "Amazon",
+      "modelNumber": "B084J4YYZX",
+      "manufacturer": "Amazon.com, Inc.",
+      "price": 55.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Famazon.png?alt=media&token=8d9e364a-f58b-4153-8221-6412e3cd2b37",
+      "availability": true,
+      "rating": 4.6,
+      "stock": 57,
+      "idEntrepreneur": 13
+    },
+    {
+      "id": "14",
+      "name": "Samsung Galaxy S20",
+      "description": "Powerful smartphone with advanced camera features",
+      "category": "Electronics",
+      "brand": "Samsung",
+      "modelNumber": "SM-G981U",
+      "manufacturer": "Samsung Electronics",
+      "price": 805.99,
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fsamsung.png?alt=media&token=0dd85db9-fa1f-4c16-8cd7-d024efab4eb1",
+      "availability": true,
+      "rating": 0,
+      "stock": 48,
+      "idEntrepreneur": 14
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "John",
+      "lastName": "Doe"
+    },
+    {
+      "id": "2",
+      "name": "Jane",
+      "lastName": "Smith"
+    },
+    {
+      "id": "3",
+      "name": "Alice",
+      "lastName": "Johnson"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "idUser": 1,
+      "idProduct": 1,
+      "rating": 5,
+      "content": "Amazing phone with great features!"
+    },
+    {
+      "id": "2",
+      "idUser": 2,
+      "idProduct": 1,
+      "rating": 4,
+      "content": "Good phone but battery life could be better."
+    },
+    {
+      "id": "3",
+      "idUser": 3,
+      "idProduct": 3,
+      "rating": 5,
+      "content": "Best gaming console ever!"
+    },
+    {
+      "id": "4",
+      "idUser": 1,
+      "idProduct": 3,
+      "rating": 4,
+      "content": "Great console, but a bit pricey."
+    },
+    {
+      "id": "5",
+      "idUser": 2,
+      "idProduct": 4,
+      "rating": 4,
+      "content": "Comfortable shoes, love the design!"
+    },
+    {
+      "id": "6",
+      "idUser": 3,
+      "idProduct": 4,
+      "rating": 5,
+      "content": "Perfect shoes for running."
+    },
+    {
+      "id": "7",
+      "idUser": 1,
+      "idProduct": 5,
+      "rating": 5,
+      "content": "Excellent smart speaker!"
+    },
+    {
+      "id": "8",
+      "idUser": 2,
+      "idProduct": 5,
+      "rating": 4,
+      "content": "Very useful, but sound quality could be improved."
+    },
+    {
+      "id": "9",
+      "idUser": 3,
+      "idProduct": 5,
+      "rating": 5,
+      "content": "Best value for money smart speaker."
+    },
+    {
+      "id": "10",
+      "idUser": 1,
+      "idProduct": 4,
+      "rating": 4,
+      "content": "Good shoes, but a bit expensive."
+    }
+  ]
+}

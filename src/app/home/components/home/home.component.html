@@ -15,14 +15,14 @@
   <div class="offers_zone">
     <mat-card *ngFor="let offer of offers">
       <mat-card-header>
-        <img mat-card-image src="{{offer.photo}}">
+        <img mat-card-image src="{{offer.imageUrl}}">
       </mat-card-header>
       <mat-card-content>
         <h3>{{ offer.name }}</h3>
-        <h4>Precio regular</h4>
+        <h4>Precio disponible</h4>
         <h5><b>{{ offer.price }}</b></h5>
-        <h4>Oferta más baja</h4>
-        <h5><b>{{ offer.offer }}</b></h5>
+        <h4>Stock actual</h4>
+        <h5><b>{{ offer.stock }}</b></h5>
       </mat-card-content>
       <mat-card-footer>
         <a href="">Ver detalles>></a>
