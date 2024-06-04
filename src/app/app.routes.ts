@@ -9,6 +9,7 @@ import {ListProductsComponent} from "./list-favorites/components/list-products/l
 import {UserComponent} from "./public/pages/user/user.component";
 import {UserProductDetailComponent} from "./user-products/components/user-product-detail/user-product-detail.component";
 import {HomeComponent} from "./home/components/home/home.component";
+import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
 
 export const routes: Routes = [
   {path: 'users',component: UserComponent,
@@ -30,4 +31,7 @@ export const routes: Routes = [
   ]
   },
   { path: 'home', component: HomeComponent },
+
+  // Path for not Support Pages
+  { path: '**', component: PageNotFoundComponent }
 ];
