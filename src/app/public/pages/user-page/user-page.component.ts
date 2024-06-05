@@ -47,9 +47,8 @@ export class UserPageComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.visibleFilterPanel = window.innerWidth >= 1159;
+    this.visibleFilterPanel = window.innerWidth >= 1159; // Ajusta este valor según tus necesidades
   }
-
   openFilterPanel(){
     this.visibleFilterPanel = !this.visibleFilterPanel;
   }

@@ -4,6 +4,7 @@ import {MatFormField} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
 import { MatCardModule} from "@angular/material/card";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-stores-auth',
@@ -14,7 +15,8 @@ import { MatCardModule} from "@angular/material/card";
     MatInput,
     ReactiveFormsModule,
     MatButton,
-    MatCardModule
+    MatCardModule,
+    RouterLink
   ],
   styleUrls: ['./stores-auth.component.css']
 })
