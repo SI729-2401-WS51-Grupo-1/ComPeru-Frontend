@@ -1,0 +1,39 @@
+.product-view-card {
+  width: 300px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-container {
+  height: 200px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.card-img-container img {
+  width: 160px;
+  height: 164px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.container-info{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container-footer{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.wishlist-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -1,0 +1,9 @@
+.detail-container{
+  background-color: white;
+  border-radius: 10px;
+  height: 80vh;
+  padding: 20px;
+  min-width: 600px;
+  max-width: 80%;
+  margin: 0 auto;
+}

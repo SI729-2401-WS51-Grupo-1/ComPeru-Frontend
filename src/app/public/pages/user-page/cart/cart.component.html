@@ -1,0 +1,54 @@
+<!--
+&lt;!&ndash;
+<div *ngIf="cartItems.length > 0; else emptyCart" class="cart-container">
+  <mat-list class="cart-list">
+    <mat-list-item *ngFor="let item of cartItems" class="cart-item">
+      <img mat-list-avatar src="{{item.imageUrl}}" alt="Photo of {{item.name}}">
+
+      <div class="container-info">
+        <mat-card-title>{{item.name}}</mat-card-title>
+        <mat-card-subtitle>{{ item.price }}</mat-card-subtitle>
+      </div>
+
+      <button mat-button color="warn" (click)="removeFromCart(item.id)" class="remove-button">Remove</button>
+    </mat-list-item>
+  </mat-list>
+  <div class="cart-actions">
+    <button mat-flat-button color="warn" (click)="clearCart()" class="clear-cart-button">Clear Cart</button>
+  </div>
+</div>
+&ndash;&gt;
+
+
+<mat-card class="product-view-card">
+  <div class="card-img-container">
+    <img mat-card-image src="{{product.imageUrl}}" alt="Photo of a product">
+  </div>
+  <mat-card-header>
+    <div class="container-info">
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-subtitle>{{ product.price }}</mat-card-subtitle>
+    </div>
+    <button mat-icon-button class="wishlist-icon" (click)="removeFromCart(product.id)">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </mat-card-header>
+  <div class="container-footer">
+
+    <mat-card-actions>
+      <button mat-flat-button color="primary">View More</button>
+    </mat-card-actions>
+
+    <mat-card-actions>
+      <button mat-flat-button color="primary" (click)="clearCart()">Add Cart</button>
+    </mat-card-actions>
+
+  </div>
+</mat-card>
+
+
+
+<ng-template #emptyCart>
+  <p class="empty-cart-message">Your cart is empty.</p>
+</ng-template>
+-->
