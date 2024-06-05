@@ -14,7 +14,6 @@ import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-foun
 export const routes: Routes = [
   {path: 'users',component: UserComponent,
   children:[
-    // { path: '', redirectTo: 'users', pathMatch: 'full' },
     {path: '', component: UserPageComponent },
     {path: 'cart', component: ShoppingCartComponent},
     {path: 'favorites', component: ListProductsComponent},
@@ -31,6 +30,9 @@ export const routes: Routes = [
   ]
   },
   { path: 'home', component: HomeComponent },
+
+  // Root path
+  { path: '', redirectTo: 'users', pathMatch: 'full' },
 
   // Path for not Support Pages
   { path: '**', component: PageNotFoundComponent }
