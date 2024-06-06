@@ -18,3 +18,31 @@ mat-card-actions {
   display: flex;
   justify-content: space-between;
 }
+
+.empty-wishlist-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 100vw;
+  height: 80vh;
+}
+.empty-wishlist-message {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.empty-wishlist-subtext {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+button[mat-flat-button] {
+  padding: 10px;
+  font-size: 1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}

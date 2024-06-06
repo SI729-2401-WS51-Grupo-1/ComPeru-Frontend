@@ -12,7 +12,7 @@ import {
   AuthPresentationPageComponent
 } from "./public/pages/authentication/user-auth/auth-presentation-page/auth-presentation-page.component";
 import {StoresAuthComponent} from "./public/pages/authentication/stores-auth/stores-auth.component";
-import {FinalRegisterPageComponent} from "./public/pages/final-register-page/final-register-page.component";
+import {FinalRegisterPageComponent} from "./public/pages/authentication/stores-auth/final-register-page/final-register-page.component";
 
 export const routes: Routes = [
   {path: 'users', component: UserPageComponent,
@@ -23,7 +23,7 @@ export const routes: Routes = [
     {path: 'payment-form', component: PaymentFormComponent},
     {path: 'auth', component: AuthPresentationPageComponent},
     {path: 'auth/store', component: StoresAuthComponent},
-    {path: 'auth/ final-page', component: FinalRegisterPageComponent}
+    {path: 'auth/final-page', component: FinalRegisterPageComponent}
 
   ]
   },
