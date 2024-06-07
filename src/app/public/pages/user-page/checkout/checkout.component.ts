@@ -26,6 +26,8 @@ import {
   MatCardTitle
 } from "@angular/material/card";
 import {RouterLink} from "@angular/router";
+import {FormBuilder} from "@angular/forms";
+import { OrderService, Order } from '../orders/services/orders.service';
 
 @Component({
   selector: 'app-checkout',
@@ -39,7 +41,7 @@ export default class CheckoutComponent {
   //@Input() product: Product | undefined;
   private router: any;
 
-  constructor(private cartService: CartService) {
+  constructor(private fb: FormBuilder, private cartService: CartService, private orderService: OrderService) {
     this.cartService.cart$.subscribe(items => {
       this.cartItems = items;
       this.calculateTotal();
@@ -55,7 +57,6 @@ export default class CheckoutComponent {
     alert('Checkout complete!');
     this.cartService.clearCart();
   }
-
 
 
   ngOnInit() {

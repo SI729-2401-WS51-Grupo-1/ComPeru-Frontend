@@ -1,0 +1,45 @@
+<div class="orders-container">
+  <div class="row">
+    <div class="column">
+      <mat-card class="orders-card">
+        <mat-card-content class="order-list-content">
+          <h1>Lista de Pedidos</h1>
+          <div *ngIf="orders.length > 0; else noOrders">
+            <mat-list>
+              <mat-list-item *ngFor="let order of orders" class="order-list-item">
+                <mat-card class="order-card">
+                  <mat-card-header>
+                    <mat-card-title>Pedido #{{ order.id }}</mat-card-title>
+                    <mat-card-subtitle>Total: {{ order.total | currency }}</mat-card-subtitle>
+                    <mat-card-subtitle>Estado: {{ order.status }}</mat-card-subtitle>
+                    <mat-card-subtitle>Fecha de creación: {{ order.createdAt | date:'short' }}</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <h3>Productos</h3>
+                    <div class="products-container">
+                      <mat-card *ngFor="let item of order.items" class="product-card">
+                        <img mat-card-image [src]="item.imageUrl" alt="Photo of {{ item.name }}">
+                        <mat-card-content>
+                          <span class="product-name">{{ item.name }}</span>
+                          <span class="product-price">{{ item.price | currency }}</span>
+                        </mat-card-content>
+                      </mat-card>
+                    </div>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-button color="primary" (click)="updateStatus(order.id, 'Procesando')">Procesando</button>
+                    <button mat-button color="accent" (click)="updateStatus(order.id, 'Enviado')">Enviado</button>
+                    <button mat-button color="warn" (click)="updateStatus(order.id, 'Completado')">Completado</button>
+                  </mat-card-actions>
+                </mat-card>
+              </mat-list-item>
+            </mat-list>
+          </div>
+          <ng-template #noOrders>
+            <p>No hay pedidos disponibles.</p>
+          </ng-template>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

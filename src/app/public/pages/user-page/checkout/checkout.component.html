@@ -20,9 +20,10 @@
       <div class="cart-actions">
         <h2 class="total">Total: {{ total | currency }}</h2>
         <span class="mat-spacer"></span>
-        <button mat-flat-button color="primary" routerLink="/users/payment-form">Ir a Pagar </button>
+        <button mat-flat-button color="primary" routerLink="/users/payment-form"> <mat-icon>shopping_cart</mat-icon>
+           Ir a Pagar </button>
         <p>
-        <button mat-flat-button color="warn" (click)="clearCart()">Vaciar Carrito</button>
+        <button mat-flat-button color="warn" (click)="clearCart()"> 	<mat-icon>delete_outline</mat-icon> Vaciar Carrito</button>
       </div>
     </div>
 
@@ -31,8 +32,11 @@
 
 <ng-template #emptyCart>
   <div class="empty-cart-container">
+    <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
     <p class="empty-cart-message">¡Tu carrito está vacío!</p>
     <p class="empty-cart-subtext">Parece que aún no has añadido ningún artículo. Explora nuestros productos y encuentra lo que necesitas.</p>
     <button mat-flat-button color="primary" routerLink="/users/product-page">Comenzar a comprar</button>
   </div>
 </ng-template>
+
+
