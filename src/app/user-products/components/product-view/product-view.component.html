@@ -14,11 +14,12 @@
   <div class="container-footer">
 
     <mat-card-actions>
-      <button mat-flat-button color="primary">View More</button>
+      <button mat-flat-button color="primary" (click)="redirectToViewMore()"><mat-icon>fullscreen_exit</mat-icon> View More</button>
     </mat-card-actions>
 
     <mat-card-actions>
-      <button mat-flat-button color="primary" (click)="addToCart()">Add Cart</button>
+      <button mat-flat-button color="primary" (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon>
+         Add Cart</button>
     </mat-card-actions>
 
   </div>

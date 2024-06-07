@@ -19,6 +19,13 @@ import {
   FinalPagePaymentComponent
 } from "./public/pages/user-page/checkout/forms-page-pay/final-page-payment/final-page-payment.component";
 import {OrdersComponent} from "./public/pages/user-page/orders/orders.component";
+import {StoreChooseComponent} from "./public/pages/auth-store/store-choose/store-choose.component";
+import {LoginStoreComponent} from "./public/pages/auth-store/auth-page-store/login-store/login-store.component";
+import {
+  RegisterStoreComponent
+} from "./public/pages/auth-store/auth-page-store/register-store/register-store.component";
+import {ProductDetailsComponent} from "./user-products/components/product-details/product-details.component";
+import {ShippingPageComponent} from "./public/pages/user-page/shipping/shipping-page.component";
 
 export const routes: Routes = [
   {path: 'users', component: UserPageComponent,
@@ -29,13 +36,18 @@ export const routes: Routes = [
     {path: 'payment-form', component: PaymentFormComponent},
     {path: 'auth', component: AuthPresentationPageComponent},
     {path: 'auth/store', component: StoresAuthComponent},
-    {path: 'orders', component: OrdersComponent}
+    {path: 'orders', component: OrdersComponent},
+    {path: 'stores-choose', component: StoreChooseComponent},
+    {path: 'auth/login-store', component: LoginStoreComponent},
+    {path: 'auth/register-store', component: RegisterStoreComponent},
+    { path: 'product-details/:id', component: ProductDetailsComponent },
+    {path: 'shipping-page', component: ShippingPageComponent}
   ]
   },
-  {path: 'final-payment', component: FinalPagePaymentComponent},
   {path: 'auth/final-page', component: FinalRegisterPageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'final-payment', component: FinalPagePaymentComponent},
 
 
   {path: 'entrepreneur', component: EntrepreneurPageComponent,

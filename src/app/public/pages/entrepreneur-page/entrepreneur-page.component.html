@@ -20,11 +20,22 @@
         </span>
       </a>
 
+      @if (authStoreService.currentUserSig()){
+        <div class="topNavigationItem">
+          <div class="structurizrBackgroundLight" ><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon>
+            {{authStoreService.currentUserSig()?.username}}</div>
+        </div>
+        <button mat-raised-button color="primary" class="submit-button" (click)="logout()">LogOut</button>
+      }
+
     </mat-nav-list>
+
+
 
 
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
+
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 

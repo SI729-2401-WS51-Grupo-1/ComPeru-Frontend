@@ -9,7 +9,7 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 import {environment} from "../../../environments/environment.development";
 import {Product} from "../model/product.entity";
-import { map, tap } from 'rxjs';
+import { map, tap, Observable} from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
@@ -34,11 +34,15 @@ export class ProductsService {
       .subscribe();
   }
 
-  public getProductById(id: number) {
+/*  public getProductById(id: number) {
     return runInInjectionContext(this._injector, () =>
       toSignal<Product>(
         this._http.get<Product>(`${this._endPoint}/products/${id}`)
       )
     );
+  }*/
+
+  public getProductById(id: number): Observable<Product> {
+    return this._http.get<Product>(`${this._endPoint}/products/${id}`);
   }
 }

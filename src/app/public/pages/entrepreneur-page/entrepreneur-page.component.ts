@@ -6,6 +6,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListItem, MatNavList} from "@angular/material/list";
+import {AuthService} from "../../../shared/services/auth.service";
+import {AuthStoreService} from "../auth-store/services/auth-store.service";
 
 @Component({
   selector: 'app-entrepreneur-page',
@@ -27,9 +29,15 @@ import {MatListItem, MatNavList} from "@angular/material/list";
 export class EntrepreneurPageComponent {
   sideNavOpen: boolean = false;
 
+  constructor(protected authStoreService: AuthStoreService) {
+  }
+
   toggleSideNav(){
     this.sideNavOpen = !this.sideNavOpen;
   }
 
-
+  logout(): void {
+    //console.log('logout');
+    this.authStoreService.logout();
+  }
 }

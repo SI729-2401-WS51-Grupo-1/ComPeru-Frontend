@@ -19,11 +19,13 @@
       <div class="topNavigationItem">
         <div class="structurizrBackgroundLight" ><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon>
           {{authService.currentUserSig()?.username}}</div>
-
-        <!--<span (click)="logout()">Logout</span>-->
       </div>
       <button mat-raised-button color="primary" class="submit-button" (click)="logout()">LogOut</button>
-
+    }
+    @if (authService.currentUserSig()){
+      <div class="logout-message">
+        <h2>Hasta luego, esperamos verte pronto!</h2>
+      </div>
     }
 
   </form>
@@ -34,7 +36,7 @@
       <mat-card>
         <p><mat-icon>store_mall_directory</mat-icon>
           Si eres emprendedor, ingresa aquí</p>
-        <button mat-raised-button color="primary" routerLink="/users/auth/store">Ingresa aquí</button>
+        <button mat-raised-button color="primary" routerLink="/users/stores-choose">Ingresa aquí</button>
       </mat-card>
     </form>
   </div>

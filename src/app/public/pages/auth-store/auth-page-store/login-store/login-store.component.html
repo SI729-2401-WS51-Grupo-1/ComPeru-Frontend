@@ -1,0 +1,19 @@
+<body>
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+    <h1 class="text-center">Ir a Tienda</h1>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput type="email" placeholder="Enter your email" formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" placeholder="Enter your password" formControlName="password" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="submit-button" routerLink="/entrepreneur">Ir a Dashboard</button>
+  </form>
+</div>
+</body>

@@ -213,18 +213,19 @@
       "lastName": "Johnson"
     }
   ],
-
-  "directions:": [
+  "shipping": [
     {
-
-    },
-
-    {
-
+      "id": "8cf2",
+      "firstName": "a",
+      "lastName": "a",
+      "dni": "a",
+      "department": "a",
+      "province": "a",
+      "district": "a",
+      "shippingAddress": "a",
+      "postalCode": "a"
     }
   ],
-
-
   "reviews": [
     {
       "id": "1",
@@ -297,8 +298,6 @@
       "content": "Good shoes, but a bit expensive."
     }
   ],
-
-
   "stores": [
     [
       {
@@ -362,6 +361,5 @@
         "phone_number": "9879879871"
       }
     ]
-
   ]
 }
