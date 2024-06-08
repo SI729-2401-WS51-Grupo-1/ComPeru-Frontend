@@ -23,6 +23,15 @@
           <p class="information-container-label">Brand: </p>
           <p class="information-product-brand">{{productData.brand}}</p>
         </div>
+        <div class="quantity-selector">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" min="1" max="100" [(ngModel)]="selectedQuantity">
+        </div>
+        <div>
+          <app-comparator [product]="productData" ></app-comparator>
+        </div>
+
+
         <button mat-flat-button color="primary" (click)="addToCart()">Add to cart <mat-icon>add_shopping_cart</mat-icon></button>
 
       </div>

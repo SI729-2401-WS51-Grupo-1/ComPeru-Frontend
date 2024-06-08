@@ -10,6 +10,8 @@ import {User} from "../../../shared/model/user.entity";
 import {ListReviewsComponent} from "../../../review-product/components/list-reviews/list-reviews.component";
 import {WishlistService} from "../../../public/pages/user-page/wishlist/services/wishlist.service";
 import {CartService} from "../../../public/pages/user-page/cart/services/cart.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ComparatorComponent} from "../../../price-comparator/components/comparator/comparator.component";
 
 @Component({
   selector: 'app-user-product-detail',
@@ -22,7 +24,10 @@ import {CartService} from "../../../public/pages/user-page/cart/services/cart.se
     CurrencyPipe,
     NgStyle,
     MatButton,
-    ListReviewsComponent
+    ListReviewsComponent,
+    ReactiveFormsModule,
+    FormsModule,
+    ComparatorComponent
   ],
   templateUrl: './user-product-detail.component.html',
   styleUrl: './user-product-detail.component.css'
