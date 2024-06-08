@@ -1,0 +1,43 @@
+<!-- Create and Edit Form -->
+<p>{{ editMode ? 'Edit Order' : 'Create Order' }}</p>
+<div class="form-section">
+  <form (submit)="onSubmit()" #orderForm='ngForm' class="form-row">
+
+    <mat-form-field id="userId-form-field">
+      <input matInput type="number" placeholder="User Id" name="userId" required [(ngModel)]="order.userId">
+    </mat-form-field>
+
+    <mat-form-field id="productId-form-field">
+      <input matInput type="number" placeholder="Product Id" name="productId" required [(ngModel)]="order.productId">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Address" name="shippingAddress" required [(ngModel)]="order.shippingAddress">
+    </mat-form-field><br/>
+
+    <mat-form-field>
+      <input matInput type="date" placeholder="Date" name="orderDate" required [(ngModel)]="order.orderDate">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="string" placeholder="Status" name="status" required [(ngModel)]="order.status">
+    </mat-form-field>
+
+    <mat-form-field id="totalPrice-form-field">
+      <input matInput type="number" placeholder="Total Price" name="total" required [(ngModel)]="order.total">
+    </mat-form-field>
+
+    <ng-container *ngIf="editMode; else elseTemplate">
+      <button mat-raised-button color="primary">Update</button>
+      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    </ng-container>
+
+
+    <br/>
+    <ng-template #elseTemplate>
+      <br/><button mat-raised-button>Add</button>
+    </ng-template>
+    <br/>
+
+  </form>
+</div>

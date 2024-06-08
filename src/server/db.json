@@ -354,6 +354,126 @@
       "rating": 4,
       "content": "Overall great, but lacks some features."
     }
+  ],
+
+  "orders": [
+    {
+      "id": "1",
+      "userId": 1,
+      "productId": 2,
+      "shippingAddress": "Nashville, TN 37010",
+      "orderDate": "12/31/2020",
+      "status": "Delivered",
+      "total": 30
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "productId": 3,
+      "shippingAddress": "Austin, TX 73301",
+      "orderDate": "3/15/2015",
+      "status": "Shipped",
+      "total": 50
+    },
+    {
+      "id": "3",
+      "userId": 3,
+      "productId": 1,
+      "shippingAddress": "Salt Lake City, UT 84001",
+      "orderDate": "6/1/2018",
+      "status": "New",
+      "total": 50
+    },
+    {
+      "id": "4",
+      "userId": 4,
+      "productId": 14,
+      "shippingAddress": "Montpelier, VT 05001",
+      "orderDate": "9/29/2012",
+      "status": "Shipped",
+      "total": 50
+    },
+    {
+      "id": "5",
+      "userId": 5,
+      "productId": 13,
+      "shippingAddress": "Richmond, VA 20101",
+      "orderDate": "2/14/2019",
+      "status": "Delivered",
+      "total": 50
+    },
+    {
+      "id": "6",
+      "userId": 34,
+      "productId": 12,
+      "shippingAddress": "Olympia, WA 98001",
+      "orderDate": "5/1/2017",
+      "status": "New",
+      "total": 50
+    },
+    {
+      "id": "7",
+      "userId": 67,
+      "productId": 11,
+      "shippingAddress": "Charleston, WV 24701",
+      "orderDate": "8/20/2016",
+      "status": "Shipped",
+      "total": 50
+    },
+    {
+      "id": "8",
+      "userId": 45,
+      "productId": 9,
+      "shippingAddress": "Madison, WI 53001",
+      "orderDate": "11/11/2014",
+      "status": "New",
+      "total": 50
+    },
+    {
+      "id": "9",
+      "userId": 4,
+      "productId": 7,
+      "shippingAddress": "Cheyenne, WY 82001",
+      "orderDate": "4/1/2013",
+      "status": "Shipped",
+      "total": 50
+    },
+    {
+      "id": "10",
+      "userId": 9,
+      "productId": 8,
+      "shippingAddress": "Montgomery, AL 35004",
+      "orderDate": "7/4/2011",
+      "status": "Delivered",
+      "total": 50
+    },
+    {
+      "id": "11",
+      "userId": 6,
+      "productId": 5,
+      "shippingAddress": "Juneau, AK 99501",
+      "orderDate": "10/31/2019",
+      "status": "Delivered",
+      "total": 50
+    },
+    {
+      "id": "12",
+      "userId": 9,
+      "productId": 6,
+      "shippingAddress": "Phoenix, AZ 85001",
+      "orderDate": "1/1/2022",
+      "status": "Shipped",
+      "total": 50
+    },
+    {
+      "id": "13",
+      "userId": 7,
+      "productId": 4,
+      "shippingAddress": "Little Rock, AR 71601",
+      "orderDate": "1/1/2022",
+      "status": "New",
+      "total": 50
+    }
   ]
 
 }

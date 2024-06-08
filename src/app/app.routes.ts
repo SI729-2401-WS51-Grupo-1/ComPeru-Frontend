@@ -8,11 +8,12 @@ import {ShoppingCartComponent} from "./shopping-cart/components/shopping-cart/sh
 import {ListProductsComponent} from "./list-favorites/components/list-products/list-products.component";
 import {UserComponent} from "./public/pages/user/user.component";
 import {UserProductDetailComponent} from "./user-products/components/user-product-detail/user-product-detail.component";
+import {HomeComponent} from "./home/components/home/home.component";
+import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
 
 export const routes: Routes = [
   {path: 'users',component: UserComponent,
   children:[
-    // { path: '', redirectTo: 'users', pathMatch: 'full' },
     {path: '', component: UserPageComponent },
     {path: 'cart', component: ShoppingCartComponent},
     {path: 'favorites', component: ListProductsComponent},
@@ -28,5 +29,11 @@ export const routes: Routes = [
     {path:'products/:productId', component:ProductDetailComponent}
   ]
   },
-  // { path: '', redirectTo: 'users', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+
+  // Root path
+  { path: '', redirectTo: 'users', pathMatch: 'full' },
+
+  // Path for not Support Pages
+  { path: '**', component: PageNotFoundComponent }
 ];
