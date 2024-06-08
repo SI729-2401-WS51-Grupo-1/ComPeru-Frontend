@@ -15,7 +15,7 @@
   <div class="container-footer">
 
     <mat-card-actions>
-      <button mat-flat-button color="primary" (click)="redirectToViewMore()"><mat-icon>fullscreen_exit</mat-icon> View More</button>
+      <button mat-flat-button color="primary" [routerLink]="['/users/user-product-detail', product.id]"><mat-icon>fullscreen_exit</mat-icon> View More</button>
     </mat-card-actions>
 
     <mat-card-actions>

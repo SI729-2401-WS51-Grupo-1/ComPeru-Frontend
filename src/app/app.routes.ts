@@ -5,25 +5,29 @@ import {ProductsManagementComponent} from "./admin-products/pages/products-manag
 import {ProductDetailComponent} from "./admin-products/components/product-detail/product-detail.component";
 import {OrdersManagementComponent} from "./admin-orders/pages/orders-management/orders-management.component";
 // <<<<<<< HEAD
-// import {ShoppingCartComponent} from "./shopping-cart/components/shopping-cart/shopping-cart.component";
-// import {ListProductsComponent} from "./list-favorites/components/list-products/list-products.component";
-// import {UserComponent} from "./public/pages/user/user.component";
-// import {UserProductDetailComponent} from "./user-products/components/user-product-detail/user-product-detail.component";
-// import {HomeComponent} from "./home/components/home/home.component";
-// import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
-//
-// export const routes: Routes = [
-//   {path: 'users',component: UserComponent,
-//   children:[
-//     {path: '', component: UserPageComponent },
-//     {path: 'cart', component: ShoppingCartComponent},
-//     {path: 'favorites', component: ListProductsComponent},
-//     {path: 'product/:Id', component: UserProductDetailComponent }
-//   ]},
-//
-//   {path: 'entrepreneur', component: EntrepreneurPageComponent,
-//
+// // <<<<<<< HEAD
+// // import {ShoppingCartComponent} from "./shopping-cart/components/shopping-cart/shopping-cart.component";
+// // import {ListProductsComponent} from "./list-favorites/components/list-products/list-products.component";
+// // import {UserComponent} from "./public/pages/user/user.component";
+// // import {UserProductDetailComponent} from "./user-products/components/user-product-detail/user-product-detail.component";
+// // import {HomeComponent} from "./home/components/home/home.component";
+// // import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
+// //
+// // export const routes: Routes = [
+// //   {path: 'users',component: UserComponent,
+// //   children:[
+// //     {path: '', component: UserPageComponent },
+// //     {path: 'cart', component: ShoppingCartComponent},
+// //     {path: 'favorites', component: ListProductsComponent},
+// //     {path: 'product/:Id', component: UserProductDetailComponent }
+// //   ]},
+// //
+// //   {path: 'entrepreneur', component: EntrepreneurPageComponent,
+// //
+// // =======
 // =======
+//
+// >>>>>>> f91f8bde22b23820b78fe826903857bc8721f3f6
 import {WishlistComponent} from "./public/pages/user-page/wishlist/wishlist.component";
 import {ProductPageComponent} from "./public/pages/user-page/product-page/product-page.component";
 import CheckoutComponent from "./public/pages/user-page/checkout/checkout.component";
@@ -46,8 +50,12 @@ import {
 } from "./public/pages/auth-store/auth-page-store/register-store/register-store.component";
 import {ProductDetailsComponent} from "./user-products/components/product-details/product-details.component";
 import {ShippingPageComponent} from "./public/pages/user-page/shipping/shipping-page.component";
-import {HomeComponent} from "./home/components/home/home.component";
+// <<<<<<< HEAD
+// import {HomeComponent} from "./home/components/home/home.component";
+// =======
+// >>>>>>> f91f8bde22b23820b78fe826903857bc8721f3f6
 import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
+import {UserProductDetailComponent} from "./user-products/components/user-product-detail/user-product-detail.component";
 
 export const routes: Routes = [
   {path: 'users', component: UserPageComponent,
@@ -63,7 +71,8 @@ export const routes: Routes = [
     {path: 'auth/login-store', component: LoginStoreComponent},
     {path: 'auth/register-store', component: RegisterStoreComponent},
     { path: 'product-details/:id', component: ProductDetailsComponent },
-    {path: 'shipping-page', component: ShippingPageComponent}
+    {path: 'shipping-page', component: ShippingPageComponent},
+    {path: 'user-product-detail/:id', component: UserProductDetailComponent}
   ]
   },
   {path: 'auth/final-page', component: FinalRegisterPageComponent},
@@ -80,7 +89,9 @@ export const routes: Routes = [
     {path:'products/:productId', component:ProductDetailComponent}
   ]
   },
-  { path: 'home', component: HomeComponent },
+// <<<<<<< HEAD
+//   { path: 'home', component: HomeComponent },
+// =======
 
   // Root path
   { path: '', redirectTo: 'users', pathMatch: 'full' },

@@ -31,6 +31,6 @@ export class ProductViewComponent {
 
 
   redirectToViewMore() {
-    this.router.navigateByUrl(`users/product-details/${this.product.id}`); // Usa navigateByUrl para la navegación
+    this.router.navigateByUrl(`users/user-product-detail/${this.product.id}`); // Usa navigateByUrl para la navegación
   }
 }

@@ -22,6 +22,7 @@ export class ListProductsViewComponent implements OnInit{
   private getAllProducts(){
     this.productService.getAll().subscribe((response:any)=>{
       this.products=response;
+      console.log("misproducts",this.products);
     })
   };
 

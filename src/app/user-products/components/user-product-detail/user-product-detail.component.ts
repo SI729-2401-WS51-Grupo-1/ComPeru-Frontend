@@ -8,6 +8,8 @@ import {CurrencyPipe, NgStyle} from "@angular/common";
 import {UsersService} from "../../../admin-products/services/users.service";
 import {User} from "../../../shared/model/user.entity";
 import {ListReviewsComponent} from "../../../review-product/components/list-reviews/list-reviews.component";
+import {WishlistService} from "../../../public/pages/user-page/wishlist/services/wishlist.service";
+import {CartService} from "../../../public/pages/user-page/cart/services/cart.service";
 
 @Component({
   selector: 'app-user-product-detail',
@@ -31,11 +33,17 @@ export class UserProductDetailComponent implements OnInit{
   products: Product[];
   productId: string | null = null;
   userData: User;
+  selectedQuantity: number = 1; // Nueva propiedad para almacenar la cantidad seleccionada
+
 
   // Define the initial and favorite colors
   initialColor: string = '#CACECE';
   favoriteColor: string = '#f44336';
-  constructor(private _route:ActivatedRoute,private productService:ProductsService, private userService:UsersService) {
+  constructor(private _route:ActivatedRoute,private productService:ProductsService, private userService:UsersService,
+              private wishlistService: WishlistService,
+              private cartService: CartService
+
+  ) {
 
     this.productData={} as Product;
     this.products = [];
@@ -62,9 +70,18 @@ export class UserProductDetailComponent implements OnInit{
     this.isFavorite = !this.isFavorite;
   }
 
+  addToWishlist() {
+    this.wishlistService.addToWishlist(this.productData);
+  }
+
+  addToCart() {
+    this.cartService.addToCart(this.productData, this.selectedQuantity); // Envía la cantidad seleccionada al carrito
+  }
+
+
   ngOnInit(): void {
     this._route.params.subscribe(params => {
-      this.productId = params['Id'];
+      this.productId = params['id'];
       if (this.productId) {
         this.getProduct(this.productId);
 

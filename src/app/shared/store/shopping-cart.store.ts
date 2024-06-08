@@ -36,7 +36,7 @@ export const CartStore = signalStore(
 
       if (isProductInCart) {
         isProductInCart.stock++;
-        isProductInCart.subTotal = isProductInCart.stock * isProductInCart.price;
+        // isProductInCart.subTotal = isProductInCart.stock * isProductInCart.price;
         patchState(store, { products: [...products()] });
       } else {
         patchState(store, { products: [...products(), product] });
