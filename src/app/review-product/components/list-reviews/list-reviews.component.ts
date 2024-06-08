@@ -58,7 +58,7 @@ export class ListReviewsComponent implements  OnInit{
 
   ngOnInit(): void {
     this._route.params.subscribe(params => {
-      this.productId = params['Id'];
+      this.productId = params['id'];
       if (this.productId) {
         this.getReviews(this.productId);
       }
