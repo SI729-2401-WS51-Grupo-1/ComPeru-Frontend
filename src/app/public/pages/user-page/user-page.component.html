@@ -1,4 +1,3 @@
-
 <div class="content-container">
   <section class="filter-section">
     <button mat-flat-button color="primary" class="button-filter" (click)="openFilterPanel()">
@@ -17,5 +16,42 @@
     <app-list-products-view></app-list-products-view>
   </section>
 
+</div>
+
+<mat-toolbar class="custom-toolbar">
+  <div>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="toolbar-title">ComPeru</span>
+  </div>
+
+  <input class="search-input" matInput placeholder="Search" >
+
+  <div>
+    <button mat-icon-button class="example-icon" routerLink="/users/product-page">
+      <mat-icon>store_mall_directory</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="" routerLink="/users/wishlist" routerLinkActive="active">
+      <mat-icon>favorite</mat-icon>
+      <span matBadge="{{ wishlistItemCount }}" matBadgeOverlap="false"> </span>
+    </button>
+    <button mat-icon-button class="example-icon" routerLink="/users/checkout" routerLinkActive="active">
+      <mat-icon>shopping_cart</mat-icon>
+      <span matBadge="{{ cartItemCount }}" matBadgeOverlap="false"> </span>
+    </button>
+    <button mat-icon-button class="orders-customer" aria-label="" routerLink="/users/orders" >
+      <mat-icon> table_chart</mat-icon>
+    </button>
+    <button mat-icon-button class="account-icon" aria-label="" routerLink="/users/auth" >
+      <mat-icon>account_circles</mat-icon>
+    </button>
+
+  </div>
+
+</mat-toolbar>
+
+<div class="content-container">
+  <router-outlet></router-outlet>
 </div>
 

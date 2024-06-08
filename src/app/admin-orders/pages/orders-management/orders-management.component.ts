@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 // Imports for component
 import { AfterViewInit, OnInit, ViewChild} from '@angular/core';
 

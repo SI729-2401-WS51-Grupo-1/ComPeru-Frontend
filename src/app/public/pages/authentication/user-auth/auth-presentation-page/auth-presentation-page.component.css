@@ -1,0 +1,100 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  text-align: center;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.auth-page-form {
+  margin-top: 20px;
+}
+
+.auth-page-form mat-card {
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.auth-page-form button {
+  width: 100%;
+}
+
+.entrepreneur-section {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-align: right;
+}
+
+.entrepreneur-section img {
+  max-width: 100px;
+}
+
+.entrepreneur-section p {
+  margin-top: 5px;
+}
+
+
+.container-auth{
+
+  text-align: center;
+  padding: 50px;
+
+  height: 20%;
+  width: 200%;
+  margin-left: 100%;
+}
+
+button {
+  max-width: 500px;
+  justify-content: center;
+  margin-left: 15%;
+}
+
+
+h1{
+  text-align: center;
+  color: #1B2854;
+  font-weight: bold;
+}
+
+p{
+  text-align: center;
+  color: #252e5a;
+  font-weight: bold;
+
+}
+
+.bottom-store{
+  width: 100%;
+}
+@media (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+
+  .container-auth {
+    padding: 5px;
+    max-width: 100%;
+  }
+
+  .entrepreneur-section mat-card {
+    padding: 5px;
+  }
+
+  .entrepreneur-section mat-icon {
+    font-size: 36px;
+  }
+
+  button {
+    max-width: 100px;
+  }
+}

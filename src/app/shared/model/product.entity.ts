@@ -10,10 +10,9 @@ export class Product {
   imageUrl: string;
   availability: boolean;
   rating: number;
-  stock:0;
+  stock:number;
   idEntrepreneur: number;
   // reviews: Review[];
-
   constructor() {
     this.id = 0;
     this.name = "";
@@ -31,15 +30,5 @@ export class Product {
     // this.reviews = [];
   }
 
-
-
 }
 
-// interface Review {
-//   id: number;
-//   userId: number;
-//   userName: string;
-//   rating: number;
-//   comment: string;
-//   date: Date;
-// }

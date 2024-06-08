@@ -39,6 +39,7 @@ constructor(private storageService:StorageService) {
     this.imageSrc = null;
     this.productForm.resetForm();
   }
+
   onSubmit() {
   console.log("antes de enviar el form");
     if (this.productForm.form.valid) {

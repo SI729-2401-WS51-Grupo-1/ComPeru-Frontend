@@ -1,0 +1,10 @@
+/* final-page-payment.component.css */
+mat-card {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+mat-icon {
+  font-size: 40px;
+  color: green;
+}

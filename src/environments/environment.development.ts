@@ -1,6 +1,7 @@
 export const environment = {
   production: false,
   serverBasePath: 'http://localhost:3000',
+  stripeAPIKey: '',
   firebaseConfig: {
     apiKey: "AIzaSyDdf1mmRl4e9eUcgFcWrrgzCB1EwDVdNVc",
     authDomain: "comperu-resources.firebaseapp.com",

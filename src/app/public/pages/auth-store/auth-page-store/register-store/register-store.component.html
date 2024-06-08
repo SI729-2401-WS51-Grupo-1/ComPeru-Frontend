@@ -1,0 +1,48 @@
+
+<body>
+<div class="container">
+  <h1> <mat-icon>store_mall_directory</mat-icon> Regístra tu tienda</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Nombre de la tienda</mat-label>
+      <input matInput type="text" placeholder="Enter your username" formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>RUC</mat-label>
+      <input matInput type="text" placeholder="Enter your username" formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Telefono</mat-label>
+      <input matInput type="text" placeholder="Enter your username" formControlName="username" />
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput type="email" placeholder="Enter your email" formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" placeholder="Enter your password" formControlName="password" />
+    </mat-form-field>
+
+
+    @if (errorMessage) {
+      <div xmlns="http://www.w3.org/1999/html">{{ errorMessage }}</div>
+    }
+    <!--<button mat-button (click)="openDialog()">Launch dialog</button>-->
+
+
+    <button mat-raised-button color="primary" type="submit" class="submit-button" routerLink="/entrepreneur">
+      Registrar Tienda
+    </button>
+    <p><br/></p>
+<!--    <p>Ya tienes una cuenta? <a routerLink="/login">-->
+<!--      Iniciar Sesión aqui-->
+<!--    </a></p>-->
+  </form>
+</div>
+</body>
