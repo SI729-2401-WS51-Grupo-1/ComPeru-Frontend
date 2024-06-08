@@ -1,0 +1,18 @@
+    @for (review of reviewDetails; track review.id){
+      <div style="margin: 25px 0; width: 100%;padding: 5px" >
+        <div style="display: flex;justify-content: space-between">
+          <p style="font-weight: 550;font-size: 16px" class="review-user">{{ review.userName}}</p>
+          <span class="review-rating" style="margin-right: 10px">{{review.rating}}</span>
+        </div>
+        <div class="review-content">
+          <p style="font-size: 14px">
+            {{review.content}}
+          </p>
+
+        </div>
+      </div>
+    }
+
+
+
+

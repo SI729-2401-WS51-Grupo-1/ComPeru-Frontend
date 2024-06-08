@@ -1,0 +1,20 @@
+.container-wishlist {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+mat-card {
+  margin: 20px;
+}
+
+mat-card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+}

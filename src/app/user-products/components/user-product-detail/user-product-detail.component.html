@@ -1,0 +1,51 @@
+<div class="detail-principal-container">
+
+  <section class="product-section">
+
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [routerLink]="'/users'" >
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+
+    <section class="principal-detail-section">
+
+      <div class="product-image-section" >
+        <img src="{{productData.imageUrl}}" class="image-product" alt="Principal product image">
+        <button mat-icon-button [ngStyle]="{'color': isFavorite ? favoriteColor : initialColor}" (click)="toggleFavorite()" aria-label="Example icon button with a heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+
+      <div class="product-information-section">
+
+        <p class="information-product-name">{{productData.name}}</p>
+        <p class="information-product-price">{{productData.price | currency:'USD':true }}</p>
+        <div class="information-container-brand">
+          <p class="information-container-label">Brand: </p>
+          <p class="information-product-brand">{{productData.brand}}</p>
+        </div>
+        <button mat-flat-button color="primary">Add to cart <mat-icon>shopping_cart</mat-icon></button>
+
+      </div>
+    </section>
+
+
+
+    <section class="principal-detail-section second-container" >
+<!--      <div class="product-specifications-section" id="aux-container">-->
+<!--      </div>-->
+      <div class="product-specifications-section" >
+
+        <div><span style="font-weight: bold">Model Number:</span><p>{{productData.modelNumber}}</p></div>
+        <div><span style="font-weight: bold">Seller: </span><p>{{userData.name}}</p></div>
+        <div><span style="font-weight: bold">Description:</span><p>{{productData.description}}</p></div>
+      </div>
+      <section class="review-section" >
+        <app-list-reviews  style="width: 100%"/>
+      </section>
+    </section>
+
+
+
+  </section>
+
+</div>

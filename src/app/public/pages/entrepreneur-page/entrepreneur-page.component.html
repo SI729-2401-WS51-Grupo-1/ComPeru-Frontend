@@ -1,0 +1,40 @@
+<mat-toolbar class="mat-elevation-z3">
+  <button mat-icon-button (click)="toggleSideNav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<!--[opened]="sideNavOpen"-->
+<mat-sidenav-container>
+  <mat-sidenav  [opened]="sideNavOpen" mode="side" [style.width]="'250px'">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'products'"  class="sidenav-container-text">
+        <mat-icon >store</mat-icon>
+        <span>
+          Products
+        </span>
+      </a>
+      <a mat-list-item [routerLink]="'orders'" class="sidenav-container-text">
+        <mat-icon>Order</mat-icon>
+        <span>
+          Orders
+        </span>
+      </a>
+
+      @if (authStoreService.currentUserSig()){
+        <div class="topNavigationItem">
+          <div class="structurizrBackgroundLight" ><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon>
+            {{authStoreService.currentUserSig()?.username}}</div>
+        </div>
+        <button mat-raised-button color="primary" class="submit-button" (click)="logout()">LogOut</button>
+      }
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
