@@ -122,7 +122,52 @@
 .comparator-container{
 
 }
+/* Contenedor de nueva review */
+.new-review-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 15px;
+}
 
+.new-review-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.submit-review-button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submit-review-button:hover {
+  background-color: #3700b3;
+}
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rating-stars mat-icon {
+  cursor: pointer;
+  color: #b0bec5;
+  transition: color 0.3s;
+}
+
+.rating-stars mat-icon.selected {
+  color: #ffca28;
+}
 @media (min-width: 750px){
   .product-image-section{
     width: 600px;

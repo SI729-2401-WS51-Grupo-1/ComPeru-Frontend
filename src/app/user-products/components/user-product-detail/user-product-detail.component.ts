@@ -4,7 +4,7 @@ import {MatIcon} from "@angular/material/icon";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {ProductsService} from "../../../admin-products/services/products.service";
 import {Product} from "../../../shared/model/product.entity";
-import {CurrencyPipe, NgStyle} from "@angular/common";
+import {CurrencyPipe, NgClass, NgForOf, NgStyle} from "@angular/common";
 import {UsersService} from "../../../admin-products/services/users.service";
 import {User} from "../../../shared/model/user.entity";
 import {ListReviewsComponent} from "../../../review-product/components/list-reviews/list-reviews.component";
@@ -12,6 +12,10 @@ import {WishlistService} from "../../../public/pages/user-page/wishlist/services
 import {CartService} from "../../../public/pages/user-page/cart/services/cart.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ComparatorComponent} from "../../../price-comparator/components/comparator/comparator.component";
+import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
+import {MatInput, MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {MatSliderModule} from "@angular/material/slider";
 
 @Component({
   selector: 'app-user-product-detail',
@@ -27,13 +31,17 @@ import {ComparatorComponent} from "../../../price-comparator/components/comparat
     ListReviewsComponent,
     ReactiveFormsModule,
     FormsModule,
-    ComparatorComponent
+    ComparatorComponent,
+    MatFormFieldModule, MatInputModule, MatSelectModule, MatSliderModule, NgClass, NgForOf
   ],
   templateUrl: './user-product-detail.component.html',
   styleUrl: './user-product-detail.component.css'
 })
 export class UserProductDetailComponent implements OnInit{
   isFavorite: boolean = false;
+  addedToCart:boolean = false;
+  rating: number = 0;
+  stars: number[] = [1, 2, 3, 4, 5];
   productData: Product;
   products: Product[];
   productId: string | null = null;
@@ -43,7 +51,7 @@ export class UserProductDetailComponent implements OnInit{
 
   // Define the initial and favorite colors
   initialColor: string = '#CACECE';
-  favoriteColor: string = '#f44336';
+  favoriteColor: string = '#FF8082';
   constructor(private _route:ActivatedRoute,private productService:ProductsService, private userService:UsersService,
               private wishlistService: WishlistService,
               private cartService: CartService
@@ -76,14 +84,34 @@ export class UserProductDetailComponent implements OnInit{
   }
 
   addToWishlist() {
-    this.wishlistService.addToWishlist(this.productData);
+    this.isFavorite=!this.isFavorite;
+    if(this.isFavorite){
+      this.wishlistService.addToWishlist(this.productData);
+    }
+    else{
+      this.wishlistService.removeFromWishlist(this.productData); // Lo implemente para eliminar y agregar desde este componente
+    }
   }
 
   addToCart() {
+    this.addedToCart = !this.addedToCart;
     this.cartService.addToCart(this.productData, this.selectedQuantity); // Envía la cantidad seleccionada al carrito
   }
 
+  removeToCart(){
+    this.addedToCart = !this.addedToCart;
+    this.cartService.removeFromCart(this.productData.id);
+  }
+  formatLabel(value: number): string {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
 
+    return `${value}`;
+  }
+  rate(star: number) {
+    this.rating = star;
+  }
   ngOnInit(): void {
     this._route.params.subscribe(params => {
       this.productId = params['id'];

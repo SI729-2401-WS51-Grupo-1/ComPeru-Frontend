@@ -32,8 +32,13 @@
           <app-comparator [product]="productData" ></app-comparator>
         </div>
 
+        @if (!this.addedToCart){
+          <button mat-flat-button color="primary" (click)="addToCart()">Add to cart <mat-icon>add_shopping_cart</mat-icon></button>
 
-        <button mat-flat-button color="primary" (click)="addToCart()">Add to cart <mat-icon>add_shopping_cart</mat-icon></button>
+        } @else {
+          <button mat-button color="warn" style="color: #FF8082" (click)="removeToCart()">Remove to cart <mat-icon>remove_shopping_cart</mat-icon></button>
+
+        }
 
       </div>
     </section>
@@ -49,7 +54,28 @@
         <div><span style="font-weight: bold">Seller: </span><p>{{userData.name}}</p></div>
         <div><span style="font-weight: bold">Description:</span><p>{{productData.description}}</p></div>
       </div>
-      <section class="review-section" >
+
+      <section class="review-section" style="display: flex;flex-direction: column">
+        <p style="font-weight: 600;font-size: 20px;align-self: start;margin-top: 5px;margin-bottom: 15px;height: auto">Reviews about the product</p>
+        <div class="new-review-container" style="display: flex; flex-direction: column; width: 100%;">
+          <mat-form-field appearance="outline">
+            <mat-label>Write your review</mat-label>
+            <textarea matInput class="new-review-input"></textarea>
+          </mat-form-field>
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div class="rating-stars-container" style="display: flex; gap: 5px; align-items: center;">
+              <div class="rating-stars">
+                <mat-icon *ngFor="let star of stars; let i = index"
+                          (click)="rate(i + 1)"
+                          [ngClass]="{'selected': i < rating}">
+                  {{ i < rating ? 'star' : 'star_border' }}
+                </mat-icon>
+              </div>
+            </div>
+            <button mat-button color="accent" class="submit-review-button" style="align-self: start;">Submit</button>
+          </div>
+<!--          <input type="text" class="new-review-input" placeholder="Write your review..." />-->
+        </div>
         <app-list-reviews  style="width: 100%"/>
       </section>
     </section>
