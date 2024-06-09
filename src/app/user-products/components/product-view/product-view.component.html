@@ -8,7 +8,7 @@
       <mat-card-subtitle>{{ product.price }}</mat-card-subtitle>
     </div>
 
-    <button mat-icon-button class="wishlist-icon" (click)="addToWishlist()">
+    <button mat-icon-button class="wishlist-icon" [ngStyle]="{'color': isFavorite ? favoriteColor : initialColor}" (click)="addToWishlist()">
       <mat-icon>favorite</mat-icon>
     </button>
   </mat-card-header>
@@ -19,8 +19,13 @@
     </mat-card-actions>
 
     <mat-card-actions>
-      <button mat-flat-button color="primary" (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon>
-         Add Cart</button>
+      @if (!this.addedToCart){
+        <button mat-flat-button color="primary" (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon>
+          Add Cart</button>
+      }@else{
+        <button mat-button color="warn" style="color: #FF8082" (click)="removeToCart()">Remove <mat-icon>remove_shopping_cart</mat-icon></button>
+      }
+
     </mat-card-actions>
 
   </div>
