@@ -39,7 +39,7 @@
     <ng-container matColumnDef="productId">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Product Id</th>
       <td *matCellDef="let element" mat-cell>
-        <a [routerLink]="['/users/product', element.productId]"> {{ element.productId }} </a></td>
+        <a [routerLink]="['/users/user-product-detail', element.productId]"> {{ element.productId }} </a></td>
     </ng-container>
 
     <!-- Shipping address column -->
