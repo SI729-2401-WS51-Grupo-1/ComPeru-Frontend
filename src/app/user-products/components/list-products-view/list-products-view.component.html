@@ -1,7 +1,27 @@
+<div class="content-container">
+<section class="filter-section">
+    <button mat-flat-button color="primary" class="button-filter" (click)="openFilterPanel()">
+      <mat-icon>filter_alt</mat-icon>
+      Filter
+    </button>
+  </section>
+
+  @if(visibleFilterPanel){
+    <section class="filter-panel">
+      <app-filter-product-user (applyBrandFilter)="filterProductsByBrand($event)"
+                                (applyCategoryFilter)="filterProductsByCategory($event)"
+                               (applyPriceRangeFilter)="filterProductsByPrice($event)"
+                               (applyRatingRangeFilter)="filterProductsByRating($event)"
+      ></app-filter-product-user>
+    </section>
+  }
+
+
 <div class="container-products">
   @for (product of products; track product){
     <app-product-view [product]="product" >
     </app-product-view>
   }
+</div>
 </div>
 

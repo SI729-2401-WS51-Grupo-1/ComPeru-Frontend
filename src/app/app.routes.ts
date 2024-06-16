@@ -29,7 +29,6 @@ import {OrdersManagementComponent} from "./admin-orders/pages/orders-management/
 //
 // >>>>>>> f91f8bde22b23820b78fe826903857bc8721f3f6
 import {WishlistComponent} from "./public/pages/user-page/wishlist/wishlist.component";
-import {ProductPageComponent} from "./public/pages/user-page/product-page/product-page.component";
 import CheckoutComponent from "./public/pages/user-page/checkout/checkout.component";
 import {PaymentFormComponent} from "./public/pages/user-page/checkout/forms-page-pay/payment-form/payment-form.component";
 import {
@@ -56,13 +55,17 @@ import {ShippingPageComponent} from "./public/pages/user-page/shipping/shipping-
 // >>>>>>> f91f8bde22b23820b78fe826903857bc8721f3f6
 import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
 import {UserProductDetailComponent} from "./user-products/components/user-product-detail/user-product-detail.component";
+import {HomeComponent} from "./public/pages/home-page/home/home.component";
+import {ListProductsViewComponent} from "./user-products/components/list-products-view/list-products-view.component";
 
 export const routes: Routes = [
   {path: 'users', component: UserPageComponent,
   children:[
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'home',component: HomeComponent},
     {path:'wishlist',component:WishlistComponent},
     {path: 'checkout', component: CheckoutComponent},
-    {path: 'product-page', component: ProductPageComponent},
+    {path: 'product-page/:category', component: ListProductsViewComponent},
     {path: 'payment-form', component: PaymentFormComponent},
     {path: 'auth', component: AuthPresentationPageComponent},
     {path: 'auth/store', component: StoresAuthComponent},

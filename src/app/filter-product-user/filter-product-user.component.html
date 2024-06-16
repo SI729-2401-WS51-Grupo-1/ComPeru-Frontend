@@ -19,11 +19,14 @@
         class="category-radio-group"
         [(ngModel)]="categorySelected">
         @for (category of categories; track category) {
-          <mat-radio-button class="category-radio-button" [value]="category">{{category}}</mat-radio-button>
+          <mat-radio-button class="category-radio-button" [value]="category"
+
+
+          >{{category.name}}</mat-radio-button>
         }
       </mat-radio-group>
       <div class="expansion-panel-footer">
-        <button mat-button color="primary">Filter</button>
+        <button mat-button color="primary" (click)="onCategorySelected()">Filter</button>
       </div>
 
     </mat-expansion-panel>
@@ -35,30 +38,23 @@
         <mat-panel-title>
           Brand
         </mat-panel-title>
-
       </mat-expansion-panel-header>
       <div class="brands-checkbox-group">
         @for ( brand of brands; track brand){
           <mat-checkbox
-            [value]="brand"
-            (change)="onBrandChange(brand, $event.checked)">
-            {{ brand }}
+            [value]="brand.name"
+            (change)="onBrandChange(brand.name, $event.checked)">
+            {{ brand.name }}
           </mat-checkbox>
         }
       </div>
-<!--      @for (brand of selectedBrands;track brand){-->
-<!--        {{brand}}-->
-
-<!--      } para comprobar que el checkbox funcione-->
-      <div class="expansion-panel-footer">
-        <button mat-button color="primary">Filter</button>
-      </div>
+<!--      <div class="expansion-panel-footer">-->
+<!--        <button mat-button color="primary" (click)="filterForBrand()">Filter</button>-->
+<!--      </div>-->
     </mat-expansion-panel>
 
-
     <!-- Filter for Price -->
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Price
@@ -68,7 +64,7 @@
       <div class="container-min-max-fields">
         <mat-form-field floatLabel="always">
           <mat-label>Minimum</mat-label>
-          <input matInput type="number" class="example-right-align" placeholder="0">
+          <input matInput type="number" class="example-right-align" placeholder="0" [formControl]="minPriceControl">
           <span matTextPrefix>$&nbsp;</span>
           <span matTextSuffix>.00</span>
         </mat-form-field>
@@ -76,16 +72,14 @@
         <!-- Maximum field -->
         <mat-form-field floatLabel="always">
           <mat-label>Maximum</mat-label>
-          <input matInput type="number" class="example-right-align" placeholder="0">
+          <input matInput type="number" class="example-right-align" placeholder="0" [formControl]="maxPriceControl">
           <span matTextPrefix>$&nbsp;</span>
           <span matTextSuffix>.00</span>
         </mat-form-field>
-
       </div>
 
-
       <div class="expansion-panel-footer">
-        <button mat-button color="primary">Filter</button>
+        <button mat-button color="primary" (click)="applyPriceFilter()">Filter</button>
       </div>
     </mat-expansion-panel>
 
@@ -104,15 +98,17 @@
       </mat-expansion-panel-header>
 
       <div class="container-review-slider">
-        <mat-slider min="1" max="5" discrete  >
-          <input value="1" matSliderStartThumb>
-          <input value="2" matSliderEndThumb>
+        <mat-slider min="0" max="5" discrete  >
+          <input value="0" matSliderStartThumb [(ngModel)]="minRating">
+          <input value="2" matSliderEndThumb [(ngModel)]="maxRating">
         </mat-slider>
 
       </div>
-
       <div class="expansion-panel-footer">
-        <button mat-button color="primary">Filter</button>
+        {{minRating}}
+
+        {{maxRating}}
+        <button mat-button color="primary" (click)="onRatingFilter()">Filter</button>
       </div>
     </mat-expansion-panel>
 
