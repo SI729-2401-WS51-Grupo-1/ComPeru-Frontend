@@ -29,7 +29,8 @@ import {OrdersManagementComponent} from "./admin-orders/pages/orders-management/
 //
 // >>>>>>> f91f8bde22b23820b78fe826903857bc8721f3f6
 import {WishlistComponent} from "./public/pages/user-page/wishlist/wishlist.component";
-import CheckoutComponent from "./public/pages/user-page/checkout/checkout.component";
+// import {CheckoutComponent} from "./public/pages/user-page/checkout/checkout.component";
+import {CheckoutComponent} from "./public/pages/user-page/checkout/checkout/checkout.component";
 import {PaymentFormComponent} from "./public/pages/user-page/checkout/forms-page-pay/payment-form/payment-form.component";
 import {
   AuthPresentationPageComponent

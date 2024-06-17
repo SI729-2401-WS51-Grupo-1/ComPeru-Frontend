@@ -1,5 +1,5 @@
-<div class="principal-container">
   @if(wishlist.length>0 ){
+    <div class="principal-container">
     <section class="section-wishlist">
       <h1>My WishList</h1>
       <div class="container-wishlist">
@@ -19,11 +19,18 @@
         }
       </div>
     </section>
+    </div>
+
   } @else {
-   <div class="empty-wishlist-container">
-     <p class="empty-wishlist-message">¡Tu lista de deseos está vacío!</p>
-      <p class="empty-wishlist-subtext">Parece que aún no has añadido ningún artículo. Explora nuestros productos y encuentra lo que necesitas.</p>
-     <button class="primary-button" routerLink="/users/product-page">Añade lo que te gusta!</button>
-   </div>
+    <section class="empty-section">
+      <div class="empty-wishlist-container">
+        <div>
+          <p class="empty-wishlist-message">Your wish list is empty!</p>
+          <p class="empty-wishlist-subtext">Add products to your wish list</p>
+          <button class="primary-button" routerLink="/users/home">Add</button>
+        </div>
+
+      </div>
+    </section>
+
   }
-</div>
