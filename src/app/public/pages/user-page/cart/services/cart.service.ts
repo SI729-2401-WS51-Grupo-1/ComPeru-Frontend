@@ -11,6 +11,9 @@ export class CartService {
   private cart = new BehaviorSubject<Product[]>([]);
   cart$ = this.cart.asObservable();
 
+  private forOrders = new BehaviorSubject<any[]>([]);
+  forOrders$=this.forOrders.asObservable();
+
 /*  addToCart(product: Product,  quantity: number) {
     this.items.push(product);
     this.cart.next(this.items);
@@ -40,4 +43,8 @@ export class CartService {
     return this.items.length;
   }
 
+  addForOrders( newProducts:any[]){
+    this.forOrders.next(newProducts);
+    console.log("los recibi", this.forOrders);
+  }
 }

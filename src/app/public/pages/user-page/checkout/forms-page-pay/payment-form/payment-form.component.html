@@ -1,9 +1,8 @@
 <div class="payment-form-container">
-  <div class="row">
-    <div class="column">
+    <section class="payment-section">
       <mat-card class="payment-form-card">
         <mat-card-content class="card-payment-form">
-          <form (ngSubmit)="processPayment()" #paymentForm="ngForm">
+          <form (ngSubmit)="processPayment()" #paymentForm="ngForm" class="form">
             <mat-form-field appearance="fill" *ngFor="let field of fields; let i = index">
               <mat-label>{{field.label}}</mat-label>
               <input matInput [placeholder]="field.placeholder" [(ngModel)]="field.model" name="{{field.name}}" required>
@@ -11,33 +10,30 @@
                 {{field.error}}
               </mat-error>
             </mat-form-field>
-            <button mat-raised-button color="primary" type="submit" routerLink="/final-payment" (click)="processPayment()">Procesar Pago</button>
+            <button mat-raised-button color="primary" type="submit" routerLink="/final-payment" (click)="processPayment()" class="btn-pay">Procesar Pago</button>
           </form>
         </mat-card-content>
       </mat-card>
-    </div>
-    <div class="column">
-      <mat-card class="products-card">
-        <mat-card-content class="show-products">
-          <mat-list class="cart-list">
-            <h1>Productos seleccionados</h1>
-            <div *ngIf="cartItems.length > 0" class="cart-container">
-              <mat-card *ngFor="let item of cartItems" class="product-view-card cart-item-card">
-                <div class="card-img-container">
-                  <img mat-card-image [src]="item.imageUrl" alt="Photo of {{item.name}}">
-                </div>
-                <mat-card-header>
-                  <div class="container-info">
-                    <mat-card-title>{{ item.name }}</mat-card-title>
-                    <mat-card-subtitle>{{ item.price | currency }}</mat-card-subtitle>
-                  </div>
-                </mat-card-header>
-              </mat-card>
-              <h2 class="total">Total: {{ total | currency }}</h2>
-            </div>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
+    </section>
+      <section class="products-card">
+        <h1>Productos seleccionados</h1>
+        @if(forCalculateArray.length > 0){
+          <div class="cart-container">
+            <h2 class="total">Total: {{ total | currency }}</h2>
+
+            @for(item of forCalculateArray;track item){
+              <div class="card-img-container">
+                <img mat-card-image [src]="item.imageUrl" alt="Photo of {{item.name}}">
+              </div>
+              <div class="container-info">
+                <p>{{ item.name }}</p>
+                <p>{{ item.price | currency }}</p>
+                <p>{{item.quantity}}</p>
+
+              </div>
+
+            }
+          </div>
+        }
+      </section>
 </div>

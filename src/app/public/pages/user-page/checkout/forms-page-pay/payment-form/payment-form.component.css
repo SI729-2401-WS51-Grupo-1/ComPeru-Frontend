@@ -1,24 +1,28 @@
-/* src/app/components/payment-form/payment-form.component.css */
-.payment-form-container {
-  display: flex;
-  justify-content: space-between;
+.payment-section{
+  width: 100%;
+  padding: 20px;
 }
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.column {
-  width: 45%;
-}
-
-.card-payment-form, .products-card {
-  margin: 20px;
-}
-
-.cart-container {
+.payment-form-card{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+}
+.btn-pay{
+  background-color: black;
+}
+.btn-pay:hover{
+  background-color: #1976d2;
+}
+
+.products-card{
+  padding: 20px;
+}
+.cart-container{
+  width: 100%;
 }

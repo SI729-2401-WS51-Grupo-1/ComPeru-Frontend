@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormsModule, Validators} from "@angular/forms";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
@@ -21,6 +21,15 @@ import {MatList, MatListItem} from "@angular/material/list";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { OrderService, Order } from '../../../orders/services/orders.service';
+import {
+  MatCell,
+  MatCellDef,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderRow,
+  MatHeaderRowDef,
+  MatRow, MatRowDef, MatTable, MatTableDataSource, MatTableModule
+} from "@angular/material/table";
 
 
 @Component({
@@ -36,13 +45,15 @@ import { OrderService, Order } from '../../../orders/services/orders.service';
     MatButton,
     MatCardContent,
     MatCardHeader,
-    MatCard, CurrencyPipe, RouterLink, MatCardImage, MatCardSubtitle, MatIcon, MatIconButton, MatList, NgForOf, NgIf, MatCardActions, DatePipe, MatListItem
+    MatTableModule,
+    MatCard, CurrencyPipe, RouterLink, MatCardImage, MatCardSubtitle, MatIcon, MatIconButton, MatList, NgForOf, NgIf, MatCardActions, DatePipe, MatListItem, MatCell, MatCellDef, MatColumnDef, MatHeaderCell, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatTable
   ],
   templateUrl: './payment-form.component.html',
   styleUrl: './payment-form.component.css'
 })
-export class PaymentFormComponent {
+export class PaymentFormComponent implements OnInit{
   orders: Order[] = [];
+  dataSource!:MatTableDataSource<any>;
 
   paymentForm = this.fb.group({
 /*    cardholder: ['', Validators.required],
@@ -59,12 +70,11 @@ export class PaymentFormComponent {
   ];
 
   cartItems: Product[] = [];
+  forCalculateArray:any[];
   total: number = 0;
   constructor(private router:Router, private fb: FormBuilder, private cartService: CartService, private orderService: OrderService) {
-    this.cartService.cart$.subscribe(items => {
-      this.cartItems = items;
-      this.calculateTotal();
-    });
+    this.forCalculateArray = [];
+    this.dataSource = new MatTableDataSource<any>();
   }
 
 
@@ -74,7 +84,9 @@ export class PaymentFormComponent {
   }
 
   calculateTotal(): void {
-    this.total = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+    // this.total = this.cartItems.reduce((acc, item) => acc + item.price, 0);
+    this.total = this.forCalculateArray.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
   }
 
   processPayment(): void {
@@ -102,5 +114,16 @@ export class PaymentFormComponent {
 
   clearCart(): void {
     this.cartService.clearCart();
+  }
+
+  ngOnInit() {
+    this.cartService.forOrders$.subscribe(items =>{
+      this.forCalculateArray = items;
+      this.calculateTotal();
+
+    });
+    this.cartService.cart$.subscribe(items => {
+      this.cartItems = items;
+    });
   }
 }

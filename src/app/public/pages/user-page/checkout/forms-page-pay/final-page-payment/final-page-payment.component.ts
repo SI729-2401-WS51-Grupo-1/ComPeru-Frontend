@@ -53,6 +53,6 @@ export class FinalPagePaymentComponent {
   }
 
   regresarInicio() {
-    this.router.navigateByUrl('/users/product-page'); // Usa navigateByUrl para la navegación
+    this.router.navigateByUrl('/users/home'); // Usa navigateByUrl para la navegación
   }
 }
