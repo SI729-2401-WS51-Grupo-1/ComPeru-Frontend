@@ -67,6 +67,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   backProducts() {
-    this.router.navigateByUrl('/users/product-page');
+    this.router.navigateByUrl('/users/product-page/Laptops');
   }
 }

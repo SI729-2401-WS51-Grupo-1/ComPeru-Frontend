@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatButton, MatFabButton, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
-import {ActivatedRoute, RouterLink} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {ProductsService} from "../../../admin-products/services/products.service";
 import {Product} from "../../../shared/model/product.entity";
 import {CurrencyPipe, NgClass, NgForOf, NgStyle} from "@angular/common";
@@ -54,7 +54,8 @@ export class UserProductDetailComponent implements OnInit{
   favoriteColor: string = '#FF8082';
   constructor(private _route:ActivatedRoute,private productService:ProductsService, private userService:UsersService,
               private wishlistService: WishlistService,
-              private cartService: CartService
+              private cartService: CartService,    private router: Router
+
 
   ) {
 
@@ -112,6 +113,12 @@ export class UserProductDetailComponent implements OnInit{
   rate(star: number) {
     this.rating = star;
   }
+
+  backProducts(){
+    this.router.navigateByUrl(`/users/product-page/${this.productData.category}`);
+  }
+
+
   ngOnInit(): void {
     this._route.params.subscribe(params => {
       this.productId = params['id'];

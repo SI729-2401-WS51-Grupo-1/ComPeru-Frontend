@@ -6,6 +6,7 @@ import {MatCard, MatCardModule} from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
 import {Observable} from "rxjs";
 import {RouterLink} from "@angular/router";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-wishlist',
@@ -18,7 +19,8 @@ import {RouterLink} from "@angular/router";
     MatButton,
     NgOptimizedImage,
     RouterLink,
-    NgIf
+    NgIf,
+    MatIcon
   ],
   styleUrls: ['./wishlist.component.css']
 })

@@ -1,21 +1,29 @@
-<div class="container-wishlist" *ngIf="wishlist.length > 0; else emptyWishlist">
-  <mat-card *ngFor="let product of wishlist">
-    <mat-card-header>
-      <mat-card-title>{{ product.name }}</mat-card-title>
-      <mat-card-subtitle>{{ product.price }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="product.imageUrl" alt="Photo of {{product.name}}">
-    <mat-card-actions>
-      <button mat-button (click)="removeFromWishlist(product)">Remove from Wishlist</button>
-      <button mat-button>View More</button>
-    </mat-card-actions>
-  </mat-card>
+<div class="principal-container">
+  @if(wishlist.length>0 ){
+    <section class="section-wishlist">
+      <h1>My WishList</h1>
+      <div class="container-wishlist">
+        @for (product of wishlist;track product){
+          <div class="product-card">
+            <img class="product-image" [src]="product.imageUrl" alt="Photo of {{product.name}}">
+            <div class="product-header">
+              <p class="product-title">{{ product.name }}</p>
+              <p class="product-subtitle">{{ product.price }}</p>
+            </div>
+           <div class="product-actions">
+             <button class="action-button btn-add"><mat-icon>add_shopping_cart</mat-icon></button>
+            <button class="action-button btn-visibility"><mat-icon>visibility</mat-icon></button>
+             <button class="action-button btn-remove" (click)="removeFromWishlist(product)"><mat-icon>delete_outline</mat-icon></button>
+           </div>
+          </div>
+        }
+      </div>
+    </section>
+  } @else {
+   <div class="empty-wishlist-container">
+     <p class="empty-wishlist-message">¡Tu lista de deseos está vacío!</p>
+      <p class="empty-wishlist-subtext">Parece que aún no has añadido ningún artículo. Explora nuestros productos y encuentra lo que necesitas.</p>
+     <button class="primary-button" routerLink="/users/product-page">Añade lo que te gusta!</button>
+   </div>
+  }
 </div>
-
-<ng-template #emptyWishlist>
-  <div class="empty-wishlist-container">
-    <p class="empty-wishlist-message">¡Tu lista de deseos está vacío!</p>
-    <p class="empty-wishlist-subtext">Parece que aún no has añadido ningún artículo. Explora nuestros productos y encuentra lo que necesitas.</p>
-    <button mat-flat-button color="primary" routerLink="/users/product-page">Añade lo que te gusta!</button>
-  </div>
-</ng-template>
