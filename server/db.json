@@ -1,0 +1,88 @@
+{
+  "buses": [
+
+  ],
+  "trips": [
+    {
+      "id": 1,
+      "idUser": 3,
+      "type":"Metropolitano",
+      "origin": "Av. La Marina, San Miguel",
+      "destination": "Av. Larco, Miraflores",
+      "startDate": "08:00",
+      "endDate": "09:00",
+      "price": 2.50
+    },
+    {
+      "id": 2,
+      "idUser": 4,
+      "type":"Corredor Azul",
+      "origin": "Av. Universitaria, Comas",
+      "destination": "Jirón de la Unión, Lima",
+      "startDate": "07:30",
+      "endDate": "08:45",
+      "price": 3.00
+    }
+  ],
+  "promos": [
+    {
+      "id": 1,
+      "title": "onetwo",
+      "description": "Aprovecha el 20% de descuento en todos los pasajes del Metropolitano durante el mes de julio.",
+      "image": "https://f.rpp-noticias.io/2022/07/14/1285880000745145wjpg.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Viaje gratis en tu cumpleaños",
+      "description": "Regístrate y viaja gratis en cualquier transporte público en tu cumpleaños.",
+      "image": "https://larepublica.cronosmedia.glr.pe/original/2022/07/17/62d4465b89bf557dde504983.jpg"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "idUser": 3,
+      "description": "¿Cómo recargo mi tarjeta del Metropolitano online?"
+    },
+    {
+      "id": 2,
+      "idUser": 4,
+      "description": "¿Dónde encuentro las rutas actualizadas del Corredor Azul?"
+    }
+  ],
+  "plans": [
+    {
+      "id": 1,
+      "title": "Plan Estándar"
+    },
+    {
+      "id": 2,
+      "title": "Plan Premium"
+    }
+  ],
+  "users": [
+    {
+      "id": 3,
+      "firstName": "Carlos",
+      "lastName": "Fernández",
+      "email": "carlosf@example.com",
+      "password": "contrasena123",
+      "planId": 1
+    },
+    {
+      "id": 4,
+      "firstName": "Maria",
+      "lastName": "Pérez",
+      "email": "mariap@example.com",
+      "password": "contrasena321",
+      "planId": 2
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "title": "Bienvenido a TrackMyRoute",
+      "description": "Te damos la bienvenida a nuestra aplicación, explora todas nuestras funcionalidades, muchas gracias por elegirnos."
+    }
+  ]
+}
