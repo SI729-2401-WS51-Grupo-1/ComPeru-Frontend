@@ -1,0 +1,16 @@
+<mat-toolbar color="primary"  class="principal-toolbar">
+  <!--  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">-->
+  <!--    <mat-icon class="title-product">menu</mat-icon>-->
+  <!--  </button>-->
+  <span class="title-product">COMPERU</span>
+  <span class="mat-spacer"></span>
+  @for(option of options; track option.title) {
+    <a class="routes-a" mat-button [routerLink]="option.path">
+      <p class="routes-pages">
+        {{ option.title }}
+      </p>
+    </a>
+  }
+</mat-toolbar>
+
+<router-outlet />

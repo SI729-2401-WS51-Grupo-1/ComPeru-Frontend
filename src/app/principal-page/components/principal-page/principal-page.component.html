@@ -1,0 +1,37 @@
+
+<div class="container">
+
+  <div class="banner">
+    <img src="/assets/img/banner.png" alt="Banner de producto">
+  </div>
+
+  <h1 class="title">Ofertas del día</h1>
+
+  <mat-grid-list cols="5" rowHeight="350px">
+    <mat-grid-tile *ngFor="let offer of offers.slice(0,5)">
+      <mat-card class="offer-card">
+        <mat-card-header>
+          <div class="image-container">
+            <img mat-card-image src="{{offer.imageUrl}}">
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <h3>{{ offer.name }}</h3>
+          <div class="price-info">
+            <span class="price-label">Precio disponible:</span>
+            <span class="price-value">{{ offer.price }}</span>
+          </div>
+          <div class="stock-info">
+            <span class="stock-label">Stock actual:</span>
+            <span class="stock-value">{{ offer.stock }}</span>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-button routerLink="/users/product-page">Ver detalles >></a>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<app-footer></app-footer>

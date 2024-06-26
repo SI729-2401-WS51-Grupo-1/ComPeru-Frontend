@@ -1,0 +1,120 @@
+
+<mat-card class="card-container">
+  <mat-card-header>
+    <mat-card-title>Filter products</mat-card-title>
+  </mat-card-header>
+  <mat-accordion>
+
+    <!-- Filter for category -->
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Category
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <mat-radio-group
+        aria-labelledby="category-radio-group"
+        class="category-radio-group"
+        [(ngModel)]="categorySelected">
+        @for (category of categories; track category) {
+          <mat-radio-button class="category-radio-button" [value]="category"
+
+
+          >{{category.name}}</mat-radio-button>
+        }
+      </mat-radio-group>
+      <div class="expansion-panel-footer">
+        <button mat-button color="primary" (click)="onCategorySelected()">Filter</button>
+      </div>
+
+    </mat-expansion-panel>
+
+    <!-- Filter for Brand -->
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Brand
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="brands-checkbox-group">
+        @for ( brand of brands; track brand){
+          <mat-checkbox
+            [value]="brand.name"
+            (change)="onBrandChange(brand.name, $event.checked)">
+            {{ brand.name }}
+          </mat-checkbox>
+        }
+      </div>
+<!--      <div class="expansion-panel-footer">-->
+<!--        <button mat-button color="primary" (click)="filterForBrand()">Filter</button>-->
+<!--      </div>-->
+    </mat-expansion-panel>
+
+    <!-- Filter for Price -->
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Price
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="container-min-max-fields">
+        <mat-form-field floatLabel="always">
+          <mat-label>Minimum</mat-label>
+          <input matInput type="number" class="example-right-align" placeholder="0" [formControl]="minPriceControl">
+          <span matTextPrefix>$&nbsp;</span>
+          <span matTextSuffix>.00</span>
+        </mat-form-field>
+
+        <!-- Maximum field -->
+        <mat-form-field floatLabel="always">
+          <mat-label>Maximum</mat-label>
+          <input matInput type="number" class="example-right-align" placeholder="0" [formControl]="maxPriceControl">
+          <span matTextPrefix>$&nbsp;</span>
+          <span matTextSuffix>.00</span>
+        </mat-form-field>
+      </div>
+
+      <div class="expansion-panel-footer">
+        <button mat-button color="primary" (click)="applyPriceFilter()">Filter</button>
+      </div>
+    </mat-expansion-panel>
+
+
+
+
+
+    <!-- Filter for Review -->
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Review
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+
+      <div class="container-review-slider">
+        <mat-slider min="0" max="5" discrete  >
+          <input value="0" matSliderStartThumb [(ngModel)]="minRating">
+          <input value="2" matSliderEndThumb [(ngModel)]="maxRating">
+        </mat-slider>
+
+      </div>
+      <div class="expansion-panel-footer">
+        {{minRating}}
+
+        {{maxRating}}
+        <button mat-button color="primary" (click)="onRatingFilter()">Filter</button>
+      </div>
+    </mat-expansion-panel>
+
+
+
+
+  </mat-accordion>
+</mat-card>
+

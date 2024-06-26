@@ -1,0 +1,38 @@
+@if(!this.dataSource.data){
+  <div style="width: 100%;height: 150px; border: #757575 solid 1px;margin: 5px auto;display: grid;place-items: center; border-radius: 10px;padding: 5px">
+    <p style="font-size: 15px;font-weight: 500">No exists comparation for this product </p>
+  </div>
+}
+@else {
+  <div>
+    <table mat-table [dataSource]="dataSource"  class="mat-elevation-z0 " >
+      <!-- Nombre del producto -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Product </th>
+        <td mat-cell *matCellDef="let row" > {{row.name}} </td>
+      </ng-container>
+      <!-- Precio del producto -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef > Price </th>
+        <td mat-cell *matCellDef="let row"> {{row.price | currency}} </td>
+      </ng-container>
+      <!-- Nombre del vendedor -->
+      <ng-container matColumnDef="seller">
+        <th mat-header-cell *matHeaderCellDef > Seller </th>
+        <td mat-cell *matCellDef="let row"> {{row.sellerName}} </td>
+      </ng-container>
+          <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let row">
+              <button mat-icon-button aria-label="View product compared" [routerLink]="['/users/user-product-detail', row.id]">
+                <mat-icon>launch</mat-icon>
+              </button>
+            </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+}
+

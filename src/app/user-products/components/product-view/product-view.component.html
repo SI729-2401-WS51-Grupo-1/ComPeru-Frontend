@@ -1,0 +1,32 @@
+<mat-card class="product-view-card">
+  <div class="card-img-container">
+    <img mat-card-image src="{{product.imageUrl}}" alt="Photo of a product">
+  </div>
+  <mat-card-header>
+    <div class="container-info">
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-subtitle>{{ product.price }}</mat-card-subtitle>
+    </div>
+
+    <button mat-icon-button class="wishlist-icon" [ngStyle]="{'color': isFavorite ? favoriteColor : initialColor}" (click)="addToWishlist()">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </mat-card-header>
+  <div class="container-footer">
+
+    <mat-card-actions>
+      <button mat-flat-button color="primary" [routerLink]="['/users/user-product-detail', product.id]"><mat-icon>fullscreen_exit</mat-icon> View More</button>
+    </mat-card-actions>
+
+    <mat-card-actions>
+      @if (!this.addedToCart){
+        <button mat-flat-button color="primary" (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon>
+          Add Cart</button>
+      }@else{
+        <button mat-button color="warn" style="color: #FF8082" (click)="removeToCart()">Remove <mat-icon>remove_shopping_cart</mat-icon></button>
+      }
+
+    </mat-card-actions>
+
+  </div>
+</mat-card>

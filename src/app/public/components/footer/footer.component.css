@@ -1,0 +1,42 @@
+.footer_cont{
+  margin-top: 6.188rem;
+  width: 100%;
+  gap: 10px;
+  display: flex;
+  background: #003785;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 20px;
+  justify-content: space-around; /* Distribuye los elementos de manera uniforme a lo largo del eje horizontal */
+}
+
+.foot-col{
+  width: 23.5%;
+  margin-left: 5%;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center; /* Centra el texto dentro de cada columna */
+}
+
+.foot-col h3{
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-family: "Roboto Light";
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  font-weight: bold; /* Hace que el texto sea negrita */
+}
+
+.foot-col h4{
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-family: "Roboto Light";
+  text-decoration: underline; /* Subraya el texto */
+}
+
+.social-icons mat-icon {
+  color: #ffffff;
+  font-size: 2rem; /* Aumenta el tamaño de los iconos */
+  margin: 0 10px; /* Agrega un margen a los lados de los iconos para separarlos */
+}

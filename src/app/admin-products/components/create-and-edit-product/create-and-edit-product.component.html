@@ -1,0 +1,268 @@
+<div class="sec-form">
+ <form (submit)="onSubmit()" #productForm='ngForm' class="form-row ">
+   <div class="form-section">
+     <h2 class="title">{{ editMode ? 'View Product' : 'New Product' }}</h2>
+
+     <div class="header-container">
+
+
+       @if (editMode){
+         <div class="header-container-links">
+           <a (click)="viewReview=false">General</a>
+           <a (click)="viewReview=true">Review</a>
+         </div>
+
+         <div class="header-container-buttons">
+           <button mat-raised-button class="header-button-update">Save</button>
+           <button mat-raised-button class="header-button-cancel" (click)="onCancel()">Cancel</button>
+         </div>
+
+
+       } @else {
+         <div>
+           <a></a>
+         </div>
+         <div class="header-container-buttons">
+           <button mat-raised-button class="header-button">Add Product</button>
+           <button mat-raised-button class="header-button-cancel" (click)="onCancel()">Cancel</button>
+         </div>
+
+
+       }
+     </div>
+     @if(!viewReview){
+
+       <div class="cards-container">
+
+         <div class="cards-container__left">
+
+           <mat-card class="card-general card-price">
+             <mat-card-header>
+               <mat-card-title>Price</mat-card-title>
+             </mat-card-header>
+             <mat-card-content>
+               <div class="card-subcontainer subcontainer-1">
+                 <p class="subcontainer-title">Product Price</p>
+                 <p>
+                   <mat-form-field appearance="outline">
+                     <mat-label>Product Price</mat-label>
+                     <input matInput placeholder="Product Price"  type="number" required [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}">
+                   </mat-form-field>
+                 </p>
+               </div>
+             </mat-card-content>
+
+           </mat-card>
+
+           <mat-card class="card-general card-status">
+             <mat-card-header>
+               <mat-card-title>Status</mat-card-title>
+             </mat-card-header>
+             <mat-card-content>
+               <div class="card-subcontainer subcontainer-1">
+                 <p class="subcontainer-title">Status</p>
+                 <p>
+                   <mat-form-field appearance="outline">
+                     <mat-label>Select</mat-label>
+                     <mat-select [(ngModel)]="product.availability" [ngModelOptions]="{standalone: true}">
+                       <mat-option [value]="true">Published</mat-option>
+                       <mat-option [value]="false">Inactive</mat-option>
+                     </mat-select>
+                   </mat-form-field>
+                 </p>
+               </div>
+             </mat-card-content>
+           </mat-card>
+         </div>
+
+         <mat-card class="card-general general">
+           <mat-card-header>
+             <mat-card-title>General</mat-card-title>
+           </mat-card-header>
+           <mat-card-content>
+             <div class="card-subcontainer subcontainer-1">
+               <p class="subcontainer-title">Product Name</p>
+               <p>
+                 <mat-form-field appearance="outline">
+                   <mat-label>Product Name</mat-label>
+                   <input matInput placeholder="Product Name" required [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}">
+                 </mat-form-field>
+               </p>
+               <p class="text-under">A product name is required and recommended to be unique. </p>
+             </div>
+
+             <div class="card-subcontainer subcontainer-2" >
+               <p class="subcontainer-title">Description</p>
+               <mat-form-field class="description-text-area" appearance="outline">
+                 <mat-label>Type your text here...</mat-label>
+                 <textarea matInput [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}"></textarea>
+               </mat-form-field>
+               <p class="text-under">Set a description to the product for better visibility.</p>
+             </div>
+
+           </mat-card-content>
+
+         </mat-card>
+
+
+
+
+
+         <mat-card class="card-general card-details">
+           <mat-card-header>
+             <mat-card-title>Details</mat-card-title>
+           </mat-card-header>
+           <mat-card-content>
+             <div class="card-subcontainer subcontainer-1">
+               <p class="subcontainer-title">Category</p>
+               <p>
+                 <mat-form-field appearance="outline">
+                   <mat-label>Select</mat-label>
+                   <mat-select [(ngModel)]="product.category" [ngModelOptions]="{standalone: true}">
+                     <mat-option value="Computer">Computer</mat-option>
+                     <mat-option value="Cellphone">Cellphone</mat-option>
+                     <mat-option value="Computer">Headphones</mat-option>
+                     <mat-option value="Cellphone">Electronics</mat-option>
+                     <mat-option value="Cellphone">Fashion</mat-option>
+
+                   </mat-select>
+                 </mat-form-field>
+               </p>
+               <p class="text-under">Choose the category is very important for show the products. </p>
+             </div>
+
+             <div class="card-subcontainer subcontainer-1">
+               <p class="subcontainer-title">Brand</p>
+               <p>
+                 <mat-form-field appearance="outline">
+                   <mat-label>Product Brand</mat-label>
+                   <input matInput placeholder="Write the Brand" required [(ngModel)]="product.brand" [ngModelOptions]="{standalone: true}">
+                 </mat-form-field>
+               </p>
+               <p class="text-under">Select the brand for a more optimal publication </p>
+             </div>
+             <div class="card-subcontainer subcontainer-3">
+               <p class="subcontainer-title">Model Number</p>
+               <p>
+                 <mat-form-field appearance="outline">
+                   <mat-label>Model Number</mat-label>
+                   <input matInput placeholder="Model Number" required [(ngModel)]="product.modelNumber" [ngModelOptions]="{standalone: true}">
+                 </mat-form-field>
+               </p>
+             </div>
+             <div class="card-subcontainer subcontainer-4">
+               <p class="subcontainer-title">Manufacture Number (MPN)</p>
+               <p>
+                 <mat-form-field appearance="outline">
+                   <mat-label>Manufacture Number</mat-label>
+                   <input matInput placeholder="MPN" required [(ngModel)]="product.manufacturer"[ngModelOptions]="{standalone: true}">
+                 </mat-form-field>
+               </p>
+             </div>
+           </mat-card-content>
+
+         </mat-card>
+
+         <div class="cards-container__down">
+           <mat-card class="card-general card-stock">
+             <mat-card-header>
+               <mat-card-title>Stock</mat-card-title>
+             </mat-card-header>
+             <mat-card-content>
+               <div class="card-subcontainer subcontainer-1">
+                 <p class="subcontainer-title">Product Stock</p>
+                 <p>
+                   <mat-form-field appearance="outline">
+                     <mat-label>Stock</mat-label>
+                     <input matInput placeholder="Product Stock"  type="number" required [(ngModel)]="product.stock" [ngModelOptions]="{standalone: true}">
+                   </mat-form-field>
+                 </p>
+               </div>
+             </mat-card-content>
+
+           </mat-card>
+
+           <mat-card class="card-general card-rating">
+             <mat-card-header>
+               <mat-card-title>Rating</mat-card-title>
+             </mat-card-header>
+             <mat-card-content>
+               @if(product.rating){
+                 <div class="card-subcontainer subcontainer-1">
+                   <p>{{product.rating}}</p>
+                 </div>
+               }@else{
+                 <div class="card-subcontainer subcontainer-1">
+                   <p>The rating will be shown when users review your product.</p>
+                 </div>
+               }
+
+             </mat-card-content>
+
+           </mat-card>
+
+         </div>
+
+
+
+
+         <mat-card class="card-general card-files">
+           <mat-card-header>
+             <mat-card-title>Upload Files</mat-card-title>
+           </mat-card-header>
+           <mat-card-content>
+             <div class="card-subcontainer subcontainer-5">
+               <p class="subcontainer-title">Add Image</p>
+               @if (!imageSrc){
+                 <div class="files-container_case-1" >
+                   <input type="file" name="product_image" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
+                   <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput')">Add image</button>
+                   <p>Accept only images</p>
+                 </div>
+               }
+               @else if (imageSrc){
+
+                 <div class="files-container_case-2">
+                   <div class="image-preview">
+                     <img [src]="imageSrc" alt="Preview">
+                   </div>
+                   <div class="case-2_container-add">
+                     <input type="file" name="product_image" id="fileInput2" (change)="onFileSelected($event)" style="display: none;">
+                     <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput2')">Change image</button>
+                     <p>Accept only images</p>
+                   </div>
+
+                 </div>
+
+               }
+
+             </div>
+
+           </mat-card-content>
+
+         </mat-card>
+
+
+       </div>
+     } @else {
+          <app-review-table [productId]="product.id"
+                            (averageRatingEmitter)="onAverageRatingChange($event)"
+          />
+     }
+
+
+
+
+
+   </div>
+
+
+
+   <br>
+
+
+ </form>
+
+
+
+</div>

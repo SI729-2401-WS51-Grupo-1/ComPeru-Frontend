@@ -1,0 +1,42 @@
+<div *ngIf="cartItems.length > 0; else emptyCart" xmlns="http://www.w3.org/1999/html"
+     xmlns="http://www.w3.org/1999/html" class="cart-container">
+  <mat-list class="cart-list">
+
+    <div *ngIf="cartItems.length > 0; else emptyCart" class="cart-container">
+      <mat-card *ngFor="let item of cartItems" class="product-view-card cart-item-card">
+        <div class="card-img-container">
+          <img mat-card-image [src]="item.imageUrl" alt="Photo of {{item.name}}">
+        </div>
+        <mat-card-header>
+          <div class="container-info">
+            <mat-card-title>{{ item.name }}</mat-card-title>
+            <mat-card-subtitle>{{ item.price | currency }}</mat-card-subtitle>
+          </div>
+          <button mat-icon-button color="warn" (click)="removeFromCart(item.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-header>
+      </mat-card>
+      <div class="cart-actions">
+        <h2 class="total">Total: {{ total | currency }}</h2>
+        <span class="mat-spacer"></span>
+        <button mat-flat-button color="primary" routerLink="/users/shipping-page"> <mat-icon>shopping_cart</mat-icon>
+           Ir a Pagar </button>
+        <p>
+        <button mat-flat-button color="warn" (click)="clearCart()"> 	<mat-icon>delete_outline</mat-icon> Vaciar Carrito</button>
+      </div>
+    </div>
+
+  </mat-list>
+</div>
+
+<ng-template #emptyCart>
+  <div class="empty-cart-container">
+    <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+    <p class="empty-cart-message">¡Tu carrito está vacío!</p>
+    <p class="empty-cart-subtext">Parece que aún no has añadido ningún artículo. Explora nuestros productos y encuentra lo que necesitas.</p>
+    <button mat-flat-button color="primary" class="btn" routerLink="/users/home">Comenzar a comprar</button>
+  </div>
+</ng-template>
+
+

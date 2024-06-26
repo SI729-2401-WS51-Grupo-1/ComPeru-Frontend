@@ -1,0 +1,130 @@
+/* Estilos para el contenedor principal */
+.container-wishlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espacio entre las tarjetas */
+  padding: 20px;
+}
+
+/* Estilos para cada tarjeta de producto en la lista de deseos */
+.mat-card {
+  flex: 1 1 100%; /* Una tarjeta por fila en pantallas pequeñas */
+  box-sizing: border-box;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.mat-card:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para la imagen dentro de cada tarjeta */
+img[mat-card-image] {
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Limitar la altura máxima */
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Estilos para el título y subtítulo dentro de cada tarjeta */
+mat-card-title,
+mat-card-subtitle {
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Estilos para los botones de acción dentro de cada tarjeta */
+.mat-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 16px 16px;
+}
+
+.mat-card-actions button {
+  padding: 10px;
+  font-size: 1em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.mat-card-actions button:first-child {
+  background-color: #e57373; /* Color para el botón de eliminar */
+  color: white;
+}
+
+.mat-card-actions button:first-child:hover {
+  background-color: #d32f2f;
+}
+
+.mat-card-actions button:last-child {
+  background-color: #64b5f6; /* Color para el botón de ver más */
+  color: white;
+}
+
+.mat-card-actions button:last-child:hover {
+  background-color: #1976d2;
+}
+
+/* Responsividad */
+@media (min-width: 480px) {
+  .mat-card {
+    flex: 1 1 calc(50% - 20px); /* Dos tarjetas por fila */
+  }
+}
+
+@media (min-width: 768px) {
+  .mat-card {
+    flex: 1 1 calc(33.333% - 40px); /* Tres tarjetas por fila */
+  }
+}
+
+/* Estilos para el contenedor de lista de deseos vacía */
+.empty-wishlist-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Hace que el contenedor ocupe toda la altura de la pantalla */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Estilos para el mensaje de lista de deseos vacía */
+.empty-wishlist-message {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Estilos para el subtexto de lista de deseos vacía */
+.empty-wishlist-subtext {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* Estilos para el botón de acción en lista de deseos vacía */
+.empty-wishlist-container button {
+  font-size: 1.1em;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #1976d2; /* Cambiar color de fondo del botón */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.empty-wishlist-container button:hover {
+  background-color: #125a9d; /* Color de fondo al pasar el cursor por encima */
+}
