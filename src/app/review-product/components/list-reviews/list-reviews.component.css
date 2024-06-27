@@ -1,0 +1,11 @@
+.rating-stars {
+  display: inline-block;
+}
+
+.rating-stars mat-icon {
+  color: #ccc;
+}
+
+.rating-stars mat-icon.selected {
+  color: gold;
+}

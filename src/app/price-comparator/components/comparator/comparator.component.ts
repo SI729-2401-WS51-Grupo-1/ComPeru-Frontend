@@ -25,21 +25,21 @@ import {UsersService} from "../../../admin-products/services/users.service";
   styleUrl: './comparator.component.css'
 })
 export class ComparatorComponent implements OnInit{
-  @Input() product: Product;
+  @Input() product: any;
   dataSource!:MatTableDataSource<any>;
   displayedColumns: string[] = ['name', 'price', 'seller','actions'];  // Columnas para la tabla
 
   constructor(private productService:ProductsService, private userService:UsersService) {
-    this.product = new Product();
+    this.product = {};
     this.dataSource = new MatTableDataSource<any>();
 
   }
 
   private getAllProducts() {
     this.productService.getAll().subscribe((productsResponse: any) => {
-      const filteredProducts = productsResponse.filter((p: Product) => this.isSimilar(p));
+      const filteredProducts = productsResponse.filter((p: any) => this.isSimilar(p));
 
-      const sortedProducts = filteredProducts.sort((a: Product, b: Product) => a.price - b.price);
+      const sortedProducts = filteredProducts.sort((a: any, b: any) => a.price - b.price);
 
       const topProducts = sortedProducts.slice(0, 3);
 
@@ -47,21 +47,23 @@ export class ComparatorComponent implements OnInit{
     });
   }
 
-  private isSimilar(p: Product): boolean {
+  private isSimilar(p: any): boolean {
     return p.name.includes(this.product.name) || p.manufacturerNumber === this.product.manufacturerNumber;
   }
 
-  private enrichWithSellerNames(products: Product[]) {
+  private enrichWithSellerNames(products: any[]) {
     const entrepreneurIds = products.map(p => p.userId);
 
     this.userService.getAll().subscribe((usersResponse: any) => {
       const enrichedProducts = products.map(product => {
-        const seller = usersResponse.find((user: any) => user.id == product.userId);
+        console.log(usersResponse);
+        const seller = usersResponse.find((user: any) => user.id == product.entrepreneurId);
+        console.log(seller);
         return {
           id:product.id,
           name: product.name,
           price: product.price,
-          sellerName: seller ? `${seller.name} ${seller.lastName}` : 'Unknown Seller'
+          sellerName: seller ? `${seller.username}` : 'Unknown Seller'
         };
       });
       this.dataSource.data = enrichedProducts;

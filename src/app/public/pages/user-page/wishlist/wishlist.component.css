@@ -101,7 +101,9 @@
   background-color: #003785;
 }
 
-
+.remove-cart{
+  background-color: #FF8082 ;
+}
 .empty-section{
   width: 100%;
   display: grid;

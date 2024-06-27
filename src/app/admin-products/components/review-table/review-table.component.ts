@@ -23,8 +23,8 @@ import {UsersService} from "../../services/users.service";
 export class ReviewTableComponent implements OnInit{
   @Input() productId!: number;
   @Output() averageRatingEmitter: EventEmitter<number> = new EventEmitter<number>();
-  review:Review;
-  reviews:Review[];
+  review:any;
+  reviews:any[];
   reviewDetails:any[];
   averageRating: number = 0;
   dataSource!:MatTableDataSource<any>;
@@ -32,7 +32,7 @@ export class ReviewTableComponent implements OnInit{
   @ViewChild(MatPaginator, { static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false}) sort!: MatSort;
   constructor(private reviewService: ReviewsService, private userService: UsersService) {
-    this.review={} as Review;
+    this.review={} ;
     this.reviews=[];
     this.reviewDetails = [];
     this.dataSource = new MatTableDataSource<any>();
@@ -45,16 +45,16 @@ export class ReviewTableComponent implements OnInit{
         console.log(usersResponse);
         console.log(reviewsResponse);
         // Filtra las reviews por productId
-        this.reviews = reviewsResponse.filter((review: Review) => review.idProduct == this.productId);
+        this.reviews = reviewsResponse.filter((review: Review) => review.productId == this.productId);
 
         console.log(this.reviews);
 
         // Combina reviews y usuarios
         this.reviewDetails = this.reviews.map(review => {
-          const user = usersResponse.find((user: any) => user.id == review.idUser);
+          const user = usersResponse.find((user: any) => user.id == review.userId);
           return {
-            id: review.id,
-            userName: user ? `${user.name} ${user.lastName}` : 'Unknown User',
+            id: review.reviewId,
+            userName: user ? `${user.username}` : 'Unknown User',
             rating: review.rating,
             content: review.content
           };

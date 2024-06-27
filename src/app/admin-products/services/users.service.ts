@@ -6,7 +6,7 @@ import {User} from "../../shared/model/user.entity"
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService extends BaseService<User>{
+export class UsersService extends BaseService<any>{
 
   constructor(http: HttpClient) {
     super(http);

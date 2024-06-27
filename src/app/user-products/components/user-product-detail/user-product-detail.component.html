@@ -21,7 +21,7 @@
         <p class="information-product-price">{{productData.price | currency:'USD':true }}</p>
         <div class="information-container-brand">
           <p class="information-container-label">Brand: </p>
-          <p class="information-product-brand">{{productData.brand}}</p>
+          <p class="information-product-brand">{{productData.brand.name}}</p>
         </div>
         <p style="font-size: 15px;font-weight: 500;margin-top: 5px">Price Comparator </p>
 <!--        <div class="quantity-selector">-->
@@ -51,7 +51,7 @@
       <div class="product-specifications-section" >
 
         <div><span style="font-weight: bold">Model Number:</span><p>{{productData.modelNumber}}</p></div>
-        <div><span style="font-weight: bold">Seller: </span><p>{{userData.name}}</p></div>
+        <div><span style="font-weight: bold">Seller: </span><p>{{userData.username}}</p></div>
         <div><span style="font-weight: bold">Description:</span><p>{{productData.description}}</p></div>
       </div>
 
@@ -60,7 +60,7 @@
         <div class="new-review-container" style="display: flex; flex-direction: column; width: 100%;">
           <mat-form-field appearance="outline">
             <mat-label>Write your review</mat-label>
-            <textarea matInput class="new-review-input"></textarea>
+            <textarea matInput class="new-review-input" [(ngModel)]="review.content"></textarea>
           </mat-form-field>
           <div style="display: flex; justify-content: space-between; align-items: start;">
             <div class="rating-stars-container" style="display: flex; gap: 5px; align-items: center;">
@@ -72,7 +72,8 @@
                 </mat-icon>
               </div>
             </div>
-            <button mat-button color="accent" class="submit-review-button" style="align-self: start;">Submit</button>
+            <button mat-button color="accent" class="submit-review-button" style="align-self: start;" (click)="makeReview()">Submit</button>
+
           </div>
 <!--          <input type="text" class="new-review-input" placeholder="Write your review..." />-->
         </div>

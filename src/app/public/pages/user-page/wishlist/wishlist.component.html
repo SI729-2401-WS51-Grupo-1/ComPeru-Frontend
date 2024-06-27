@@ -11,8 +11,12 @@
               <p class="product-subtitle">{{ product.price }}</p>
             </div>
            <div class="product-actions">
-             <button class="action-button btn-add"><mat-icon>add_shopping_cart</mat-icon></button>
-            <button class="action-button btn-visibility"><mat-icon>visibility</mat-icon></button>
+             @if(!addedToCart){
+               <button class="action-button btn-add" (click)="addToCar(product)"><mat-icon>add_shopping_cart</mat-icon></button>
+             } @else {
+               <button class="action-button remove-cart" (click)="removeToCart(product)"><mat-icon>remove_shopping_cart</mat-icon></button>
+             }
+             <button class="action-button btn-visibility" (click)="viewMore(product)"><mat-icon>visibility</mat-icon></button>
              <button class="action-button btn-remove" (click)="removeFromWishlist(product)"><mat-icon>delete_outline</mat-icon></button>
            </div>
           </div>

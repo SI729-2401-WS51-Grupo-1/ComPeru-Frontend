@@ -6,25 +6,28 @@ import {MatListModule} from "@angular/material/list";
 import {User} from "../../../shared/model/user.entity";
 import {ActivatedRoute} from "@angular/router";
 import {UsersService} from "../../../admin-products/services/users.service";
+import {MatIcon} from "@angular/material/icon";
+import {NgClass, NgForOf} from "@angular/common";
 @Component({
   selector: 'app-list-reviews',
   standalone: true,
-  imports: [MatListModule, MatDividerModule],
+  imports: [MatListModule, MatDividerModule, MatIcon, NgForOf, NgClass],
   templateUrl: './list-reviews.component.html',
   styleUrl: './list-reviews.component.css'
 })
 export class ListReviewsComponent implements  OnInit{
-  @Input() userData: User = {} as User; // Inicialización
+  @Input() userData:any={}; // Inicialización
   productId: string | null = null;
-  reviewData: Review;
-  reviews: Review[];
-
+  reviewData: any;
+  reviews: any[];
+  rating: number = 0;
+  stars: number[] = [1, 2, 3, 4, 5];
   review:any;
   listReviews: any;
   reviewDetails:any[];
 
   constructor(private _route:ActivatedRoute, private reviewsService:ReviewsService, private usersService:UsersService) {
-    this.reviewData = {} as Review;
+    this.reviewData = {} ;
     this.reviews = [];
     this.reviewDetails = [];
   }
@@ -36,16 +39,16 @@ export class ListReviewsComponent implements  OnInit{
         console.log(usersResponse);
         console.log(reviewsResponse);
         // Filtra las reviews por productId
-        this.reviews = reviewsResponse.filter((review: Review) => review.idProduct.toString() == id);
+        this.reviews = reviewsResponse.filter((review: any) => review.productId.toString() == id);
 
         console.log(this.reviews);
 
         // Combina reviews y usuarios
         this.reviewDetails = this.reviews.map(review => {
-          const user = usersResponse.find((user: any) => user.id == review.idUser);
+          const user = usersResponse.find((user: any) => user.id == review.userId);
           return {
-            id: review.id,
-            userName: user ? `${user.name} ${user.lastName}` : 'Unknown User',
+            id: review.reviewId,
+            userName: user ? `${user.username}` : 'Unknown User',
             rating: review.rating,
             content: review.content
           };
@@ -55,7 +58,9 @@ export class ListReviewsComponent implements  OnInit{
       });
     });
   };
-
+  rate(star: number) {
+    this.rating = star;
+  }
   ngOnInit(): void {
     this._route.params.subscribe(params => {
       this.productId = params['id'];

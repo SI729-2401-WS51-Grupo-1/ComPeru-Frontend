@@ -5,8 +5,9 @@ import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {MatCard, MatCardModule} from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
 import {Observable} from "rxjs";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {MatIcon} from "@angular/material/icon";
+import {CartService} from "../cart/services/cart.service";
 
 @Component({
   selector: 'app-wishlist',
@@ -27,8 +28,11 @@ import {MatIcon} from "@angular/material/icon";
 export class WishlistComponent implements OnInit {
   wishlist: any[] = [];
   wishlistItemCount: number | undefined;
+  addedToCart:boolean;
+  constructor(private wishlistService: WishlistService,private cartService:CartService,private router: Router) {
+    this.addedToCart=false;
 
-  constructor(private wishlistService: WishlistService) {}
+  }
 
   ngOnInit() {
     this.wishlistService.getWishlist().subscribe(items => {
@@ -42,5 +46,17 @@ export class WishlistComponent implements OnInit {
     this.wishlistService.getWishlist().subscribe(items => {
       this.wishlist = items;
     });
+  }
+
+  addToCar(product: Product){
+    this.addedToCart = !this.addedToCart;
+    this.cartService.addToCart(product,1);
+  }
+  viewMore(product: Product){
+    this.router.navigateByUrl(`users/user-product-detail/${product.id}`);
+  }
+  removeToCart(product:Product){
+    this.addedToCart = !this.addedToCart;
+    this.cartService.removeFromCart(product.id);
   }
 }
