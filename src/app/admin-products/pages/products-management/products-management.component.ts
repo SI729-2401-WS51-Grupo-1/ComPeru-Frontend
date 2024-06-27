@@ -58,27 +58,29 @@ constructor(private productService:ProductsService) {
   };
 
   private createProduct(){
-    // // Asignar un valor de rating por defecto (por ejemplo, 0)
   console.log("Soy un rating",this.productData.rating);
   console.log(this.dataSource);
+  let urlImages = [];
+  urlImages.push(this.productData.imageUrls);
     let productToCreate: Product = {
-      id: 0, // El id probablemente se generará en el backend, así que podemos enviar 0 o omitirlo
+      id: 0,
       name: this.productData.name,
       description: this.productData.description,
-      categoryId: this.productData.category.id,
-      brandId: this.productData.brandName.id,
+      categoryId: this.productData.category.Id,
+      brandId: this.productData.brand.Id,
       modelNumber: this.productData.modelNumber,
       manufacturerNumber: this.productData.manufacturerNumber,
       price: this.productData.price,
-      imageUrls: this.productData.imageUrls || [],
+      imageUrls: urlImages || [],
       availability: this.productData.availability,
       rating: 0,
       stock: this.productData.stock,
-      userId: this.productData.userId || 0
+      userId: this.productData.userId
     };
+    console.log(productToCreate);
     this.productService.create(productToCreate).subscribe((response:any)=>{
       this.dataSource.data.push({...response});
-      this.dataSource.data = this.dataSource.data.map((product: Product)=>{return product;});
+      // this.dataSource.data = this.dataSource.data.map((product: Product)=>{return product;});
     })
   }
 

@@ -29,19 +29,23 @@ export class CreateAndEditProductComponent implements OnInit {
 @ViewChild('productForm', {static: false}) productForm!: NgForm;
 imageSrc: string | ArrayBuffer | null = null;
   viewReview:boolean;
-
+  brandName:string;
+  categoryName:string;
   brands:any[];
   categories:any[];
 
 constructor(private storageService:StorageService, private categoryService:CategoryService,private brandService:BrandService) {
-  this.product = {};
+  this.product={};
   this.viewReview=false;
   this.brands = [];
   this.categories = [];
+  this.categoryName= "";
+  this.brandName ="";
+
 }
 
   private resetEditState() {
-    this.product = new Product();
+    this.product ={};
     this.editMode = false;
     this.visible=false;
     this.imageSrc = null;
@@ -54,11 +58,13 @@ constructor(private storageService:StorageService, private categoryService:Categ
       console.log("soy el formulario y me envie");
       //colocar url
       this.product.rating=0;
-      this.product.brand = this.brands.find(brand=> brand.name == this.product.brand);
-      this.product.category = this.categories.find(category=>category.name==this.product.category);
+      this.product.brand = this.brands.find(brand=> brand.name == this.brandName);
+      console.log(this.product.brand);
+      this.product.userId = 1;
+      this.product.category = this.categories.find(category=>category.name==this.categoryName);
       this.storageService.uploadImage('products',this.product.name+"_"+this.product.id,this.imageSrc).then(urlImage=>{
         console.log("Url de la imagen : ",urlImage);
-        this.product.imageUrls[0] = urlImage || 'https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fundefined.png?alt=media&token=c627d455-7a5f-4f50-9279-28732f1f75ac';
+        this.product.imageUrls = urlImage || 'https://firebasestorage.googleapis.com/v0/b/comperu-resources.appspot.com/o/products%2Fundefined.png?alt=media&token=c627d455-7a5f-4f50-9279-28732f1f75ac';
         let emitter = this.editMode ? this.productUpdated : this.productAdded;
         emitter.emit(this.product);
         console.log("Este es el product",this.product)
@@ -118,7 +124,12 @@ constructor(private storageService:StorageService, private categoryService:Categ
     }
     this.getAllBrands();
     this.getAllCategories();
-
+    if(this.product.brand){
+      this.brandName=this.product.brand.name;
+    }
+    if(this.product.category){
+      this.categoryName=this.product.category.name;
+    }
 
   }
 

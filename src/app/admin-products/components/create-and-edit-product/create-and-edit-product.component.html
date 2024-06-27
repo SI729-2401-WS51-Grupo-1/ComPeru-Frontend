@@ -118,7 +118,7 @@
                <p>
                  <mat-form-field appearance="outline">
                    <mat-label>Select</mat-label>
-                   <mat-select [(ngModel)]="product.category.name" [ngModelOptions]="{ standalone: true }">
+                   <mat-select [(ngModel)]="categoryName" [ngModelOptions]="{ standalone: true }">
                      <mat-option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</mat-option>
                    </mat-select>
                  </mat-form-field>
@@ -131,7 +131,7 @@
                <p>
                  <mat-form-field appearance="outline">
                    <mat-label>Product Brand</mat-label>
-                   <mat-select [(ngModel)]="product.brand.name" [ngModelOptions]="{ standalone: true }">
+                   <mat-select [(ngModel)]="brandName" [ngModelOptions]="{ standalone: true }">
                      <mat-option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</mat-option>
                    </mat-select>
                  </mat-form-field>
