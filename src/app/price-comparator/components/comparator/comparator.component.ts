@@ -48,16 +48,15 @@ export class ComparatorComponent implements OnInit{
   }
 
   private isSimilar(p: Product): boolean {
-    // Lógica de comparación, puede ser por nombre o cualquier otro atributo
-    return p.name.includes(this.product.name) || p.modelNumber === this.product.modelNumber;
+    return p.name.includes(this.product.name) || p.manufacturerNumber === this.product.manufacturerNumber;
   }
 
   private enrichWithSellerNames(products: Product[]) {
-    const entrepreneurIds = products.map(p => p.idEntrepreneur);
+    const entrepreneurIds = products.map(p => p.userId);
 
     this.userService.getAll().subscribe((usersResponse: any) => {
       const enrichedProducts = products.map(product => {
-        const seller = usersResponse.find((user: any) => user.id == product.idEntrepreneur);
+        const seller = usersResponse.find((user: any) => user.id == product.userId);
         return {
           id:product.id,
           name: product.name,

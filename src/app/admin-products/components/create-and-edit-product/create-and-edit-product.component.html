@@ -118,17 +118,12 @@
                <p>
                  <mat-form-field appearance="outline">
                    <mat-label>Select</mat-label>
-                   <mat-select [(ngModel)]="product.category" [ngModelOptions]="{standalone: true}">
-                     <mat-option value="Computer">Computer</mat-option>
-                     <mat-option value="Cellphone">Cellphone</mat-option>
-                     <mat-option value="Computer">Headphones</mat-option>
-                     <mat-option value="Cellphone">Electronics</mat-option>
-                     <mat-option value="Cellphone">Fashion</mat-option>
-
+                   <mat-select [(ngModel)]="product.category.name" [ngModelOptions]="{ standalone: true }">
+                     <mat-option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</mat-option>
                    </mat-select>
                  </mat-form-field>
                </p>
-               <p class="text-under">Choose the category is very important for show the products. </p>
+               <p class="text-under">Choose the category is very important for show the products.</p>
              </div>
 
              <div class="card-subcontainer subcontainer-1">
@@ -136,10 +131,12 @@
                <p>
                  <mat-form-field appearance="outline">
                    <mat-label>Product Brand</mat-label>
-                   <input matInput placeholder="Write the Brand" required [(ngModel)]="product.brand" [ngModelOptions]="{standalone: true}">
+                   <mat-select [(ngModel)]="product.brand.name" [ngModelOptions]="{ standalone: true }">
+                     <mat-option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</mat-option>
+                   </mat-select>
                  </mat-form-field>
                </p>
-               <p class="text-under">Select the brand for a more optimal publication </p>
+               <p class="text-under">Select the brand for a more optimal publication.</p>
              </div>
              <div class="card-subcontainer subcontainer-3">
                <p class="subcontainer-title">Model Number</p>
@@ -151,11 +148,11 @@
                </p>
              </div>
              <div class="card-subcontainer subcontainer-4">
-               <p class="subcontainer-title">Manufacture Number (MPN)</p>
+               <p class="subcontainer-title">MPN</p>
                <p>
                  <mat-form-field appearance="outline">
                    <mat-label>Manufacture Number</mat-label>
-                   <input matInput placeholder="MPN" required [(ngModel)]="product.manufacturer"[ngModelOptions]="{standalone: true}">
+                   <input matInput placeholder="MPN" required [(ngModel)]="product.manufacturerNumber"[ngModelOptions]="{standalone: true}">
                  </mat-form-field>
                </p>
              </div>

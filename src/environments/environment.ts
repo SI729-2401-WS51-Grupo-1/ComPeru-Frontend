@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  serverBasePath: 'http://localhost:3000',
+  serverBasePath: 'http://localhost:8090/api/v1',
   // serverBasePath: 'https://fake-api-jade.vercel.app',
   firebaseConfig: {
     apiKey: "AIzaSyDdf1mmRl4e9eUcgFcWrrgzCB1EwDVdNVc",

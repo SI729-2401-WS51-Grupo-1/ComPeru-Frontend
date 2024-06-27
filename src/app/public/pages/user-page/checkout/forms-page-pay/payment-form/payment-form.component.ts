@@ -69,7 +69,7 @@ export class PaymentFormComponent implements OnInit{
     { label: 'CVV', placeholder: 'CVV', model: '', name: 'cvv', error: 'Este campo es requerido' }
   ];
 
-  cartItems: Product[] = [];
+  cartItems: any[] = [];
   forCalculateArray:any[];
   total: number = 0;
   constructor(private router:Router, private fb: FormBuilder, private cartService: CartService, private orderService: OrderService) {

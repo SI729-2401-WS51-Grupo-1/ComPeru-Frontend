@@ -2,34 +2,30 @@ export class Product {
   id: number;
   name: string;
   description: string;
-  category: string;
-  brand: string;
+  categoryId: number;
+  brandId: number;
   modelNumber: string;
-  manufacturer: string;
+  manufacturerNumber: string;
   price: number;
-  imageUrl: string;
+  imageUrls: string[];
   availability: boolean;
   rating: number;
   stock:number;
-  idEntrepreneur: number;
-  // subTotal:number;
-  // reviews: Review[];
+  userId: number;
   constructor() {
     this.id = 0;
     this.name = "";
     this.description = "";
-    this.category = "";
-    this.brand = "";
+    this.categoryId = 0;
+    this.brandId = 0;
     this.modelNumber = "";
-    this.manufacturer = "";
+    this.manufacturerNumber = "";
     this.price = 0;
-    this.imageUrl = "";
+    this.imageUrls = [];
     this.availability = false;
     this.rating = 0;
     this.stock=0;
-    this.idEntrepreneur=0;
-    // this.subTotal=0;
-    // this.reviews = [];
+    this.userId=0;
   }
 
 }

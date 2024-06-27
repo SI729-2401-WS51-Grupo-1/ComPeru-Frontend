@@ -15,7 +15,7 @@ import {NgStyle} from "@angular/common";
   styleUrl: './product-view.component.css'
 })
 export class ProductViewComponent {
-  @Input() product: Product;
+  @Input() product: any;
   isFavorite: boolean = false;
   addedToCart:boolean = false;
   selectedQuantity: number = 1; // Nueva propiedad para almacenar la cantidad seleccionada
@@ -23,7 +23,7 @@ export class ProductViewComponent {
   initialColor: string = '#CACECE';
   favoriteColor: string = '#FF8082';
   constructor(private wishlistService: WishlistService, private cartService: CartService, private router: Router) {
-    this.product={} as Product;
+    this.product={};
   }
 
   addToWishlist() {

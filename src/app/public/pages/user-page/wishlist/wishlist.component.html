@@ -5,7 +5,7 @@
       <div class="container-wishlist">
         @for (product of wishlist;track product){
           <div class="product-card">
-            <img class="product-image" [src]="product.imageUrl" alt="Photo of {{product.name}}">
+            <img class="product-image" [src]="product.imageUrls[0]" alt="Photo of {{product.name}}">
             <div class="product-header">
               <p class="product-title">{{ product.name }}</p>
               <p class="product-subtitle">{{ product.price }}</p>

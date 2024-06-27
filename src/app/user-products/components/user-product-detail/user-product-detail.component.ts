@@ -42,8 +42,8 @@ export class UserProductDetailComponent implements OnInit{
   addedToCart:boolean = false;
   rating: number = 0;
   stars: number[] = [1, 2, 3, 4, 5];
-  productData: Product;
-  products: Product[];
+  productData: any;
+  products: any[];
   productId: string | null = null;
   userData: User;
   selectedQuantity: number = 1; // Nueva propiedad para almacenar la cantidad seleccionada
@@ -67,9 +67,9 @@ export class UserProductDetailComponent implements OnInit{
 
 
   private getProduct(id:string){
-    this.productService.getById(id).subscribe((response:any)=>{
+    this.productService.getProductById(id).subscribe((response:any)=>{
       this.productData=response;
-      this.getSeller(this.productData.idEntrepreneur.toString());
+      this.getSeller(this.productData.entrepreneurId.toString());
     })
   }
 

@@ -30,7 +30,7 @@ import {RouterLink} from "@angular/router";
   styleUrl: './products-management.component.css'
 })
 export class ProductsManagementComponent implements OnInit, AfterViewInit  {
-productData: Product;
+productData: any;
 dataSource!:MatTableDataSource<any>;
 displayedColumns: string[] = ['id','name','category','price','rating','actions' ]
   isEditMode: boolean;
@@ -40,7 +40,7 @@ isVisibleCard:boolean;
   @ViewChild(MatPaginator, { static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false}) sort!: MatSort;
 constructor(private productService:ProductsService) {
-  this.productData={} as Product;
+  this.productData={} ;
   this.dataSource = new MatTableDataSource<any>();
   this.isEditMode=false;
   this.isVisibleCard=false;
@@ -52,7 +52,7 @@ constructor(private productService:ProductsService) {
   }
 //CRUD ACTIOS
   private getAllProducts(){
-  this.productService.getAll().subscribe((response:any)=>{
+  this.productService.getAllProducts().subscribe((response:any)=>{
     this.dataSource.data=response;
   })
   };
@@ -61,7 +61,22 @@ constructor(private productService:ProductsService) {
     // // Asignar un valor de rating por defecto (por ejemplo, 0)
   console.log("Soy un rating",this.productData.rating);
   console.log(this.dataSource);
-    this.productService.create(this.productData).subscribe((response:any)=>{
+    let productToCreate: Product = {
+      id: 0, // El id probablemente se generará en el backend, así que podemos enviar 0 o omitirlo
+      name: this.productData.name,
+      description: this.productData.description,
+      categoryId: this.productData.category.id,
+      brandId: this.productData.brandName.id,
+      modelNumber: this.productData.modelNumber,
+      manufacturerNumber: this.productData.manufacturerNumber,
+      price: this.productData.price,
+      imageUrls: this.productData.imageUrls || [],
+      availability: this.productData.availability,
+      rating: 0,
+      stock: this.productData.stock,
+      userId: this.productData.userId || 0
+    };
+    this.productService.create(productToCreate).subscribe((response:any)=>{
       this.dataSource.data.push({...response});
       this.dataSource.data = this.dataSource.data.map((product: Product)=>{return product;});
     })

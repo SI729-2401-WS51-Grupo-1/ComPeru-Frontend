@@ -35,7 +35,7 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit {
-  product: Product;
+  product: any;
   selectedQuantity: number = 1; // Nueva propiedad para almacenar la cantidad seleccionada
 
   constructor(
@@ -45,7 +45,7 @@ export class ProductDetailsComponent implements OnInit {
     private cartService: CartService,
     private router: Router
 ) {
-    this.product = {} as Product;
+    this.product = {};
   }
 
   addToWishlist() {

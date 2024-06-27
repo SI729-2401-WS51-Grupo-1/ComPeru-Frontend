@@ -19,16 +19,16 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrl: './list-products-view.component.css'
 })
 export class ListProductsViewComponent implements OnInit{
-  productData: Product;
-  products: Product[];
-  allProducts:Product[];
-  productsBeforeSecondFilter:Product[];
+  productData: any;
+  products: any[];
+  allProducts:any[];
+  productsBeforeSecondFilter:any[];
   visibleFilterPanel: boolean;
   category: string;
 
   constructor(    private router: Router,
                   private route: ActivatedRoute,private productService:ProductsService) {
-    this.productData={} as Product;
+    this.productData={} ;
     this.products = [];
     this.allProducts=[];
     this.productsBeforeSecondFilter=[];
@@ -39,13 +39,14 @@ export class ListProductsViewComponent implements OnInit{
 
   private getAllProducts() {
     this.productService.getAll().subscribe((response: any) => {
+      console.log(response);
       this.allProducts = response;
       this.filterProducts();
       console.log("misproducts", this.products);
     });
   }
   private filterProducts() {
-    this.products = this.allProducts.filter(product => product.category == this.category);
+    this.products = this.allProducts.filter(product => product.category.name == this.category);
     this.productsBeforeSecondFilter = this.products;
   }
 
@@ -69,7 +70,7 @@ export class ListProductsViewComponent implements OnInit{
     console.log("soy el selected barnd",selectedBrands);
     if(selectedBrands.length > 0){
       this.products = this.productsBeforeSecondFilter.filter(product => {
-        return selectedBrands.includes(product.brand);
+        return selectedBrands.includes(product.brand.name);
       });
       if(selectedBrands.includes('Others')){
 

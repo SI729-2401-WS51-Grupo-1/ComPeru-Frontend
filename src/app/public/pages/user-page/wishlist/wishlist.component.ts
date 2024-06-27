@@ -25,7 +25,7 @@ import {MatIcon} from "@angular/material/icon";
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
-  wishlist: Product[] = [];
+  wishlist: any[] = [];
   wishlistItemCount: number | undefined;
 
   constructor(private wishlistService: WishlistService) {}

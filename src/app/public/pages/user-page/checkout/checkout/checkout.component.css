@@ -1,0 +1,132 @@
+.empty-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.empty-cart-container {
+  text-align: center;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.empty-cart-container img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.empty-cart-message {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.empty-cart-subtext {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #666666;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1565c0;
+}
+
+
+.content-section{
+  width: 100%;
+  height: auto;
+  padding: 20px
+}
+
+.products-section{
+
+}
+
+.cart-actions{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-container{
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-clear{
+  color: #FF8082;
+
+}
+.btn-pay{
+color: #49E821;
+}
+
+.container-actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+
+
+.input-number {
+  height: 40px;
+  width: 60px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  text-align: center;
+}
+
+.input-number:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+}
+
+/*.input-number::-webkit-inner-spin-button,*/
+/*.input-number::-webkit-outer-spin-button {*/
+/*  -webkit-appearance: none; */
+/*  appearance: none;*/
+/*  margin: 0;*/
+/*}*/
+
+.input-number[type=number] {
+  -moz-appearance: textfield;
+}
+.items-container{
+  border: solid 2px black;
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 600px;
+}
+
+@media (min-width: 750px){
+
+  .items-container{
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+
+}
