@@ -1,0 +1,29 @@
+.dialog-container {
+  text-align: center;
+  padding: 20px;
+  width: 300px;
+}
+h2 {
+  color: #ff4081;
+  margin-bottom: 10px;
+}
+.message {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+mat-dialog-actions {
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3700b3;
+}
