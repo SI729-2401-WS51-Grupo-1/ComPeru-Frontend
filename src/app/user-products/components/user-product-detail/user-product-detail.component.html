@@ -9,7 +9,7 @@
     <section class="principal-detail-section">
 
       <div class="product-image-section" >
-        <img src="{{productData.imageUrl}}" class="image-product" alt="Principal product image">
+        <img src="{{productData.imageUrls[0]}}" class="image-product" alt="Principal product image">
         <button mat-icon-button [ngStyle]="{'color': isFavorite ? favoriteColor : initialColor}" (click)="addToWishlist()" aria-label="Example icon button with a heart icon">
           <mat-icon>favorite</mat-icon>
         </button>
@@ -82,7 +82,7 @@
 
           }
 
-          <app-list-reviews  style="width: 100%"/>
+          <app-list-reviews [reviews]="reviewDetails"   style="width: 100%"/>
         </section>
 
 

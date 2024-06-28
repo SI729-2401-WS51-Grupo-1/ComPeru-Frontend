@@ -42,7 +42,6 @@ import {
   RegisterStoreComponent
 } from "./public/pages/auth-store/auth-page-store/register-store/register-store.component";
 import {ProductDetailsComponent} from "./user-products/components/product-details/product-details.component";
-import {ShippingPageComponent} from "./public/pages/user-page/shipping/shipping-page.component";
 // <<<<<<< HEAD
 // import {HomeComponent} from "./home/components/home/home.component";
 // =======
@@ -54,6 +53,7 @@ import {ListProductsViewComponent} from "./user-products/components/list-product
 import {SignInComponent} from "./iam/pages/sign-in/sign-in.component";
 import {SignUpComponent} from "./iam/pages/sign-up/sign-up.component";
 import {authenticationGuard} from "./iam/services/authentication.guard";
+import {ShippingPageComponent} from "./public/pages/user-page/shipment/shipping/shipping.component";
 
 export const routes: Routes = [
   {path: 'users', component: UserPageComponent,

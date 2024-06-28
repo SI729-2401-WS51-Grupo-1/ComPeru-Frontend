@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, EventEmitter, inject, OnInit, Output} from '@angular/core';
 import {MatButton, MatButtonModule, MatFabButton, MatIconButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
@@ -57,6 +57,10 @@ export class UserProductDetailComponent implements OnInit{
   readonly dialog = inject(MatDialog);
   userId:number=0;
   isSignedIn: boolean = false;
+  reviews: any[];
+  reviewDetails:any[];
+  reviewData: any;
+
   openDialog(title: string, content: string, showCloseButton: boolean): void {
     const dialogRef = this.dialog.open(RatingDialogComponent, {
       data: { title, content, showCloseButton }
@@ -75,7 +79,9 @@ export class UserProductDetailComponent implements OnInit{
 
 
   ) {
-
+    this.reviewData = {} ;
+    this.reviews = [];
+    this.reviewDetails = [];
     this.productData={} ;
     this.products = [];
     this.userData = {} ;
@@ -141,6 +147,32 @@ export class UserProductDetailComponent implements OnInit{
   backProducts(){
     this.router.navigateByUrl(`/users/product-page/${this.productData.category.name}`);
   }
+  private getReviews(id:string) {
+    this.reviewService.getAll().subscribe((reviewsResponse: any) => {
+      this.userService.getAll().subscribe((usersResponse: any) => {
+
+        console.log(usersResponse);
+        console.log(reviewsResponse);
+        // Filtra las reviews por productId
+        this.reviews = reviewsResponse.filter((review: any) => review.productId.toString() == id);
+
+        console.log(this.reviews);
+
+        // Combina reviews y usuarios
+        this.reviewDetails = this.reviews.map(review => {
+          const user = usersResponse.find((user: any) => user.id == review.userId);
+          return {
+            id: review.reviewId,
+            userName: user ? `${user.username}` : 'Unknown User',
+            rating: review.rating,
+            content: review.content
+          };
+        });
+
+        console.log("datos", this.reviewDetails);
+      });
+    });
+  };
 
   makeReview() {
     if (this.rating > 0) {
@@ -151,6 +183,8 @@ export class UserProductDetailComponent implements OnInit{
         console.log('Review created successfully', response);
         this.openDialog('Review Created', 'Your review has been submitted successfully.', true);
         this.review = new Review();
+        if(this.productId)
+        this.getReviews(this.productId);
       });
     } else {
       this.openDialog('Action Invalid', 'Choose a rating.', false);
@@ -161,7 +195,7 @@ export class UserProductDetailComponent implements OnInit{
       this.productId = params['id'];
       if (this.productId) {
         this.getProduct(this.productId);
-
+        this.getReviews(this.productId);
       }
     });
   }
