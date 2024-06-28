@@ -8,12 +8,14 @@ import {NgIf} from "@angular/common";
 import {SignUpRequest} from "../../model/sign-up.request";
 import {AuthenticationService} from "../../services/authentication.service";
 import {BaseFormComponent} from "../../../shared/components/base-form.component";
+import {MatSlideToggle} from "@angular/material/slide-toggle";
+import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
 
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [ MatCard,
+  imports: [MatCard,
     MatCardHeader,
     MatCardContent,
     MatFormField,
@@ -22,14 +24,14 @@ import {BaseFormComponent} from "../../../shared/components/base-form.component"
     MatButton,
     MatCardTitle,
     MatError,
-    NgIf],
+    NgIf, MatSlideToggle, MatRadioGroup, MatRadioButton],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent extends BaseFormComponent implements OnInit{
   form!: FormGroup;
   submitted = false;
-
+  role:string='';
 
 
   constructor(private builder: FormBuilder, private authenticationService: AuthenticationService) {
@@ -39,7 +41,8 @@ export class SignUpComponent extends BaseFormComponent implements OnInit{
   ngOnInit(): void {
     this.form = this.builder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      role: ['', Validators.required]
     });
   }
 
@@ -47,7 +50,9 @@ export class SignUpComponent extends BaseFormComponent implements OnInit{
     if (this.form.invalid) return;
     let username = this.form.value.username;
     let password = this.form.value.password;
-    const signUpRequest = new SignUpRequest(username, password);
+    let roles = [];
+    roles.push(this.form.value.role);
+    const signUpRequest = new SignUpRequest(username,password,roles);
     this.authenticationService.signUp(signUpRequest);
     this.submitted = true;
   }

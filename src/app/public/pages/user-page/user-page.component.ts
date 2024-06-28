@@ -8,12 +8,17 @@ import {FilterProductUserComponent} from "../../../filter-product-user/filter-pr
 import {
   ListProductsViewComponent
 } from "../../../user-products/components/list-products-view/list-products-view.component";
-import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {NgIf} from "@angular/common";
 import { CartService} from "./cart/services/cart.service";
 import {WishlistService} from "./wishlist/services/wishlist.service";
 import {MatBadgeModule} from "@angular/material/badge";
+import {
+  AuthenticationSectionComponent
+} from "../../../iam/components/authentication-section/authentication-section.component";
+import {AuthenticationService} from "../../../iam/services/authentication.service";
+import {UsersService} from "../../../admin-products/services/users.service";
 
 @Component({
   selector: 'app-user-page',
@@ -21,7 +26,7 @@ import {MatBadgeModule} from "@angular/material/badge";
   imports: [
     MatToolbarModule, MatButtonModule, MatIconModule, MatFormField, MatInput,
     FilterProductUserComponent, ListProductsViewComponent, RouterLink, RouterOutlet,
-    NgIf, RouterLinkActive, MatBadgeModule
+    NgIf, RouterLinkActive, MatBadgeModule, AuthenticationSectionComponent
   ],
   templateUrl: './user-page.component.html',
   styleUrl: './user-page.component.css'
@@ -30,9 +35,23 @@ export class UserPageComponent implements OnInit {
   visibleFilterPanel: boolean;
   cartItemCount: number | undefined;
   wishlistItemCount: number | undefined;
-
-  constructor(private cartService: CartService, private wishlistService: WishlistService) {
+  currentUserName: string = '';
+  isSignedIn: boolean = false;
+  userId:number=0;
+  role:string='';
+  constructor(private router: Router,private cartService: CartService, private wishlistService: WishlistService,private authenticationService: AuthenticationService,
+              private userService:UsersService) {
     this.visibleFilterPanel = window.innerWidth >= 1159;
+    this.authenticationService.currentUsername.subscribe(
+      (username) => this.currentUserName = username
+    );
+    this.authenticationService.isSignedIn.subscribe(
+      (isSignedIn) => this.isSignedIn = isSignedIn
+    );
+    if(this.isSignedIn){
+      this.authenticationService.currentUserId.subscribe((userId)=>this.userId = userId);
+      this.userService.getById(this.userId).subscribe((user)=> this.role = user.roles[0] );
+    }
   }
 
   ngOnInit() {
@@ -43,6 +62,9 @@ export class UserPageComponent implements OnInit {
     this.wishlistService.getWishlist().subscribe(items => {
       this.wishlistItemCount = items.length;
     });
+  }
+  onProductsManagement(){
+    this.router.navigateByUrl('/entrepreneur/products');
   }
 
   @HostListener('window:resize', ['$event'])

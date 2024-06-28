@@ -3,7 +3,7 @@ import {SideMenuNavigationComponent} from "../../side-menu-navigation/side-menu-
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
-import {RouterLink, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {AuthService} from "../../../shared/services/auth.service";
@@ -28,7 +28,7 @@ import {AuthStoreService} from "../auth-store/services/auth-store.service";
 })
 export class EntrepreneurPageComponent {
   sideNavOpen: boolean = false;
-  constructor(protected authStoreService: AuthStoreService) {
+  constructor(private router: Router,protected authStoreService: AuthStoreService) {
   }
 
   toggleSideNav(){
@@ -39,5 +39,7 @@ export class EntrepreneurPageComponent {
     //console.log('logout');
     this.authStoreService.logout();
   }
-
+  backToStore(){
+    this.router.navigateByUrl('');
+  }
 }

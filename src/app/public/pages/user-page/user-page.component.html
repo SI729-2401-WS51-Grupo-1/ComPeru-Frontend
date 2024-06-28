@@ -1,10 +1,11 @@
 
 <mat-toolbar class="custom-toolbar">
   <div>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
+
     <span class="toolbar-title">ComPeru</span>
+    @if(isSignedIn && role == 'ROLE_ENTREPRENEUR'){
+      <button (click)="onProductsManagement()">FDFSDFDS</button>
+    }
   </div>
 
   <input class="search-input" matInput placeholder="Search" >
@@ -24,9 +25,8 @@
     <button mat-icon-button class="orders-customer" aria-label="" routerLink="/users/orders" >
       <mat-icon> table_chart</mat-icon>
     </button>
-    <button mat-icon-button class="account-icon" aria-label="" routerLink="/users/auth" >
-      <mat-icon>account_circles</mat-icon>
-    </button>
+
+    <app-authentication-section></app-authentication-section>
 
   </div>
 
