@@ -58,14 +58,17 @@ import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-foun
 import {UserProductDetailComponent} from "./user-products/components/user-product-detail/user-product-detail.component";
 import {HomeComponent} from "./public/pages/home-page/home/home.component";
 import {ListProductsViewComponent} from "./user-products/components/list-products-view/list-products-view.component";
+import {SignInComponent} from "./iam/pages/sign-in/sign-in.component";
+import {SignUpComponent} from "./iam/pages/sign-up/sign-up.component";
+import {authenticationGuard} from "./iam/services/authentication.guard";
 
 export const routes: Routes = [
   {path: 'users', component: UserPageComponent,
   children:[
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home',component: HomeComponent},
-    {path:'wishlist',component:WishlistComponent},
-    {path: 'checkout', component: CheckoutComponent},
+    {path:'wishlist',component:WishlistComponent,canActivate: [authenticationGuard]},
+    {path: 'checkout', component: CheckoutComponent,canActivate: [authenticationGuard]},
     {path: 'product-page/:category', component: ListProductsViewComponent},
     {path: 'payment-form', component: PaymentFormComponent},
     {path: 'auth', component: AuthPresentationPageComponent},
@@ -75,15 +78,16 @@ export const routes: Routes = [
     {path: 'auth/login-store', component: LoginStoreComponent},
     {path: 'auth/register-store', component: RegisterStoreComponent},
     { path: 'product-details/:id', component: ProductDetailsComponent },
-    {path: 'shipping-page', component: ShippingPageComponent},
+    {path: 'shipping-page', component: ShippingPageComponent,canActivate: [authenticationGuard]},
     {path: 'user-product-detail/:id', component: UserProductDetailComponent}
   ]
   },
   {path: 'auth/final-page', component: FinalRegisterPageComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'final-payment', component: FinalPagePaymentComponent},
-
+  // {path: 'login', component: LoginComponent},
+  // {path: 'register', component: RegisterComponent},
+  {path: 'final-payment', component: FinalPagePaymentComponent,canActivate: [authenticationGuard]},
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent},
 
   {path: 'entrepreneur', component: EntrepreneurPageComponent,
   children:[
