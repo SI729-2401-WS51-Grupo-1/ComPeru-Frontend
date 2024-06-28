@@ -6,7 +6,15 @@
   background-color: #3f51b5;
   color: white;
 }
+.btn-management{
+  margin-left: 20px;
+  color: white;
+  background-color: black;
 
+}
+.btn-management:hover{
+  background-color: #1B2854;
+}
 .custom-toolbar > div:first-child {
   display: flex;
   align-items: center;

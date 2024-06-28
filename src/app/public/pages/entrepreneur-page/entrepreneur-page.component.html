@@ -1,7 +1,8 @@
-<mat-toolbar class="mat-elevation-z3">
+<mat-toolbar class="mat-elevation-z3" style="display: flex;justify-content: space-between">
   <button mat-icon-button (click)="toggleSideNav()">
     <mat-icon>menu</mat-icon>
   </button>
+  <button class="btn-back" style="margin-right: 10px" mat-button (click)="backToStore()">Back to Store </button>
 </mat-toolbar>
 <!--[opened]="sideNavOpen"-->
 <mat-sidenav-container>

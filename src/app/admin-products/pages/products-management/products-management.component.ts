@@ -17,6 +17,7 @@ import {
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
 import {RouterLink} from "@angular/router";
+import {AuthenticationService} from "../../../iam/services/authentication.service";
 
 @Component({
   selector: 'app-products-management',
@@ -35,15 +36,23 @@ dataSource!:MatTableDataSource<any>;
 displayedColumns: string[] = ['id','name','category','price','rating','actions' ]
   isEditMode: boolean;
 isVisibleCard:boolean;
+  userId:number=0;
+  isSignedIn: boolean = false;
 
 
   @ViewChild(MatPaginator, { static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false}) sort!: MatSort;
-constructor(private productService:ProductsService) {
+constructor(private productService:ProductsService, private authenticationService:AuthenticationService) {
   this.productData={} ;
   this.dataSource = new MatTableDataSource<any>();
   this.isEditMode=false;
   this.isVisibleCard=false;
+  this.authenticationService.isSignedIn.subscribe(
+    (isSignedIn) => this.isSignedIn = isSignedIn
+  );
+  if(this.isSignedIn){
+    this.authenticationService.currentUserId.subscribe((userId)=>this.userId = userId);
+  }
 }
   private resetEditState(): void {
     this.isEditMode = false;
@@ -51,11 +60,12 @@ constructor(private productService:ProductsService) {
     this.productData = {} as Product;
   }
 //CRUD ACTIOS
-  private getAllProducts(){
-  this.productService.getAllProducts().subscribe((response:any)=>{
-    this.dataSource.data=response;
-  })
-  };
+  private getAllProducts() {
+    this.productService.getAllProducts().subscribe((response: any) => {
+      let productsFilter = response.filter((product:any) => product.entrepreneurId === this.userId);
+      this.dataSource.data = productsFilter;
+    });
+  }
 
   private createProduct(){
   console.log("Soy un rating",this.productData.rating);
@@ -78,16 +88,31 @@ constructor(private productService:ProductsService) {
       userId: this.productData.userId
     };
     console.log(productToCreate);
-    this.productService.create(productToCreate).subscribe((response:any)=>{
-      this.dataSource.data.push({...response});
-      // this.dataSource.data = this.dataSource.data.map((product: Product)=>{return product;});
-    })
+    this.productService.create(productToCreate).subscribe((response: any) => {
+      this.dataSource.data = [...this.dataSource.data, response];
+    });
   }
 
   private updateProduct() {
-    let productToUpdate = this.productData;
+    let urlImages = [];
+    urlImages.push(this.productData.imageUrls);
+    let productToUpdate: Product = {
+      id: 0,
+      name: this.productData.name,
+      description: this.productData.description,
+      categoryId: this.productData.category.Id,
+      brandId: this.productData.brand.Id,
+      modelNumber: this.productData.modelNumber,
+      manufacturerNumber: this.productData.manufacturerNumber,
+      price: this.productData.price,
+      imageUrls: urlImages || [],
+      availability: this.productData.availability,
+      rating: 0,
+      stock: this.productData.stock,
+      userId: this.productData.userId
+    };
     this.productService.update(this.productData.id, productToUpdate).subscribe((response: any) => {
-      this.dataSource.data = this.dataSource.data.map((product: Product) => {
+      this.dataSource.data = this.dataSource.data.map((product: any) => {
         if (product.id === response.id) {
           return response;
         }

@@ -43,6 +43,7 @@ export class AuthenticationService {
     return this.http.post<SignUpResponse>(`${this.basePath}/authentication/sign-up`, signUpRequest, this.httpOptions)
       .subscribe({
         next: (response) => {
+          console.log(response,"paver");
           console.log(`Signed up as ${response.username} with id: ${response.id}`);
           this.router.navigate(['/sign-in']).then();
         },

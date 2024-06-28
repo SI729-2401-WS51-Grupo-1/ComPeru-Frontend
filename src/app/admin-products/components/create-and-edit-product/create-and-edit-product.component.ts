@@ -11,6 +11,7 @@ import {StorageService} from "../../services/storage.service";
 import {ReviewTableComponent} from "../review-table/review-table.component";
 import {CategoryService} from "../../../public/pages/home-page/services/category.service";
 import {BrandService} from "../../../shared/services/brand.service";
+import {AuthenticationService} from "../../../iam/services/authentication.service";
 
 @Component({
   selector: 'app-create-and-edit-product',
@@ -33,14 +34,21 @@ imageSrc: string | ArrayBuffer | null = null;
   categoryName:string;
   brands:any[];
   categories:any[];
-
-constructor(private storageService:StorageService, private categoryService:CategoryService,private brandService:BrandService) {
+  userId:number=0;
+  isSignedIn: boolean = false;
+constructor(private authenticationService:AuthenticationService,  private storageService:StorageService, private categoryService:CategoryService,private brandService:BrandService) {
   this.product={};
   this.viewReview=false;
   this.brands = [];
   this.categories = [];
   this.categoryName= "";
   this.brandName ="";
+  this.authenticationService.isSignedIn.subscribe(
+    (isSignedIn) => this.isSignedIn = isSignedIn
+  );
+  if(this.isSignedIn){
+    this.authenticationService.currentUserId.subscribe((userId)=>this.userId = userId);
+  }
 
 }
 
@@ -57,10 +65,9 @@ constructor(private storageService:StorageService, private categoryService:Categ
     if (this.productForm.form.valid) {
       console.log("soy el formulario y me envie");
       //colocar url
-      this.product.rating=0;
       this.product.brand = this.brands.find(brand=> brand.name == this.brandName);
       console.log(this.product.brand);
-      this.product.userId = 1;
+      this.product.userId = this.userId;
       this.product.category = this.categories.find(category=>category.name==this.categoryName);
       this.storageService.uploadImage('products',this.product.name+"_"+this.product.id,this.imageSrc).then(urlImage=>{
         console.log("Url de la imagen : ",urlImage);

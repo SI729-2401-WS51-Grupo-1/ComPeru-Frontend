@@ -20,6 +20,7 @@ import {Review} from "../../../shared/model/review.entity";
 import {ReviewsService} from "../../../admin-products/services/reviews.service";
 import {MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 import {RatingDialogComponent} from "../rating-dialog/rating-dialog.component";
+import {AuthenticationService} from "../../../iam/services/authentication.service";
 
 @Component({
   selector: 'app-user-product-detail',
@@ -54,7 +55,8 @@ export class UserProductDetailComponent implements OnInit{
   userData: any;
   selectedQuantity: number = 1; // Nueva propiedad para almacenar la cantidad seleccionada
   readonly dialog = inject(MatDialog);
-
+  userId:number=0;
+  isSignedIn: boolean = false;
   openDialog(title: string, content: string, showCloseButton: boolean): void {
     const dialogRef = this.dialog.open(RatingDialogComponent, {
       data: { title, content, showCloseButton }
@@ -67,7 +69,7 @@ export class UserProductDetailComponent implements OnInit{
   // Define the initial and favorite colors
   initialColor: string = '#CACECE';
   favoriteColor: string = '#FF8082';
-  constructor(private _route:ActivatedRoute,private productService:ProductsService, private userService:UsersService,
+  constructor(private authenticationService:AuthenticationService,private _route:ActivatedRoute,private productService:ProductsService, private userService:UsersService,
               private wishlistService: WishlistService,
               private cartService: CartService, private reviewService:ReviewsService,   private router: Router
 
@@ -78,6 +80,12 @@ export class UserProductDetailComponent implements OnInit{
     this.products = [];
     this.userData = {} ;
     this.review = new Review();
+    this.authenticationService.isSignedIn.subscribe(
+      (isSignedIn) => this.isSignedIn = isSignedIn
+    );
+    if(this.isSignedIn){
+      this.authenticationService.currentUserId.subscribe((userId)=>this.userId = userId);
+    }
   }
 
 
@@ -137,7 +145,7 @@ export class UserProductDetailComponent implements OnInit{
   makeReview() {
     if (this.rating > 0) {
       this.review.productId = this.productId ? parseInt(this.productId, 10) : 0;
-      this.review.userId = 1;
+      this.review.userId = this.userId;
       this.review.rating = this.rating;
       this.reviewService.create(this.review).subscribe(response => {
         console.log('Review created successfully', response);

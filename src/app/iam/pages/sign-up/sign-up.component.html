@@ -1,5 +1,7 @@
+<section class="container-sign-in">
+
 <div class="sign-up-content">
-  <mat-card>
+  <mat-card class="card mat-elevation-z5">
     <mat-card-header>
       <mat-card-title>Sign Up</mat-card-title>
     </mat-card-header>
@@ -13,8 +15,16 @@
           <input matInput type="password" placeholder="Password" id="password" name="password" formControlName="password">
           <mat-error *ngIf="isInvalidControl(form,'password')">{{ errorMessagesForControl(form,'password')}}</mat-error>
         </mat-form-field>
+        <section class="example-section">
+          <mat-radio-group aria-label="Select an option" formControlName="role">
+            <mat-radio-button value="ROLE_USER">User</mat-radio-button>
+            <mat-radio-button value="ROLE_ENTREPRENEUR">Entrepreneur</mat-radio-button>
+            <mat-error *ngIf="isInvalidControl(form,'role')">{{ errorMessagesForControl(form,'role')}}</mat-error>
+          </mat-radio-group>
+        </section>
         <button mat-raised-button color="primary">Sign Up</button>
       </form>
     </mat-card-content>
   </mat-card>
 </div>
+</section>
