@@ -1,0 +1,41 @@
+<section class="container-shipment">
+  <mat-card>
+    <h1>Métodos de envío</h1>
+    <form (ngSubmit)="onSubmit(shippingForm)" #shippingForm="ngForm">
+      <div class="form-column">
+        <label for="firstName">Name:</label>
+        <input type="text" id="firstName" [(ngModel)]="this.shipment.firstName" name="firstName" required>
+
+        <label for="lastName">LastName:</label>
+        <input type="text" id="lastName" [(ngModel)]="this.shipment.lastName" name="lastName" required>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" [(ngModel)]="this.shipment.email" name="email" required>
+
+        <label for="street">Street:</label>
+        <input type="text" id="street" [(ngModel)]="this.shipment.street" name="street" required>
+      </div>
+
+      <div class="form-column">
+        <label for="number">Number:</label>
+        <input type="text" id="number" [(ngModel)]="this.shipment.number" name="number" required>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" [(ngModel)]="this.shipment.city" name="city" required>
+
+        <label for="postalCode">Postal Code:</label>
+        <input type="text" id="postalCode" [(ngModel)]="this.shipment.postalCode" name="postalCode" required>
+
+        <label for="country">Country:*</label>
+        <input type="text" id="country" [(ngModel)]="this.shipment.country" name="country" required>
+        <label for="phoneNumber">Cellphone number:</label>
+        <input type="text" id="phoneNumber" [(ngModel)]="this.shipment.phoneNumber" name="phoneNumber" required>
+
+        <label for="documentNumber">DNI:</label>
+        <input type="text" id="documentNumber" [(ngModel)]="this.shipment.documentNumber" name="documentNumber" required>
+      </div>
+
+      <button type="submit">Continuar al pago</button>
+    </form>
+  </mat-card>
+</section>
